@@ -1,0 +1,9 @@
+@prefix ns1: <https://example.org/rag-starter#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:invalid-missing a owl:NamedIndividual,
+        ns1:Document ;
+    ns1:docId "invalid-missing"^^xsd:string ;
+    ns1:pageCount 10 .
+

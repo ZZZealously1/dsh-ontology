@@ -1,0 +1,13 @@
+@prefix ex: <urn:formula-example:> .
+@prefix f: <https://w3id.org/ontology-tools/formula#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:EvaluationShape a sh:NodeShape ; sh:targetClass f:Evaluation ; sh:nodeKind sh:IRI ;
+    sh:property [ sh:path f:formula ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ],
+        [ sh:path f:context ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
+ex:BindingShape a sh:NodeShape ; sh:targetClass f:Binding ;
+    sh:property [ sh:path f:parameter ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ],
+        [ sh:path f:context ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ],
+        [ sh:path f:value ; sh:maxCount 1 ; sh:datatype xsd:decimal ],
+        [ sh:path f:unit ; sh:maxCount 1 ; sh:datatype xsd:string ] .

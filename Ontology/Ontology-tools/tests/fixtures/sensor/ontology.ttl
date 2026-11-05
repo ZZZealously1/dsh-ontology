@@ -1,0 +1,12 @@
+@prefix ex: <urn:test:sensor:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+ex:ontology a owl:Ontology ; owl:versionInfo "test-1" ;
+  dct:description "Synthetic 1.5 boundary tests; no real device policy is asserted." .
+ex:Device a owl:Class .
+ex:Reading a owl:Class .
+ex:hasReading a owl:ObjectProperty ; rdfs:domain ex:Device ; rdfs:range ex:Reading .
+ex:value a owl:DatatypeProperty ; rdfs:domain ex:Reading ; rdfs:range xsd:decimal .
+ex:requiresAttention a owl:DatatypeProperty ; rdfs:domain ex:Device ; rdfs:range xsd:boolean .

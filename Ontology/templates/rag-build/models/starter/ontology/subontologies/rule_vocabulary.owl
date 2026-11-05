@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">文档</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#LargeDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">大文档</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/rag-starter#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#pageCount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">页数</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">组件</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#securityLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">安全级别</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#hostedOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">部署于</rdfs:label>
+    <rdfs:range rdf:resource="https://example.org/rag-starter#Server"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">组织</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#parentCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="zh">上级分类</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Category"/>
+    <rdfs:range rdf:resource="https://example.org/rag-starter#Category"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#RestrictedDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">受限文档</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/rag-starter#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Category">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">分类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#hasOwner">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">所属组织</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Document"/>
+    <rdfs:range rdf:resource="https://example.org/rag-starter#Organization"/>
+    <owl:inverseOf rdf:resource="https://example.org/rag-starter#ownerOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#ownerOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="https://example.org/rag-starter#hasOwner"/>
+    <rdfs:label xml:lang="zh">拥有文档</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Organization"/>
+    <rdfs:range rdf:resource="https://example.org/rag-starter#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#docId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">文档编码</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/rag-starter#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="zh">合成 RAG 建模示例：规则词汇</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Server">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">服务器</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

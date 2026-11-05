@@ -1,0 +1,11 @@
+@prefix ns1: <https://example.org/ontology-package#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:rag-example:rule-test-scope> a ns1:RuleTestScope ;
+    rdfs:comment "Exact vocabulary module and complete SWRL; full constraints checked separately, not claimed equivalent to OWL DL+SWRL reasoning." ;
+    ns1:cases "tests/cases.ttl" ;
+    ns1:facts "data/instances_starter.owl" ;
+    ns1:model "subontologies/rule_vocabulary.owl" ;
+    ns1:rules "rules/starter/starter_rules.swrl" ;
+    ns1:shapes "shapes.ttl" .
+

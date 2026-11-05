@@ -1,0 +1,10 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:xmlLiteralOntology a owl:Ontology .
+ex:Document a owl:Class .
+ex:markup a owl:DatatypeProperty ; rdfs:domain ex:Document ; rdfs:range rdf:XMLLiteral .
+ex:document a owl:NamedIndividual, ex:Document ;
+    ex:markup "<p xmlns='urn:test:markup'>synthetic content</p>"^^rdf:XMLLiteral .

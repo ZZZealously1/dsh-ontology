@@ -1,0 +1,6 @@
+@prefix ex: <urn:test:parcel:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:ParcelShape a sh:NodeShape ; sh:targetClass ex:Parcel ;
+  sh:property [ sh:path ex:identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path ex:tag ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .

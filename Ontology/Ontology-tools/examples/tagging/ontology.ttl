@@ -1,0 +1,23 @@
+@prefix ex: <https://example.org/ontology-template/demo#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://example.org/ontology-template/demo> a owl:Ontology ;
+    rdfs:label "合成标签分类结构示例"@zh ;
+    owl:versionInfo "example-1.2" ;
+    meta:status "synthetic-example" ;
+    dct:source ex:source-template .
+
+ex:Item a owl:Class ; rdfs:label "示例对象"@zh ;
+    dct:source ex:source-template .
+ex:TaggedItem a owl:Class ; rdfs:subClassOf ex:Item ;
+    rdfs:label "具有示例标记的对象"@zh ; dct:source ex:source-template .
+ex:identifier a owl:DatatypeProperty ;
+    rdfs:label "对象标识"@zh ; rdfs:domain ex:Item ; rdfs:range xsd:string ;
+    dct:source ex:source-template .
+ex:tag a owl:DatatypeProperty ;
+    rdfs:label "结构演示标记"@zh ; rdfs:domain ex:Item ; rdfs:range xsd:string ;
+    dct:source ex:source-template .

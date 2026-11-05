@@ -1,0 +1,18 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:fixture-mapping a meta:Mapping ;
+    meta:sourceObject "本目录直接编写的合成 RDF 夹具" ;
+    meta:targetClass ex:Store ;
+    meta:joinKey ex:storeKey ;
+    meta:executionStatus "direct_fixture_not_etl" ;
+    meta:fieldMapping [
+        meta:sourceField "storeKey" ; meta:targetProperty ex:storeKey ;
+        meta:transformNote "原样合成字符串，未连接真实门店接口"
+    ] ;
+    meta:fieldMapping [
+        meta:sourceField "offers" ; meta:targetProperty ex:offers ;
+        meta:transformNote "夹具显式提供命名门店到命名服务的对象关系"
+    ] ;
+    dct:source ex:synthetic-source .

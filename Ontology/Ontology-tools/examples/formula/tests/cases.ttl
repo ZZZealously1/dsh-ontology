@@ -1,0 +1,44 @@
+@prefix ex: <urn:formula-example:> .
+@prefix f: <https://w3id.org/ontology-tools/formula#> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# 手工固定预期；数值参考为 sqrt(0.0025 * 0.000001) = 0.00005 m。
+ex:case-positive a ot:Case ; ot:input "inputs/positive.ttl" ;
+    ot:expectedNumeric [ rdf:subject ex:evaluation ; rdf:predicate f:result ;
+        rdf:value 0.00005 ; ot:absoluteTolerance 0 ;
+        ot:unit "m" ; ot:unitPredicate f:resultUnit ] ;
+    ot:expectedTriple
+        [ rdf:subject ex:evaluation ; rdf:predicate f:satisfiedCondition ; rdf:object ex:usableObservation ],
+        [ rdf:subject ex:evaluation ; rdf:predicate f:calculationStatus ; rdf:object f:Computed ],
+        [ rdf:subject ex:evaluation ; rdf:predicate rdf:type ; rdf:object ex:AboveSyntheticReference ] ;
+    ot:expectedClosureTriple [ rdf:subject ex:evaluation ; rdf:predicate rdf:type ; rdf:object ex:NeedsSyntheticReview ] ;
+    dct:source ex:syntheticSource .
+
+ex:case-missing-input a ot:Case ; ot:input "inputs/missing-input.ttl" ; ot:expectedOutcome "passed" ;
+    ot:expectedTriple [ rdf:subject ex:evaluation ; rdf:predicate f:satisfiedCondition ; rdf:object ex:usableObservation ] ;
+    ot:notExpectedInferredTriple
+        [ rdf:subject ex:evaluation ; rdf:predicate f:result ; rdf:object 0.00005 ],
+        [ rdf:subject ex:evaluation ; rdf:predicate f:calculationStatus ; rdf:object f:Computed ] ;
+    dct:source ex:syntheticSource .
+
+ex:case-missing-condition a ot:Case ; ot:input "inputs/missing-condition.ttl" ; ot:expectedOutcome "passed" ;
+    ot:expectedClosureTriple [ rdf:subject ex:evaluation ; rdf:predicate rdf:type ; rdf:object f:Evaluation ] ;
+    ot:notExpectedInferredTriple
+        [ rdf:subject ex:evaluation ; rdf:predicate f:satisfiedCondition ; rdf:object ex:usableObservation ],
+        [ rdf:subject ex:evaluation ; rdf:predicate f:result ; rdf:object 0.00005 ],
+        [ rdf:subject ex:evaluation ; rdf:predicate f:calculationStatus ; rdf:object f:Computed ] ;
+    dct:source ex:syntheticSource .
+
+ex:case-invalid-unit a ot:Case ; ot:input "inputs/invalid-unit.ttl" ; ot:expectedOutcome "failed" ;
+    ot:expectedFailureStage "formula-evaluation" ; ot:expectedErrorContains "unit-mismatch" ;
+    dct:source ex:syntheticSource .
+
+ex:case-result-injection a ot:Case ; ot:input "inputs/result-injection.ttl" ; ot:expectedOutcome "failed" ;
+    ot:expectedFailureStage "inspect" ; ot:expectedErrorContains "prewrite calculator outputs" ;
+    dct:source ex:syntheticSource .
+
+ex:case-cycle a ot:Case ; ot:input "inputs/cycle.ttl" ; ot:expectedOutcome "failed" ;
+    ot:expectedFailureStage "formula-evaluation" ; ot:expectedErrorContains "dependency-cycle" ;
+    dct:source ex:syntheticSource .

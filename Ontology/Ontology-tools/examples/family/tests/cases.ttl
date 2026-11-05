@@ -1,0 +1,13 @@
+@prefix ex: <urn:family:> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+ex:positive a ot:Case ; ot:input "inputs/positive.ttl" ; ot:validationExpectation "conforms" ;
+  ot:expectedTriple [ rdf:subject ex:alice ; rdf:predicate ex:ancestor ; rdf:object ex:carol ],
+    [ rdf:subject ex:carol ; rdf:predicate ex:child ; rdf:object ex:bob ],
+    [ rdf:subject ex:bob ; rdf:predicate rdf:type ; rdf:object ex:Entity ] ; dct:source ex:synthetic-source .
+ex:negative a ot:Case ; ot:input "inputs/negative.ttl" ; ot:validationExpectation "conforms" ;
+  ot:notExpectedInferredTriple [ rdf:subject ex:alice ; rdf:predicate ex:ancestor ; rdf:object ex:carol ] ;
+  dct:source ex:synthetic-source .
+ex:invalid a ot:Case ; ot:input "inputs/invalid.ttl" ; ot:validationExpectation "invalid" ;
+  ot:reasoningMustStop true ; dct:source ex:synthetic-source .

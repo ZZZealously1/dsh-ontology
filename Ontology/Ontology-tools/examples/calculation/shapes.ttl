@@ -1,0 +1,8 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:SampleShape a sh:NodeShape ;
+    sh:targetClass ex:Sample ;
+    sh:property [ sh:path ex:key ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:minLength 1 ] .

@@ -1,0 +1,14 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:test:owl-dl:cardinality-without-difference> a owl:Ontology .
+ex:Filler a owl:Class .
+ex:hasValue a owl:ObjectProperty .
+ex:Limited a owl:Class ; rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty ex:hasValue ; owl:onClass ex:Filler ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+ex:limited a owl:NamedIndividual, ex:Limited ; ex:hasValue ex:left, ex:right .
+ex:left a owl:NamedIndividual, ex:Filler .
+ex:right a owl:NamedIndividual, ex:Filler .

@@ -1,0 +1,2 @@
+PREFIX ex: <urn:family:>
+SELECT ?person ?ancestor WHERE { ?person ex:ancestor ?ancestor } ORDER BY ?person ?ancestor

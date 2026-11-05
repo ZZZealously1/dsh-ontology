@@ -1,0 +1,35 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:case-positive a ot:Case ;
+    dct:identifier "multi-round-positive" ;
+    ot:input "inputs/positive.ttl" ;
+    ot:validationExpectation "conforms" ;
+    ot:expectedTriple
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:DeliveryStore ],
+        [ rdf:subject ex:storeA ; rdf:predicate ex:eligibleFor ; rdf:object ex:routeR ],
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:RoutedStore ],
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:ReadyStore ] ;
+    dct:source ex:synthetic-source .
+
+ex:case-negative a ot:Case ;
+    dct:identifier "no-service-link" ;
+    ot:input "inputs/negative.ttl" ;
+    ot:validationExpectation "conforms" ;
+    ot:notExpectedInferredTriple
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:DeliveryStore ],
+        [ rdf:subject ex:storeA ; rdf:predicate ex:eligibleFor ; rdf:object ex:routeR ],
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:RoutedStore ],
+        [ rdf:subject ex:storeA ; rdf:predicate rdf:type ; rdf:object ex:ReadyStore ] ;
+    dct:description "缺少 offers 关系时不触发分类链；未推得不表示 OWL 否定。"@zh ;
+    dct:source ex:synthetic-source .
+
+ex:case-invalid a ot:Case ;
+    dct:identifier "shacl-missing-store-key" ;
+    ot:input "inputs/invalid.ttl" ;
+    ot:validationExpectation "invalid" ;
+    ot:reasoningMustStop true ;
+    dct:description "合成夹具缺少身份字段，前置 SHACL 不符合，停止后续推导。"@zh ;
+    dct:source ex:synthetic-source .

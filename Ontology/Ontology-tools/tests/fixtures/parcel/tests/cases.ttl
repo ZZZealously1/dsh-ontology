@@ -1,0 +1,14 @@
+@prefix ex: <urn:test:parcel:> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:positive a meta:Case ; dct:identifier "ready-classification" ;
+  meta:input "inputs/positive.ttl" ; meta:validationExpectation "conforms" ;
+  meta:expectedTriple [ rdf:subject ex:ready ; rdf:predicate rdf:type ; rdf:object ex:ReadyParcel ] ;
+  meta:expectedTriple [ rdf:subject ex:ready ; rdf:predicate rdf:type ; rdf:object ex:ProcessableParcel ] ;
+  meta:notExpectedInferredTriple [ rdf:subject ex:other ; rdf:predicate rdf:type ; rdf:object ex:ReadyParcel ] ;
+  dct:source <urn:test:synthetic-spec> .
+ex:invalidCase a meta:Case ; dct:identifier "invalid-missing-identifier" ;
+  meta:input "inputs/invalid.ttl" ; meta:validationExpectation "invalid" ;
+  meta:reasoningMustStop true ; dct:source <urn:test:synthetic-spec> .

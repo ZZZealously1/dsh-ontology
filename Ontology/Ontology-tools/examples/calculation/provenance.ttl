@@ -1,0 +1,15 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:synthetic-source a meta:Source ;
+    meta:sourceId "SYNTHETIC-CALCULATION" ;
+    dct:title "OWL DL 与算术多轮交互合成夹具"@zh ;
+    meta:locator "README.md：独立预期" ;
+    meta:status "synthetic_example" ; meta:authority "synthetic_example" ;
+    meta:effectivePeriod "not_applicable" .
+
+ex:question-finished a meta:CompetencyQuestion ;
+    dct:description "输入 2，能否经 DL 分类、加 3、再次分类、乘 2、最终分类得到 Finished？"@zh ;
+    meta:rule ex:rule-add, ex:rule-multiply ;
+    dct:source ex:synthetic-source .

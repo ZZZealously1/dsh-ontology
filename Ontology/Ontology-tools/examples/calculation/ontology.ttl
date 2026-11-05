@@ -1,0 +1,27 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ontology-tools/calculation> a owl:Ontology ;
+    rdfs:label "OWL DL 与标量计算多轮协同合成示例"@zh ;
+    owl:versionInfo "1.0-synthetic" .
+
+ex:Sample a owl:Class ; rdfs:subClassOf ex:Eligible .
+ex:Eligible a owl:Class .
+ex:Five a owl:Class ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty ex:subtotal ; owl:hasValue 5 ] .
+ex:Finished a owl:Class ;
+    owl:equivalentClass [ a owl:Restriction ;
+        owl:onProperty ex:result ; owl:someValuesFrom [ a rdfs:Datatype ;
+            owl:onDatatype xsd:integer ;
+            owl:withRestrictions ([ xsd:minExclusive 9 ]) ] ] .
+ex:Blocked a owl:Class ; owl:disjointWith ex:Finished .
+
+ex:key a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:amount a owl:DatatypeProperty .
+ex:subtotal a owl:DatatypeProperty .
+ex:result a owl:DatatypeProperty .
+
+# 2、3、5、9 是合成计算夹具常量，不是真实业务金额或判定阈值。

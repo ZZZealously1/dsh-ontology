@@ -1,0 +1,2 @@
+@prefix ex: <urn:test:owl-dl:> .
+ex:broken [ this cannot parse

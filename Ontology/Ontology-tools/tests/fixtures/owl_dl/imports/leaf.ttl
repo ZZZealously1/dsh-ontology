@@ -1,0 +1,6 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<https://example.invalid/owl-dl/leaf> a owl:Ontology .
+ex:B a owl:Class ; owl:disjointWith ex:C .
+ex:C a owl:Class .

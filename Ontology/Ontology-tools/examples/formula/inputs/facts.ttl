@@ -1,0 +1,11 @@
+@prefix ex: <urn:formula-example:> .
+@prefix f: <https://w3id.org/ontology-tools/formula#> .
+
+ex:observation a ex:ValidatedObservation ; ex:tag "synthetic" .
+ex:evaluation a f:Evaluation ; f:formula ex:transportLength ;
+    f:context ex:context ; ex:hasObservation ex:observation ;
+    f:binding ex:bindingD, ex:bindingTau .
+ex:bindingD a f:Binding ; f:parameter ex:D ; f:context ex:context ;
+    f:value 0.0025 ; f:unit "m^2/s" .
+ex:bindingTau a f:Binding ; f:parameter ex:tau ; f:context ex:context ;
+    f:value 0.000001 ; f:unit "s" .

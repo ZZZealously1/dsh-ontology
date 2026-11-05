@@ -1,0 +1,26 @@
+@prefix ex: <urn:formula-example:> .
+@prefix f: <https://w3id.org/ontology-tools/formula#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# 所有值和参考限值是合成测试夹具；不主张任何实际器件诊断知识。
+ex:transportLength a f:Formula ;
+    f:enabled true ; f:verified true ;
+    f:latex "L=\\sqrt{D\\tau}" ;
+    f:outputSymbol "L" ; f:outputUnit "m" ;
+    f:parameters ( ex:D ex:tau ) ;
+    f:requiredCondition ex:usableObservation ;
+    f:expression [ a f:Operation ; f:operator f:Sqrt ;
+        f:arguments ( [ a f:Operation ; f:operator f:Multiply ;
+            f:arguments ( [ a f:ParameterRef ; f:parameter ex:D ]
+                          [ a f:ParameterRef ; f:parameter ex:tau ] ) ] ) ] ;
+    dct:source ex:syntheticSource .
+
+ex:D a f:Parameter ; f:key "D" ; f:symbol "D" ;
+    f:unit "m^2/s" ; f:minInclusive 0 .
+ex:tau a f:Parameter ; f:key "tau" ; f:symbol "\\tau" ;
+    f:unit "s" ; f:minInclusive 0 .
+
+# 未核验候选仍可检索，不编译其表达式，也不会进入 HermiT 候选域。
+ex:unreviewed a f:Formula ; f:enabled false ; f:verified false ;
+    f:latex "unreviewed source" ; dct:source ex:syntheticSource .

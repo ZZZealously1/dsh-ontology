@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Private-Package: org.apache.axiom.om.impl.llom,org.apache.axiom.om.imp
+ l.llom.factory,org.apache.axiom.soap.impl.llom,org.apache.axiom.soap.
+ impl.llom.soap11,org.apache.axiom.soap.impl.llom.soap12
+Implementation-Title: Axiom Impl
+Implementation-Version: 1.2.14
+Built-By: veithen
+Specification-Vendor: The Apache Software Foundation
+Tool: Bnd-0.0.238
+Bundle-Name: Axiom Impl
+Created-By: Apache Maven Bundle Plugin
+Implementation-Vendor: The Apache Software Foundation
+Bundle-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache.ws.commons.axiom
+Build-Jdk: 1.6.0_37
+Bundle-Version: 1.2.14
+Bnd-LastModified: 1354473567052
+Specification-Title: Axiom Impl
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: The Axiom default implementation.
+Specification-Version: 1.2.14
+Import-Package: javax.activation,javax.xml.namespace,javax.xml.stream,
+ javax.xml.transform.sax,org.apache.axiom.attachments.utils,org.apache
+ .axiom.ext.stax.datahandler,org.apache.axiom.locator.loader,org.apach
+ e.axiom.om,org.apache.axiom.om.ds,org.apache.axiom.om.impl,org.apache
+ .axiom.om.impl.builder,org.apache.axiom.om.impl.jaxp,org.apache.axiom
+ .om.impl.serialize,org.apache.axiom.om.impl.traverse,org.apache.axiom
+ .om.impl.util,org.apache.axiom.om.util,org.apache.axiom.soap,org.apac
+ he.axiom.soap.impl.builder,org.apache.axiom.util,org.apache.axiom.uti
+ l.base64,org.apache.axiom.util.stax,org.apache.commons.logging,javax.
+ xml.stream.util,javax.xml.transform,javax.xml.transform.dom,org.apach
+ e.axiom.ext.stax,org.apache.axiom.om.impl.exception,org.apache.axiom.
+ util.namespace,org.apache.axiom.util.stax.wrapper,org.apache.axiom.ut
+ il.stax.xop,org.w3c.dom,org.xml.sax
+Bundle-SymbolicName: org.apache.ws.commons.axiom.axiom-impl
+Bundle-DocURL: http://www.apache.org/
+

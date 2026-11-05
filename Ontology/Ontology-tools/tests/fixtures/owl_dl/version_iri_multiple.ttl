@@ -1,0 +1,5 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:versionMultiple a owl:Ontology ; owl:versionIRI ex:versionOne, ex:versionTwo .
+ex:Thing a owl:Class .

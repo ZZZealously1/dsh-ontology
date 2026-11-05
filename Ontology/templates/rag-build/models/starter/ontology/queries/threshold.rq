@@ -1,0 +1,5 @@
+PREFIX ex: <https://example.org/rag-starter#>
+SELECT ?document ?pages WHERE {
+  ?document a ex:Document ; ex:pageCount ?pages .
+  FILTER(?pages >= 10) # Synthetic fixture only, not a business policy.
+}

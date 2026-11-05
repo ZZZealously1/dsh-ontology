@@ -1,0 +1,3 @@
+@prefix ot: <https://w3id.org/ontology-tools#> .
+<urn:family:runtime> a ot:Runtime ; ot:profile "local-rules-v1" ;
+  ot:validationOrder "pre-post" ; ot:maxIterations 100 .

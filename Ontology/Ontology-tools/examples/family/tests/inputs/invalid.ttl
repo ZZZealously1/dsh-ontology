@@ -1,0 +1,3 @@
+@prefix ex: <urn:family:> .
+ex:alice a ex:Person ; ex:parent ex:bob .
+ex:bob a ex:Person ; ex:name "Bob" .

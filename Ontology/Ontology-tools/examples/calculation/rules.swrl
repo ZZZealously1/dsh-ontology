@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+>
+  <rdf:Description rdf:nodeID="N6c0a53d4ffea447c9be72f4592ee0146">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/ontology-tools/calculation#subtotal"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/ontology-tools/calculation#computed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N40718a8ab4494a35976dcd3a2fc400b9">
+    <rdf:first rdf:nodeID="Nb0bd5d52cb2345568e8a5a70407c6c10"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb0bd5d52cb2345568e8a5a70407c6c10">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/ontology-tools/calculation#result"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/ontology-tools/calculation#computed"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N50b7fa5892b546a29f635c5134108e35">
+    <rdf:first rdf:resource="https://example.org/ontology-tools/calculation#computed"/>
+    <rdf:rest rdf:nodeID="Nbc8eb115aa2840bfb79bf7d6bcccd1f9"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc8eb115aa2840bfb79bf7d6bcccd1f9">
+    <rdf:first rdf:resource="https://example.org/ontology-tools/calculation#value"/>
+    <rdf:rest rdf:nodeID="N1d1af7f97e7e4ea0a0bbcfd350a9981b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N519228b4e7144dde86560c79f89b4922">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/ontology-tools/calculation#subtotal"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/ontology-tools/calculation#value"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc51cbdcbc6b8416c835b242f10902b22">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/ontology-tools/calculation#amount"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/ontology-tools/calculation#value"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4b9be7b1b1664c71a6c144365fba9094">
+    <rdf:first rdf:resource="https://example.org/ontology-tools/calculation#computed"/>
+    <rdf:rest rdf:nodeID="N5ccaf61acb18498ca9fc96f860dcf857"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naa4159e1016b4863af8816139daa28c0">
+    <rdf:first rdf:nodeID="Nc51cbdcbc6b8416c835b242f10902b22"/>
+    <rdf:rest rdf:nodeID="N355fd0c4dc4042c8bf2a45a2a22e56e3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6bd27d1bd0d4905bd70747043f58fe5">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/calculation#Five"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N52e5386c35874d28b3eb4046565cb2f7">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/calculation#Eligible"/>
+    <swrl:argument1 rdf:resource="https://example.org/ontology-tools/calculation#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8320e2b35aa34d0e9cd94ccdb69401b3">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N355fd0c4dc4042c8bf2a45a2a22e56e3">
+    <rdf:first rdf:nodeID="Nf79512e40a924d379b465141b65c1126"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-tools/calculation#value">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0db99ac4dfca41d48409b998826ff2ba">
+    <rdf:first rdf:nodeID="N52e5386c35874d28b3eb4046565cb2f7"/>
+    <rdf:rest rdf:nodeID="Naa4159e1016b4863af8816139daa28c0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf79512e40a924d379b465141b65c1126">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#add"/>
+    <swrl:arguments rdf:nodeID="N50b7fa5892b546a29f635c5134108e35"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-tools/calculation#computed">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-tools/calculation#rule-add">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>DL classification triggers addition</rdfs:label>
+    <swrl:body rdf:nodeID="N0db99ac4dfca41d48409b998826ff2ba"/>
+    <swrl:head rdf:nodeID="Nda43f49701324ab589f6c670f5a8bdaa"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N43c0021316c649628f2a38e2aa8fa155">
+    <rdf:first rdf:nodeID="Nfa6d3c5bea3e4b9aacd3365d310c3bef"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfa6d3c5bea3e4b9aacd3365d310c3bef">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+    <swrl:arguments rdf:nodeID="N4b9be7b1b1664c71a6c144365fba9094"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf45fd7427c954ce69fccd505feb1ce01">
+    <rdf:first rdf:nodeID="N519228b4e7144dde86560c79f89b4922"/>
+    <rdf:rest rdf:nodeID="N43c0021316c649628f2a38e2aa8fa155"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1d1af7f97e7e4ea0a0bbcfd350a9981b">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-tools/calculation#rule-multiply">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Next DL classification triggers multiplication</rdfs:label>
+    <swrl:body rdf:nodeID="Nb1479ed9893b4cada9f124de39c2c746"/>
+    <swrl:head rdf:nodeID="N40718a8ab4494a35976dcd3a2fc400b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-tools/calculation#x">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5ccaf61acb18498ca9fc96f860dcf857">
+    <rdf:first rdf:resource="https://example.org/ontology-tools/calculation#value"/>
+    <rdf:rest rdf:nodeID="N8320e2b35aa34d0e9cd94ccdb69401b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb1479ed9893b4cada9f124de39c2c746">
+    <rdf:first rdf:nodeID="Na6bd27d1bd0d4905bd70747043f58fe5"/>
+    <rdf:rest rdf:nodeID="Nf45fd7427c954ce69fccd505feb1ce01"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nda43f49701324ab589f6c670f5a8bdaa">
+    <rdf:first rdf:nodeID="N6c0a53d4ffea447c9be72f4592ee0146"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>

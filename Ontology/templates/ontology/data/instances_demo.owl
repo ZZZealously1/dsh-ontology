@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:ex="https://example.org/ontology-template/demo#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:meta="https://example.org/ontology-template/meta#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:nodeID="n53e9dbb797b44f68bf2062cfa22e3068b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+    <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">demo</owl:annotatedTarget>
+    <owl:annotatedProperty rdf:resource="https://example.org/ontology-template/demo#tag"/>
+    <owl:annotatedSource rdf:resource="https://example.org/ontology-template/demo#item-demo"/>
+    <meta:locator>合成案例 demo 的 tag 字段；无外部来源</meta:locator>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n53e9dbb797b44f68bf2062cfa22e3068b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+    <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DEMO-001</owl:annotatedTarget>
+    <owl:annotatedProperty rdf:resource="https://example.org/ontology-template/demo#identifier"/>
+    <owl:annotatedSource rdf:resource="https://example.org/ontology-template/demo#item-demo"/>
+    <meta:locator>合成案例 demo 的 identifier 字段；无外部来源</meta:locator>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#item-demo">
+    <rdf:type rdf:resource="https://example.org/ontology-template/demo#Item"/>
+    <ex:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DEMO-001</ex:identifier>
+    <ex:tag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">demo</ex:tag>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#dataset-demo">
+    <rdf:type rdf:resource="https://example.org/ontology-template/meta#Dataset"/>
+    <meta:mode>synthetic</meta:mode>
+  </rdf:Description>
+</rdf:RDF>

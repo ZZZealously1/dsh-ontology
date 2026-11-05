@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+>
+  <rdf:Description rdf:nodeID="Nfacc9f73af94489c933c95288f79b4ee">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+    <swrl:arguments rdf:nodeID="N8b543b58f88c491683756f88fc5ca4c2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82ea160bf42744ebbfa6911ec06b9f6a">
+    <rdf:first rdf:nodeID="N82d7d6e15bd0467f8eba252e740e2329"/>
+    <rdf:rest rdf:nodeID="Ncca991d7a5004b8dbbdd6553ba74c256"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc23c60d6c83c4b2eaa047e96e95dd502">
+    <rdf:first rdf:resource="https://example.org/spare-parts#qty"/>
+    <rdf:rest rdf:nodeID="N5fcd61c1bb154df5b2efa570f36a95bd"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N99bef695b08b49f1a23529d2cdb94193">
+    <rdf:first rdf:resource="https://example.org/spare-parts#c"/>
+    <rdf:rest rdf:nodeID="N256f6682fa6c4888ab8453dbf71210ba"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd8728443bfd045c98aae6c9abc034971">
+    <rdf:first rdf:resource="https://example.org/spare-parts#c"/>
+    <rdf:rest rdf:nodeID="N8005c60e95fd4e849a8e39d035f3e55e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#abc_classification_a">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">abc_classification_a</rdfs:label>
+    <rdfs:comment xml:lang="zh">仅为合成边界示例；真实业务阈值须有来源。</rdfs:comment>
+    <swrl:body rdf:nodeID="N970d138c2e8a46a0907c5b51b1d75e6c"/>
+    <swrl:head rdf:nodeID="Ne8391763aad74104afd3122e7a24438a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc256176a44bd4dffa21ba7e058d321db">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasABCClass"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#A类"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82d7d6e15bd0467f8eba252e740e2329">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/spare-parts#备件"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb0e938ab3d4d47d4bda0f34ef28ff618">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasABCClass"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#C类"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf2a6d34ee03e4d8d87884626432dd566">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/spare-parts#备件"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N814066d1bc314e3a824b857355301ff2">
+    <rdf:first rdf:nodeID="Nf2a6d34ee03e4d8d87884626432dd566"/>
+    <rdf:rest rdf:nodeID="Ndb80d0c00586479890c5c6dc7dffc105"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5da7595f84254f1e830dbde9d5f523d6">
+    <rdf:first rdf:nodeID="Nb0e938ab3d4d47d4bda0f34ef28ff618"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0c2ab26726144d509ed112a52a256835">
+    <rdf:first rdf:nodeID="Nefdc354f2ee145d7bd3477ed33e20b6f"/>
+    <rdf:rest rdf:nodeID="N91d406ffd01541839d302de1095f5003"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndcc376e575e3456aac95b40277e3e2bf">
+    <rdf:first rdf:nodeID="N9fed18a883804dd9a533d4084e2f22d1"/>
+    <rdf:rest rdf:nodeID="Nc25be53f3315415a821a8ffbd26527cb"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd045244093a14aa7ae58c2b3cfa2e57b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasReplenishmentNeed"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd3c4cd2b3a9a4800a3f8b70f7bb6ed82">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/spare-parts#备件"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3bf645caa35344ada299519d2fd3226b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="N1f3aef99e9144be78a93eda29bd7d2f0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#replenishment_alert">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">replenishment_alert</rdfs:label>
+    <rdfs:comment xml:lang="zh">合成补货预警结果，不授权下单或外部动作。</rdfs:comment>
+    <swrl:body rdf:nodeID="N814066d1bc314e3a824b857355301ff2"/>
+    <swrl:head rdf:nodeID="N63fd347cfc554787ae9b4a7673149bf4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e952f60030a4944ad81a3854db553b4">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasAnnualConsumption"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N265d1c593f644b8c822e33fec8b768e8">
+    <rdf:first rdf:nodeID="N3bf645caa35344ada299519d2fd3226b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8235f69b40e341c597de5add53ddda54">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasABCClass"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#B类"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc6cf305a05e486daa175226d11dc990">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+    <swrl:arguments rdf:nodeID="Nc23c60d6c83c4b2eaa047e96e95dd502"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc25be53f3315415a821a8ffbd26527cb">
+    <rdf:first rdf:nodeID="Ncc6cf305a05e486daa175226d11dc990"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f0a8d253f4d4cad8ee212cea7f27f7d">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+    <swrl:arguments rdf:nodeID="N99bef695b08b49f1a23529d2cdb94193"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1f3aef99e9144be78a93eda29bd7d2f0">
+    <rdf:first rdf:resource="https://example.org/spare-parts#c"/>
+    <rdf:rest rdf:nodeID="Nc3862fce22ac47d6b59721b6cdca1dc6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N970d138c2e8a46a0907c5b51b1d75e6c">
+    <rdf:first rdf:nodeID="Nd3c4cd2b3a9a4800a3f8b70f7bb6ed82"/>
+    <rdf:rest rdf:nodeID="N928cb103b10b4ed5a6e1840dec0e62fd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#abc_classification_c">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">abc_classification_c</rdfs:label>
+    <rdfs:comment xml:lang="zh">仅为合成边界示例；真实业务阈值须有来源。</rdfs:comment>
+    <swrl:body rdf:nodeID="N0c2ab26726144d509ed112a52a256835"/>
+    <swrl:head rdf:nodeID="N5da7595f84254f1e830dbde9d5f523d6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5d782e28067c4ffe861a5f5c2f1afa57">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasStockQuantity"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#qty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N63fd347cfc554787ae9b4a7673149bf4">
+    <rdf:first rdf:nodeID="Nd045244093a14aa7ae58c2b3cfa2e57b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8005c60e95fd4e849a8e39d035f3e55e">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000000</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd29bfac89353459383d42baa7ee5be09">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100000</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc3862fce22ac47d6b59721b6cdca1dc6">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100000</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na950ac3733f24f9083796a8f89507d5b">
+    <rdf:first rdf:nodeID="Nfacc9f73af94489c933c95288f79b4ee"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N94e73d5a201e4a71956bafb541b9de3e">
+    <rdf:first rdf:nodeID="N8235f69b40e341c597de5add53ddda54"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6fde07bb77154624b7a06841a1c2515b">
+    <rdf:first rdf:nodeID="Nea9cde9502b9431981431a085d248768"/>
+    <rdf:rest rdf:nodeID="Na950ac3733f24f9083796a8f89507d5b"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N91d406ffd01541839d302de1095f5003">
+    <rdf:first rdf:nodeID="N2a7f654f77304265ade917eecfa86328"/>
+    <rdf:rest rdf:nodeID="N265d1c593f644b8c822e33fec8b768e8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndb80d0c00586479890c5c6dc7dffc105">
+    <rdf:first rdf:nodeID="N5d782e28067c4ffe861a5f5c2f1afa57"/>
+    <rdf:rest rdf:nodeID="Ndcc376e575e3456aac95b40277e3e2bf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1c7fdb5929b845438fbfa1c2c8790856">
+    <rdf:first rdf:nodeID="N3f0a8d253f4d4cad8ee212cea7f27f7d"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nefdc354f2ee145d7bd3477ed33e20b6f">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/spare-parts#备件"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N928cb103b10b4ed5a6e1840dec0e62fd">
+    <rdf:first rdf:nodeID="N9e952f60030a4944ad81a3854db553b4"/>
+    <rdf:rest rdf:nodeID="N1c7fdb5929b845438fbfa1c2c8790856"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf31bef98596941afad7a1e6e514e03cc">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasAnnualConsumption"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9fed18a883804dd9a533d4084e2f22d1">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasSafetyStock"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#ss"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#qty">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#abc_classification_b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">abc_classification_b</rdfs:label>
+    <rdfs:comment xml:lang="zh">仅为合成边界示例；真实业务阈值须有来源。</rdfs:comment>
+    <swrl:body rdf:nodeID="N82ea160bf42744ebbfa6911ec06b9f6a"/>
+    <swrl:head rdf:nodeID="N94e73d5a201e4a71956bafb541b9de3e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N256f6682fa6c4888ab8453dbf71210ba">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000000</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncca991d7a5004b8dbbdd6553ba74c256">
+    <rdf:first rdf:nodeID="Nf31bef98596941afad7a1e6e514e03cc"/>
+    <rdf:rest rdf:nodeID="N6fde07bb77154624b7a06841a1c2515b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#ss">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2a7f654f77304265ade917eecfa86328">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/spare-parts#hasAnnualConsumption"/>
+    <swrl:argument1 rdf:resource="https://example.org/spare-parts#x"/>
+    <swrl:argument2 rdf:resource="https://example.org/spare-parts#c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5fcd61c1bb154df5b2efa570f36a95bd">
+    <rdf:first rdf:resource="https://example.org/spare-parts#ss"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8b543b58f88c491683756f88fc5ca4c2">
+    <rdf:first rdf:resource="https://example.org/spare-parts#c"/>
+    <rdf:rest rdf:nodeID="Nd29bfac89353459383d42baa7ee5be09"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts/rules">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne8391763aad74104afd3122e7a24438a">
+    <rdf:first rdf:nodeID="Nc256176a44bd4dffa21ba7e058d321db"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#c">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nea9cde9502b9431981431a085d248768">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="Nd8728443bfd045c98aae6c9abc034971"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#x">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+</rdf:RDF>

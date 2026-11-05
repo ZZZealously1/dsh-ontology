@@ -1,0 +1,42 @@
+@prefix pkg: <https://example.org/ontology-package#> .
+@prefix plan: <https://example.org/ontology-template/load-plan#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Optional scientific-formula projects may add a static pkg:FormulaCatalog
+# module at formulas/<domain>.ttl, separate from TBox/Rules/ABox. This demo's
+# builder does not implement that role; extend and verify the actual adapter
+# before adding it to pkg:module. Flat formula-profile output: formulas.ttl.
+# Contract: Ontology-tools/FORMULA.md (relative to the method-library root).
+
+plan:plan a pkg:LoadPlan ;
+    pkg:version "template-1" ;
+    pkg:integrationMode pkg:Materialized ;
+    pkg:entryFile "integration/merged_ontology.owl" ;
+    pkg:entryIRI <https://example.org/ontology-template/integration> ;
+    pkg:evidenceFile "integration/build-evidence.ttl" ;
+    pkg:includesABox false ;
+    pkg:factSelection pkg:ExplicitSnapshotOrInput ;
+    pkg:module plan:model, plan:rules, plan:facts .
+
+plan:demo a pkg:Domain ;
+    pkg:domainId "demo" ;
+    rdfs:label "合成标签分类示例域"@zh ;
+    dct:description "只回答合成Item的demo标签分类；不涉及真实业务判断或审批。"@zh ;
+    pkg:documentation "docs/demo_本体说明.md" .
+
+plan:model a pkg:Module ;
+    pkg:domain plan:demo ; pkg:role pkg:TBox ;
+    pkg:path "subontologies/demo_ontology.owl" ; pkg:format "xml" ;
+    pkg:ontologyIRI <https://example.org/ontology-template/demo> ;
+    pkg:version "template-1" .
+
+plan:rules a pkg:Module ;
+    pkg:domain plan:demo ; pkg:role pkg:Rules ;
+    pkg:path "rules/demo/demo_rules.swrl" ; pkg:format "xml" ;
+    pkg:version "template-1" ; pkg:dependsOn plan:model .
+
+plan:facts a pkg:Module ;
+    pkg:domain plan:demo ; pkg:role pkg:ABox ;
+    pkg:path "data/instances_demo.owl" ; pkg:format "xml" ;
+    pkg:version "template-1" ; pkg:dependsOn plan:model .

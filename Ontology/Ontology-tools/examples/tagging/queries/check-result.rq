@@ -1,0 +1,7 @@
+PREFIX ex: <https://example.org/ontology-template/demo#>
+SELECT ?item ?tag (BOUND(?matchedType) AS ?hasDerivedType)
+WHERE {
+  ?item a ex:Item ; ex:tag ?tag .
+  OPTIONAL { ?item a ?matchedType . FILTER (?matchedType = ex:TaggedItem) }
+}
+ORDER BY ?item

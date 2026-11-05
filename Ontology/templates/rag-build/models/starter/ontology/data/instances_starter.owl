@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="https://example.org/rag-starter#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="https://example.org/rag-starter#sensitive-11">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/rag-starter#Document"/>
+    <ns1:docId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sensitive-11</ns1:docId>
+    <ns1:pageCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</ns1:pageCount>
+    <ns1:securityLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">敏感</ns1:securityLevel>
+  </rdf:Description>
+</rdf:RDF>

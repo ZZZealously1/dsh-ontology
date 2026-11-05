@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasSafetyStock">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">安全库存</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#ABC分类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">ABC分类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasReplenishmentNeed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">需要补货</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasAnnualConsumption">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">年消耗金额</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#供应商">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">供应商</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#suppliedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">供应商</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="https://example.org/spare-parts#供应商"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasABCClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">ABC分类</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="https://example.org/spare-parts#ABC分类"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasPartName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">部件名称</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasStockQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">库存数量</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">备件</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#战略备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">战略备件</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/spare-parts#备件"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts/model">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+</rdf:RDF>

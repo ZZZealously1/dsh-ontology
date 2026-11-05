@@ -1,0 +1,46 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ontology-tools/projection> a owl:Ontology ;
+    rdfs:label "多轮 OWL DL 与有限 SWRL 协同合成示例"@zh ;
+    owl:versionInfo "1.0-synthetic" .
+
+ex:Store a owl:Class ; rdfs:label "合成门店"@zh .
+ex:DeliveryService a owl:Class ; rdfs:label "合成配送服务"@zh .
+ex:Route a owl:Class ; rdfs:label "合成路线"@zh .
+ex:DeliveryStore a owl:Class ;
+    rdfs:label "具有配送服务的合成门店"@zh ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Store
+            [ a owl:Restriction ; owl:onProperty ex:offers ;
+              owl:someValuesFrom ex:DeliveryService ]
+        )
+    ] .
+ex:RoutedStore a owl:Class ;
+    rdfs:label "已关联路线的合成门店"@zh ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Store
+            [ a owl:Restriction ; owl:onProperty ex:eligibleFor ;
+              owl:someValuesFrom ex:Route ]
+        )
+    ] .
+ex:ReadyStore a owl:Class ;
+    rdfs:label "规则分类完成的合成门店"@zh ;
+    rdfs:subClassOf ex:Store .
+
+ex:offers a owl:ObjectProperty ;
+    rdfs:label "提供服务"@zh ;
+    rdfs:domain ex:Store ; rdfs:range ex:DeliveryService .
+ex:eligibleFor a owl:ObjectProperty ;
+    rdfs:label "关联合成路线"@zh ;
+    rdfs:domain ex:Store ; rdfs:range ex:Route .
+ex:storeKey a owl:DatatypeProperty ;
+    rdfs:label "合成门店标识"@zh ;
+    rdfs:domain ex:Store ; rdfs:range xsd:string .

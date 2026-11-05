@@ -1,0 +1,5 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:versionLiteral a owl:Ontology ; owl:versionIRI "not an IRI" .
+ex:Thing a owl:Class .

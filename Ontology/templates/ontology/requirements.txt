@@ -1,0 +1,2 @@
+# Build/check dependency only; this does not install an inference backend.
+rdflib==7.1.4

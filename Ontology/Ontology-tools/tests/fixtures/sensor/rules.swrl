@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:dct="http://purl.org/dc/terms/">
+  <swrl:Variable rdf:about="urn:test:sensor:device"/>
+  <swrl:Variable rdf:about="urn:test:sensor:reading"/>
+  <swrl:Variable rdf:about="urn:test:sensor:measuredValue"/>
+  <swrl:Imp rdf:about="urn:test:sensor:rule-alert">
+    <dct:source rdf:resource="urn:test:synthetic-spec"/>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="urn:test:sensor:Device"/>
+        <swrl:argument1 rdf:resource="urn:test:sensor:device"/>
+      </swrl:ClassAtom>
+      <swrl:IndividualPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="urn:test:sensor:hasReading"/>
+        <swrl:argument1 rdf:resource="urn:test:sensor:device"/>
+        <swrl:argument2 rdf:resource="urn:test:sensor:reading"/>
+      </swrl:IndividualPropertyAtom>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="urn:test:sensor:value"/>
+        <swrl:argument1 rdf:resource="urn:test:sensor:reading"/>
+        <swrl:argument2 rdf:resource="urn:test:sensor:measuredValue"/>
+      </swrl:DatavaluedPropertyAtom>
+      <swrl:BuiltinAtom>
+        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+        <swrl:arguments>
+          <rdf:Description>
+            <rdf:first rdf:resource="urn:test:sensor:measuredValue"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </swrl:arguments>
+      </swrl:BuiltinAtom>
+    </swrl:body>
+    <swrl:head rdf:parseType="Collection">
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="urn:test:sensor:requiresAttention"/>
+        <swrl:argument1 rdf:resource="urn:test:sensor:device"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl:argument2>
+      </swrl:DatavaluedPropertyAtom>
+    </swrl:head>
+  </swrl:Imp>
+</rdf:RDF>

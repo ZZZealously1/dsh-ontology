@@ -1,0 +1,29 @@
+@prefix ex: <urn:formula-example:> .
+@prefix f: <https://w3id.org/ontology-tools/formula#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:formula-example> a owl:Ontology ;
+    rdfs:label "结构化公式与真实 OWL/SWRL 循环合成示例"@zh .
+
+ex:Observation a owl:Class .
+ex:ValidatedObservation a owl:Class ; rdfs:subClassOf ex:UsableObservation .
+ex:UsableObservation a owl:Class ; rdfs:subClassOf ex:Observation .
+ex:AboveSyntheticReference a owl:Class ; rdfs:subClassOf ex:NeedsSyntheticReview .
+ex:NeedsSyntheticReview a owl:Class .
+ex:hasObservation a owl:ObjectProperty .
+ex:tag a owl:DatatypeProperty ; rdfs:range xsd:string .
+f:Evaluation a owl:Class .
+f:Binding a owl:Class .
+f:formula a owl:ObjectProperty .
+f:context a owl:ObjectProperty .
+f:binding a owl:ObjectProperty .
+f:parameter a owl:ObjectProperty .
+f:fromEvaluation a owl:ObjectProperty .
+f:satisfiedCondition a owl:ObjectProperty .
+f:calculationStatus a owl:ObjectProperty .
+f:value a owl:DatatypeProperty .
+f:unit a owl:DatatypeProperty .
+f:result a owl:DatatypeProperty .
+f:resultUnit a owl:DatatypeProperty .

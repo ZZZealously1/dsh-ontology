@@ -1,0 +1,12 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:test:owl-dl:consistent> a owl:Ontology .
+ex:Person a owl:Class .
+ex:Adult a owl:Class ; rdfs:subClassOf ex:Person ; owl:disjointWith ex:Child .
+ex:Child a owl:Class ; rdfs:subClassOf ex:Person .
+ex:hasChild a owl:ObjectProperty ; rdfs:domain ex:Adult ; rdfs:range ex:Child .
+ex:alice a owl:NamedIndividual, ex:Adult ; ex:hasChild ex:bob .
+ex:bob a owl:NamedIndividual, ex:Child .

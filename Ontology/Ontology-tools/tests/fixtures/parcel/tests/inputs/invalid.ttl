@@ -1,0 +1,2 @@
+@prefix ex: <urn:test:parcel:> .
+ex:invalid a ex:Parcel ; ex:tag "ready" .

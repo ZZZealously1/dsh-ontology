@@ -1,0 +1,7 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:storeA a owl:NamedIndividual, ex:Store ;
+    ex:offers ex:serviceB .
+ex:serviceB a owl:NamedIndividual, ex:DeliveryService .
+ex:routeR a owl:NamedIndividual, ex:Route .

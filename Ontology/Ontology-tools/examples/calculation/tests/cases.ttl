@@ -1,0 +1,41 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# 预期手工编写，不从运行输出生成。
+ex:case-positive a ot:Case ;
+    ot:input "inputs/positive.ttl" ; ot:expectedOutcome "passed" ;
+    ot:expectedTriple
+        [ rdf:subject ex:sampleA ; rdf:predicate rdf:type ; rdf:object ex:Eligible ],
+        [ rdf:subject ex:sampleA ; rdf:predicate ex:subtotal ; rdf:object 5 ],
+        [ rdf:subject ex:sampleA ; rdf:predicate rdf:type ; rdf:object ex:Five ],
+        [ rdf:subject ex:sampleA ; rdf:predicate ex:result ; rdf:object 10 ],
+        [ rdf:subject ex:sampleA ; rdf:predicate rdf:type ; rdf:object ex:Finished ] ;
+    dct:source ex:synthetic-source .
+
+ex:case-missing a ot:Case ;
+    ot:input "inputs/missing.ttl" ; ot:expectedOutcome "passed" ;
+    ot:expectedTriple [ rdf:subject ex:sampleA ; rdf:predicate rdf:type ; rdf:object ex:Eligible ] ;
+    ot:notExpectedInferredTriple
+        [ rdf:subject ex:sampleA ; rdf:predicate ex:subtotal ; rdf:object 5 ],
+        [ rdf:subject ex:sampleA ; rdf:predicate ex:result ; rdf:object 10 ],
+        [ rdf:subject ex:sampleA ; rdf:predicate rdf:type ; rdf:object ex:Finished ] ;
+    dct:description "输入数值未知，不能计算；未推得不等于否定。"@zh ;
+    dct:source ex:synthetic-source .
+
+ex:case-invalid a ot:Case ;
+    ot:input "inputs/invalid.ttl" ; ot:expectedOutcome "shacl-invalid" ;
+    dct:description "缺少身份字段，由前置 SHACL 拒绝。"@zh ;
+    dct:source ex:synthetic-source .
+
+ex:case-inconsistent a ot:Case ;
+    ot:input "inputs/inconsistent.ttl" ; ot:expectedOutcome "owl-inconsistent" ;
+    dct:description "计算结果使 HermiT 推出 Finished，与输入 Blocked 冲突。"@zh ;
+    dct:source ex:synthetic-source .
+
+ex:case-calculation-error a ot:Case ;
+    ot:input "inputs/calculation-error.ttl" ; ot:expectedOutcome "failed" ;
+    ot:expectedFailureStage "swrl-inference" ;
+    dct:description "字符串参与加法，计算执行失败，不能记作 OWL 不一致。"@zh ;
+    dct:source ex:synthetic-source .

@@ -1,0 +1,9 @@
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix ex: <urn:formula-example:> .
+
+ex:runtime a ot:Runtime ;
+    ot:profile "hermit-swrl-formula-v1" ;
+    ot:validationOrder "pre-post" ;
+    ot:maxIterations 20 ;
+    ot:javaTimeout 60 ;
+    ot:formulaPrecision 50 .

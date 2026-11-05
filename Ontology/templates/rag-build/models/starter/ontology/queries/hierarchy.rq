@@ -1,0 +1,2 @@
+PREFIX ex: <https://example.org/rag-starter#>
+SELECT ?category ?ancestor WHERE { ?category ex:parentCategory+ ?ancestor . }

@@ -1,0 +1,5 @@
+@prefix ex: <urn:family:> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+ex:synthetic-source a ot:Source ; dct:title "有限关系推导合成案例" ;
+  ot:mode "synthetic" ; ot:locator "README.md 的能力问题；无真实人物或业务数据" .

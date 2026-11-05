@@ -1,0 +1,10 @@
+@prefix ns1: <https://example.org/rag-starter#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:boundary-10 a owl:NamedIndividual,
+        ns1:Document ;
+    ns1:docId "boundary-10"^^xsd:string ;
+    ns1:pageCount 10 ;
+    ns1:securityLevel "公开"^^xsd:string .
+

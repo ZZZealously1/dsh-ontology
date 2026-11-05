@@ -1,0 +1,13 @@
+@prefix ex: <urn:test:parcel:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:ontology a owl:Ontology ; owl:versionInfo "test-1" ;
+    dct:description "Synthetic fixture, not a business policy." .
+ex:Parcel a owl:Class .
+ex:ReadyParcel a owl:Class ; rdfs:subClassOf ex:ProcessableParcel .
+ex:ProcessableParcel a owl:Class ; rdfs:subClassOf ex:Parcel .
+ex:tag a owl:DatatypeProperty ; rdfs:domain ex:Parcel ; rdfs:range xsd:string .
+ex:identifier a owl:DatatypeProperty ; rdfs:domain ex:Parcel ; rdfs:range xsd:string .

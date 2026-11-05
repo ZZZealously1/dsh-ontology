@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StructuralElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">层次</rdfs:label>
+    <rdfs:label xml:lang="en">StructuralElement</rdfs:label>
+    <rdfs:label xml:lang="en">Structural Element</rdfs:label>
+    <rdfs:comment xml:lang="zh">标准文本的层级结构实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Object">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">对象</rdfs:label>
+    <rdfs:label xml:lang="en">Object</rdfs:label>
+    <rdfs:comment xml:lang="zh">条款中涉及的实体对象</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Implementer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">组织实施单位</rdfs:label>
+    <rdfs:label xml:lang="en">Implementer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Proposer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">提出单位</rdfs:label>
+    <rdfs:label xml:lang="en">Proposer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#specifiesCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">规定特性</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Property"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 25 项：表示条款对某个对象的特性做出了规定</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#imposesConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">施加约束</rdfs:label>
+    <rdfs:domain rdf:nodeID="Ne5a126d57f2c4d4fbab2b07b88f529c4"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Constraint"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 27 项：表示条款或特性包含了具体的约束条件</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StandardizationProcess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">制定程序</rdfs:label>
+    <rdfs:label xml:lang="en">StandardizationProcess</rdfs:label>
+    <rdfs:label xml:lang="en">Standardization Process</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述一项标准从预备到废止的全生命周期</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#standardConstraintType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">约束类型</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 constraintType，源类型 xsd:string；枚举：强制性、推荐性</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Paragraph">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">段</rdfs:label>
+    <rdfs:label xml:lang="en">Paragraph</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#PublicationStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">出版阶段</rdfs:label>
+    <rdfs:label xml:lang="en">PublicationStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasClause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含条款</rdfs:label>
+    <rdfs:domain rdf:nodeID="N571dc3c80ff9483fb71699775e6de52f"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 15 项：表示标准的某个要素或结构层次包含了一个具体的条款</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#referencesExternalResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">引用外部资源</rdfs:label>
+    <rdfs:domain rdf:nodeID="N79a4bfa0272b4173a6da397026042b81"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#ExternalResource"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 31 项：表示标准或条款引用了法规、专利、文献等外部资源</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Clause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">条</rdfs:label>
+    <rdfs:label xml:lang="en">Clause</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdfs:comment xml:lang="zh">用于描述逻辑划分文本的实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#phone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">联系电话</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Individual"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 phone，源类型 xsd:string；格式：+86-区号-号码</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#abolishedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">废止日期（候选关系规则的辅助字段）</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cd80acf3c584cb5b1a6bd48d73b0986">
+    <rdf:first rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdf:rest rdf:nodeID="Ne8698ee0edca4beebd858357fbe2e4ff"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ExternalResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">外部约束</rdfs:label>
+    <rdfs:label xml:lang="en">ExternalResource</rdfs:label>
+    <rdfs:label xml:lang="en">External Resource</rdfs:label>
+    <rdfs:comment xml:lang="zh">与标准有关的其他文件资源</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Example">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">示例</rdfs:label>
+    <rdfs:label xml:lang="en">Example</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#TechnicalReviewStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">技术审查阶段</rdfs:label>
+    <rdfs:label xml:lang="en">TechnicalReviewStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#issuedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">发布于</rdfs:label>
+    <rdfs:label xml:lang="en">issuedBy</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 6 项：表示标准由某机构正式发布</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#NormativeReferences">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">规范性引用文件</rdfs:label>
+    <rdfs:label xml:lang="en">NormativeReferences</rdfs:label>
+    <rdfs:comment xml:lang="zh">原目录归入资料性要素，正式条款未核验；此处不激活该继承。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#standardNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">文件编号</rdfs:label>
+    <rdfs:label xml:lang="en">standardNumber</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 standardNumber，源类型 xsd:string；符合GB/T 1.1规定的文件编号格式</rdfs:comment>
+    <rdfs:comment xml:lang="zh">原示例备注：符合GB/T 1.1规定的文件编号格式；正式标准对应关系待核验。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference/model">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="zh">标准文档建模参考模型（合成）</rdfs:label>
+    <rdfs:label xml:lang="en">Standard Document Reference Model</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ActionClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">行动</rdfs:label>
+    <rdfs:label xml:lang="en">ActionClass</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#cites">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">引用标准</rdfs:label>
+    <rdfs:label xml:lang="en">cites</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 3 项：表示标准在内容中引用了另一个标准</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#languageVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">语言版本</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 languageVersion，源类型 xsd:string；枚举：中文版本、英文版本</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#UntitledClause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">无标题条</rdfs:label>
+    <rdfs:label xml:lang="en">UntitledClause</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Clause"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#creditCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">统一信用代码</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 creditCode，源类型 xsd:string；18位数字/字母组成的唯一标识符</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#SymbolsAndAbbreviations">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">符号和缩略语</rdfs:label>
+    <rdfs:label xml:lang="en">SymbolsAndAbbreviations</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#NormativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Appendix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">附录</rdfs:label>
+    <rdfs:label xml:lang="en">Appendix</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#TextualParagraph">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">条文</rdfs:label>
+    <rdfs:label xml:lang="en">TextualParagraph</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#PreparationStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">预备阶段</rdfs:label>
+    <rdfs:label xml:lang="en">PreparationStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#clauseConstraintType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">约束类型</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 constraintType，源类型 xsd:string；枚举：强制、推荐、描述</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Reviewer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">评审人</rdfs:label>
+    <rdfs:label xml:lang="en">Reviewer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Individual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Scope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">范围</rdfs:label>
+    <rdfs:label xml:lang="en">Scope</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#NormativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#effectiveDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">实施日期</rdfs:label>
+    <rdfs:label xml:lang="en">effectiveDate</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 effectiveDate，源类型 xsd:date；标准开始实施的日期。本合成资产明确采用 ISO 日期字符串，不自动转换项目事实。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StandardEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">标准实体</rdfs:label>
+    <rdfs:label xml:lang="en">StandardEntity</rdfs:label>
+    <rdfs:label xml:lang="en">Standard Entity</rdfs:label>
+    <rdfs:comment xml:lang="zh">标准化文件的核心根节点，包含标准元数据和技术要素的完整描述</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#NumberedListItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">有编号列项</rdfs:label>
+    <rdfs:label xml:lang="en">NumberedListItem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ListItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ApprovalAndReleaseStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">批准发布阶段</rdfs:label>
+    <rdfs:label xml:lang="en">ApprovalAndReleaseStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#issuedDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">发布日期</rdfs:label>
+    <rdfs:label xml:lang="en">issuedDate</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 issuedDate，源类型 xsd:date；标准的官方发布日期（YYYY-MM-DD）。本合成资产明确采用 ISO 日期字符串，不自动转换项目事实。</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Constraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">约束逻辑</rdfs:label>
+    <rdfs:label xml:lang="en">Constraint</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述条款对对象特性施加的限定条件</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Action">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">动作</rdfs:label>
+    <rdfs:label xml:lang="en">Action</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ActionClass"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#draftedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">起草于</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:nodeID="N25f780a2e3324eb6b729603011735578"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 9 项：表示标准由某起草单位或起草人起草</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#DomainCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">领域类别</rdfs:label>
+    <rdfs:label xml:lang="en">DomainCategory</rdfs:label>
+    <rdfs:label xml:lang="en">Domain Category</rdfs:label>
+    <rdfs:comment xml:lang="zh">按标准化领域划分的标准分类</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#isRelatedToPatent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">与专利有关</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Patent"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 32 项：表示条款的技术内容与某项专利有关</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#uniqueIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">唯一标识符</rdfs:label>
+    <rdfs:label xml:lang="en">uniqueIdentifier</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 uniqueIdentifier，源类型 xsd:string；信息单元的唯一编码（如IU-001）</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#standardizes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">标准化对象</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardizationObject"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 12 项：表示本标准所规范的主题对象</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#InvalidDateEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">日期顺序异常标准</rdfs:label>
+    <rdfs:label xml:lang="en">InvalidDateEntity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Drafter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">起草单位</rdfs:label>
+    <rdfs:label xml:lang="en">Drafter</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasStructuralElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含层次</rdfs:label>
+    <rdfs:label xml:lang="en">hasStructuralElement</rdfs:label>
+    <rdfs:domain rdf:nodeID="N354b5d80b5e94dc696001e16257c000e"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 14 项：表示标准或其内部结构包含章、条、段等层级结构</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Consultee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">征求意见单位</rdfs:label>
+    <rdfs:label xml:lang="en">Consultee</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#defines">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">界定</rdfs:label>
+    <rdfs:label xml:lang="en">defines</rdfs:label>
+    <rdfs:domain rdf:nodeID="N1b681953318146e9bafc698fa42d1854"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Term"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 17 项：表示标准或"术语和定义"要素界定了某个术语</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#publishedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">出版于</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 10 项：表示标准由某出版机构出版</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4d0c67db45c64da28ca2a81c6c7d6255">
+    <rdf:first rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdf:rest rdf:nodeID="Nb8e51c005ef4460eae0093b4443cfff9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#AdditionalInfo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">附加信息</rdfs:label>
+    <rdfs:label xml:lang="en">AdditionalInfo</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#describesAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">描述行动</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#ActionClass"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 30 项：表示条款规定需执行的动作或步骤</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#InformationForm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">信息单元表述形式</rdfs:label>
+    <rdfs:label xml:lang="en">InformationForm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Literature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">文献</rdfs:label>
+    <rdfs:label xml:lang="en">Literature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ExternalResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Property">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">特性</rdfs:label>
+    <rdfs:label xml:lang="en">Property</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述对象的属性特征</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#PublishingOrganization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">出版机构</rdfs:label>
+    <rdfs:label xml:lang="en">PublishingOrganization</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#classifiedUnder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">属于领域</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#DomainCategory"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 11 项：表示标准按领域分类（如ICS、CCS）</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#CapabilityProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">能力型特性</rdfs:label>
+    <rdfs:label xml:lang="en">CapabilityProperty</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb8e51c005ef4460eae0093b4443cfff9">
+    <rdf:first rdf:resource="https://example.org/standard-reference#ContentElement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#referencesClause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">引用章条</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 23 项：表示条款引用了本标准内的章、条、段、列项</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#contentDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">内容描述</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 contentDescription，源类型 xsd:string；信息单元的详细描述文本</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">有注</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 21 项：表示条款关联注</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Index">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">索引</rdfs:label>
+    <rdfs:label xml:lang="en">Index</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#NormativeElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">规范性要素</rdfs:label>
+    <rdfs:label xml:lang="en">NormativeElement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ContentElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#PublicDatabase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">公共数据库</rdfs:label>
+    <rdfs:label xml:lang="en">PublicDatabase</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ExternalResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StandardizationObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">标准化对象</rdfs:label>
+    <rdfs:label xml:lang="en">StandardizationObject</rdfs:label>
+    <rdfs:label xml:lang="en">Standardization Object</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述标准化的具体主题或对象</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Organization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">机构</rdfs:label>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Stakeholder"/>
+    <rdfs:comment xml:lang="zh">参与标准制定或管理的组织实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#clauseType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">条款类型</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 clauseType，源类型 xsd:string；枚举：要求型、推荐型、指示型、允许型、陈述型</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#affiliation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">所属单位</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Individual"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 affiliation，源类型 xsd:string；个人所属的机构或组织名称</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Reference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">引用</rdfs:label>
+    <rdfs:label xml:lang="en">Reference</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Patent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">专利</rdfs:label>
+    <rdfs:label xml:lang="en">Patent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ExternalResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StandardObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">标准对象</rdfs:label>
+    <rdfs:label xml:lang="en">StandardObject</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasSubClause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含子条</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Clause"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Clause"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 16 项：表示条包含子条，用于构建层次结构</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#CoreTechnicalElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">核心技术要素</rdfs:label>
+    <rdfs:label xml:lang="en">CoreTechnicalElement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#NormativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#documentName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">文件名称</rdfs:label>
+    <rdfs:label xml:lang="en">documentName</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 documentName，源类型 xsd:string；标准的完整名称</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#personName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">姓名</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Individual"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 personName，源类型 xsd:string；个人法定姓名</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#TermsAndDefinitions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">术语和定义</rdfs:label>
+    <rdfs:label xml:lang="en">TermsAndDefinitions</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#NormativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Table">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">表</rdfs:label>
+    <rdfs:label xml:lang="en">Table</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#purpose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">编制目的</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 purpose，源类型 xsd:string；说明该标准的制定目标</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#InformativeElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">资料性要素</rdfs:label>
+    <rdfs:label xml:lang="en">InformativeElement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ContentElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasExample">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">有示例</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 20 项：表示条款关联示例</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#UnnumberedListItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">无编号列项</rdfs:label>
+    <rdfs:label xml:lang="en">UnnumberedListItem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ListItem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Footnote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">脚注</rdfs:label>
+    <rdfs:label xml:lang="en">Footnote</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#constrainsObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">约束对象</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Constraint"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Object"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 28 项：表示约束条件应用于某个对象</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Section">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">章</rdfs:label>
+    <rdfs:label xml:lang="en">Section</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdfs:comment xml:lang="zh">用于描述逻辑划分文本的实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#List">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">列表</rdfs:label>
+    <rdfs:label xml:lang="en">List</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1d3f9df2cb21416f998cc0af1f2ce784">
+    <rdf:first rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#replaces">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">代替</rdfs:label>
+    <rdfs:label xml:lang="en">replaces</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 2 项：表示新版标准代替旧版标准</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#constrainsCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">约束特性</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Constraint"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Property"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 29 项：表示约束条件应用于对象的某个特定特性</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#involvesObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">涉及对象</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Object"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 24 项：表示条款内容中提及或描述的实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasCharacteristic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">有特性</rdfs:label>
+    <rdfs:label xml:lang="en">hasCharacteristic</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Object"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Property"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 26 项：表示对象具有某种可量化或描述的属性特征</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Individual">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">个人</rdfs:label>
+    <rdfs:label xml:lang="en">Individual</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Stakeholder"/>
+    <rdfs:comment xml:lang="zh">参与标准制定或管理的个人实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#citesStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">引用标准条款</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 22 项：表示条款内容中引用了某个标准</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne8698ee0edca4beebd858357fbe2e4ff">
+    <rdf:first rdf:resource="https://example.org/standard-reference#Property"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ReviewStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">复审阶段</rdfs:label>
+    <rdfs:label xml:lang="en">ReviewStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#DraftingPerson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">起草人</rdfs:label>
+    <rdfs:label xml:lang="en">DraftingPerson</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Individual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ClauseContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">条款</rdfs:label>
+    <rdfs:label xml:lang="en">ClauseContent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#IndicatorObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">指标对象</rdfs:label>
+    <rdfs:label xml:lang="en">IndicatorObject</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ProjectApprovalStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">立项阶段</rdfs:label>
+    <rdfs:label xml:lang="en">ProjectApprovalStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#InformationUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">信息单元</rdfs:label>
+    <rdfs:label xml:lang="en">InformationUnit</rdfs:label>
+    <rdfs:label xml:lang="en">Information Unit</rdfs:label>
+    <rdfs:comment xml:lang="zh">经过有意义的模块化处理且在句法和语义上自包含的信息片段</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#DescriptiveProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">描述型特性</rdfs:label>
+    <rdfs:label xml:lang="en">DescriptiveProperty</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N56dccaab0e79416ba50c57e6338f7bcb">
+    <rdf:first rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdf:rest rdf:nodeID="N84493f99e5374ef680dd9da2e9eee11f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N656c1e3abba84477aba3e1686347abd0">
+    <rdf:first rdf:resource="https://example.org/standard-reference#ContentElement"/>
+    <rdf:rest rdf:nodeID="N1d3f9df2cb21416f998cc0af1f2ce784"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#address">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">联系地址</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Individual"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 address，源类型 xsd:string；个人联系地址</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#proposedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">提出于</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 7 项：表示标准由某单位提出</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">标准状态</rdfs:label>
+    <rdfs:label xml:lang="en">status</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 status，源类型 xsd:string；枚举：草案、现行、废止、修订中</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ICS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">国际标准分类</rdfs:label>
+    <rdfs:label xml:lang="en">ICS</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#DomainCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#CCS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">中国标准文献分类</rdfs:label>
+    <rdfs:label xml:lang="en">CCS</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#DomainCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na5062075250c40648c70fd170b83fa21">
+    <rdf:first rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdf:rest rdf:nodeID="N3f7aaecfe88241fd8890ded729c77053"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Path">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">路径</rdfs:label>
+    <rdfs:label xml:lang="en">Path</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ActionClass"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N571dc3c80ff9483fb71699775e6de52f">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N656c1e3abba84477aba3e1686347abd0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ConstraintProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">约束型特性</rdfs:label>
+    <rdfs:label xml:lang="en">ConstraintProperty</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#orgLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">所在地</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 orgLocation，源类型 xsd:string；机构的实际办公或注册地址</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ListItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">列项</rdfs:label>
+    <rdfs:label xml:lang="en">ListItem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#OtherTechnicalElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">其他技术要素</rdfs:label>
+    <rdfs:label xml:lang="en">OtherTechnicalElement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#NormativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#MathematicalFormula">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">数学公式</rdfs:label>
+    <rdfs:label xml:lang="en">MathematicalFormula</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Checklist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">清单</rdfs:label>
+    <rdfs:label xml:lang="en">Checklist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Term">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">术语</rdfs:label>
+    <rdfs:label xml:lang="en">Term</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">有部分</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 5 项：表示本标准由多个部分系列标准组成</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#adopts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">采用</rdfs:label>
+    <rdfs:label xml:lang="en">adopts</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 1 项：表示本标准采用（等同、修改）了另一个标准的内容</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#ContentElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">要素</rdfs:label>
+    <rdfs:label xml:lang="en">ContentElement</rdfs:label>
+    <rdfs:label xml:lang="en">Content Element</rdfs:label>
+    <rdfs:comment xml:lang="zh">标准内容的作用性要素分类</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#AbolitionStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">废止阶段</rdfs:label>
+    <rdfs:label xml:lang="en">AbolitionStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Stakeholder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">相关方</rdfs:label>
+    <rdfs:label xml:lang="en">Stakeholder</rdfs:label>
+    <rdfs:comment xml:lang="zh">描述与标准化活动有关的角色实体</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasDevelopmentStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">处于阶段</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 33 项：表示标准当前所处的生命周期阶段</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#orgName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">名称</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="zh">源字段 orgName，源类型 xsd:string；机构的法定或通用名称</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Regulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">法规</rdfs:label>
+    <rdfs:label xml:lang="en">Regulation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ExternalResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N354b5d80b5e94dc696001e16257c000e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Na5062075250c40648c70fd170b83fa21"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1b681953318146e9bafc698fa42d1854">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N4d0c67db45c64da28ca2a81c6c7d6255"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#usesTerm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">提及术语</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Term"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 18 项：表示信息单元提及了某个术语</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#includesStandard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含标准</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 34 项：制定程序阶段包含处于该阶段的标准</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#DraftingStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">起草阶段</rdfs:label>
+    <rdfs:label xml:lang="en">DraftingStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne5a126d57f2c4d4fbab2b07b88f529c4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N9cd80acf3c584cb5b1a6bd48d73b0986"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#administeredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">归口于</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#Organization"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 8 项：表示标准由某单位归口管理</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f7aaecfe88241fd8890ded729c77053">
+    <rdf:first rdf:resource="https://example.org/standard-reference#StructuralElement"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N25f780a2e3324eb6b729603011735578">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N56dccaab0e79416ba50c57e6338f7bcb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Suggester">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">建议方</rdfs:label>
+    <rdfs:label xml:lang="en">Suggester</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Administrator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">归口单位</rdfs:label>
+    <rdfs:label xml:lang="en">Administrator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasNormativeElement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">包含要素</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#ContentElement"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 13 项：表示标准包含规范性要素或资料性要素</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#TitledClause">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">有标题条</rdfs:label>
+    <rdfs:label xml:lang="en">TitledClause</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Clause"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#references">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">参考</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 4 项：表示标准资料性参考了另一个标准</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N79a4bfa0272b4173a6da397026042b81">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N1963439017c949afbfa698334c030be9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#IssuingOrganization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">发布机构</rdfs:label>
+    <rdfs:label xml:lang="en">IssuingOrganization</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#PublicConsultationStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">征求意见阶段</rdfs:label>
+    <rdfs:label xml:lang="en">PublicConsultationStage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#StandardizationProcess"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Tip">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">提示</rdfs:label>
+    <rdfs:label xml:lang="en">Tip</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Bibliography">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">参考文献</rdfs:label>
+    <rdfs:label xml:lang="en">Bibliography</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#hasRepresentationForm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">具有表述形式</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/standard-reference#InformationUnit"/>
+    <rdfs:range rdf:resource="https://example.org/standard-reference#InformationForm"/>
+    <rdfs:comment xml:lang="zh">来源对象属性表第 19 项：表示信息单元有内容形式（条文、图、表等）</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1963439017c949afbfa698334c030be9">
+    <rdf:first rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <rdf:rest rdf:nodeID="N5b530ee0c2d84b2b9e1fd6b37de963c3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Note">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">注</rdfs:label>
+    <rdfs:label xml:lang="en">Note</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#AdditionalInfo"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5b530ee0c2d84b2b9e1fd6b37de963c3">
+    <rdf:first rdf:resource="https://example.org/standard-reference#ClauseContent"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Condition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">判断条件</rdfs:label>
+    <rdfs:label xml:lang="en">Condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#ActionClass"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Figure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">图</rdfs:label>
+    <rdfs:label xml:lang="en">Figure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/standard-reference#InformationForm"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N84493f99e5374ef680dd9da2e9eee11f">
+    <rdf:first rdf:resource="https://example.org/standard-reference#Individual"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>

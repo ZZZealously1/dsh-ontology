@@ -1,0 +1,6 @@
+@prefix ot: <https://w3id.org/ontology-tools#> .
+
+[] a ot:ImportMapping ;
+    ot:ontologyIRI <https://example.invalid/owl-dl/branch> ; ot:path "branch.ttl" .
+[] a ot:ImportMapping ;
+    ot:ontologyIRI <https://example.invalid/owl-dl/leaf> ; ot:path "leaf.ttl" .

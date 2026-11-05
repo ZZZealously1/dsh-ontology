@@ -1,0 +1,12 @@
+# Loaded by DSH's plugin installer through package.json dsh.bundle.
+# Configure trusted executable paths and workspaceRoots on this deployment row.
+# Empty roots allow environment/method reading and disable project operations.
+# Requires the host's bare local filesystem and local subprocess providers.
+- insert:
+    - id: ontology
+      name: dsh-ontology
+      config:
+        pythonExecutable: python
+        javaExecutable: java
+        workspaceRoots: []
+        timeoutSeconds: 900

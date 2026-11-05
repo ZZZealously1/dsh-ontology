@@ -1,0 +1,7 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:test:owl-dl:root> a owl:Ontology ; owl:imports <https://example.invalid/owl-dl/branch> .
+ex:A a owl:Class .
+ex:C a owl:Class .
+ex:conflicted a owl:NamedIndividual, ex:A, ex:C .

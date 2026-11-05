@@ -1,0 +1,3 @@
+@prefix ex: <urn:test:parcel:> .
+ex:ready a ex:Parcel ; ex:identifier "P1" ; ex:tag "ready" .
+ex:other a ex:Parcel ; ex:identifier "P2" ; ex:tag "hold" .

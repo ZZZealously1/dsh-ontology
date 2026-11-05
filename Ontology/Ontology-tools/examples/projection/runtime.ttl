@@ -1,0 +1,6 @@
+@prefix ot: <https://w3id.org/ontology-tools#> .
+
+<urn:projection-example:runtime> a ot:Runtime ;
+    ot:profile "hermit-swrl-projection-v1" ;
+    ot:validationOrder "pre-post" ;
+    ot:maxIterations 100 .

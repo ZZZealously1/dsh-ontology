@@ -1,0 +1,8 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<urn:test:owl-dl:equivalent-conflict> a owl:Ontology .
+ex:A a owl:Class ; owl:equivalentClass ex:B .
+ex:B a owl:Class ; owl:disjointWith ex:C .
+ex:C a owl:Class .
+ex:conflicted a owl:NamedIndividual, ex:A, ex:C .

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:meta="https://example.org/ontology-template/meta#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+  <owl:AnnotationProperty rdf:about="https://example.org/ontology-template/meta#status"/>
+  <owl:AnnotationProperty rdf:about="https://example.org/ontology-template/meta#locator"/>
+  <owl:AnnotationProperty rdf:about="https://example.org/ontology-template/meta#mode"/>
+  <owl:Class rdf:about="https://example.org/ontology-template/meta#Dataset"/>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">对象标识</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/ontology-template/demo#Item"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#tag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">结构演示标记</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/ontology-template/demo#Item"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="zh">合成标签分类结构示例</rdfs:label>
+    <owl:versionInfo>template-1</owl:versionInfo>
+    <meta:status>draft-template</meta:status>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#TaggedItem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology-template/demo#Item"/>
+    <rdfs:label xml:lang="zh">具有示例标记的对象</rdfs:label>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology-template/demo#Item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">示例对象</rdfs:label>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,13 @@
+@prefix ex: <urn:family:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+ex:ontology a owl:Ontology ; owl:versionInfo "1.1" ; dct:source ex:synthetic-source .
+ex:Entity a owl:Class .
+ex:Person a owl:Class ; rdfs:subClassOf ex:Entity .
+ex:name a owl:DatatypeProperty ; rdfs:domain ex:Person ; rdfs:range xsd:string .
+ex:parent a owl:ObjectProperty ; rdfs:domain ex:Person ; rdfs:range ex:Person ;
+  rdfs:subPropertyOf ex:ancestor ; owl:inverseOf ex:child ; dct:source ex:synthetic-source .
+ex:child a owl:ObjectProperty .
+ex:ancestor a owl:ObjectProperty, owl:TransitiveProperty ; dct:source ex:synthetic-source .

@@ -1,0 +1,2 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+ex:sampleA a ex:Sample ; ex:amount 2 .

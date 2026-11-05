@@ -1,0 +1,21 @@
+@prefix ex: <https://example.org/ontology-template/demo#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:case-positive a meta:Case ; dct:identifier "positive-demo" ;
+    meta:input "inputs/positive.ttl" ; meta:validationExpectation "conforms" ;
+    meta:expectedTriple [ rdf:subject ex:item-demo ; rdf:predicate rdf:type ; rdf:object ex:TaggedItem ] ;
+    dct:source ex:source-template .
+
+ex:case-negative a meta:Case ; dct:identifier "negative-other" ;
+    meta:input "inputs/negative.ttl" ; meta:validationExpectation "conforms" ;
+    meta:notExpectedInferredTriple [ rdf:subject ex:item-other ; rdf:predicate rdf:type ; rdf:object ex:TaggedItem ] ;
+    dct:description "本次规则不产出TaggedItem，不表示OWL否定该类型"@zh ;
+    dct:source ex:source-template .
+
+ex:case-invalid a meta:Case ; dct:identifier "invalid-missing-id" ;
+    meta:input "inputs/invalid.ttl" ; meta:validationExpectation "invalid" ;
+    meta:reasoningMustStop true ;
+    dct:description "缺少必填identifier，不能作正常业务推理"@zh ;
+    dct:source ex:source-template .

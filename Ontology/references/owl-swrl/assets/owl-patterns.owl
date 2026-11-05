@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="https://example.org/spare-parts#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:nodeID="n31d03975547640bca0a21933cb2561a6b3">
+    <rdf:first>预警</rdf:first>
+    <rdf:rest rdf:nodeID="n31d03975547640bca0a21933cb2561a6b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#核级备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#高风险供应商">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n31d03975547640bca0a21933cb2561a6b4">
+    <rdf:first>缺货</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/spare-parts#hasLicense"/>
+    <owl:allValuesFrom rdf:resource="https://example.org/spare-parts#有效许可证"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b3">
+    <rdf:first rdf:resource="https://example.org/spare-parts#B类"/>
+    <rdf:rest rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b11"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b4">
+    <rdf:first rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b2"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b16">
+    <rdf:first rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b14"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasDescendant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b7">
+    <rdf:first>SC2</rdf:first>
+    <rdf:rest rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b8">
+    <rdf:first rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b6"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#备件001">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:label xml:lang="zh">主泵密封环（合成）</rdfs:label>
+    <hasPartNumber>PN-001</hasPartNumber>
+    <hasStockQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</hasStockQuantity>
+    <suppliedBy rdf:resource="https://example.org/spare-parts#供应商A"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="zh">标识对象</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#合格供应商">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#进口核级备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/spare-parts#进口备件"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/spare-parts#核级备件"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#C类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">C类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#A类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">A类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasPrimarySupplier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">主供应商</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://example.org/spare-parts#hasSupplier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasSupplier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">供应商</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n31d03975547640bca0a21933cb2561a6b2">
+    <rdf:first>正常</rdf:first>
+    <rdf:rest rdf:nodeID="n31d03975547640bca0a21933cb2561a6b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts/patterns">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#战略备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">战略备件</rdfs:label>
+    <rdfs:comment xml:lang="zh">关键性、采购周期和价格的具体判定由项目来源给出</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://example.org/spare-parts#备件"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#ABC分类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">ABC分类</rdfs:label>
+    <owl:equivalentClass rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">状态</rdfs:label>
+    <rdfs:range rdf:nodeID="n31d03975547640bca0a21933cb2561a6b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/spare-parts#hasRiskLevel"/>
+    <owl:hasValue>高</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#suppliedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">供应商</rdfs:label>
+    <rdfs:comment xml:lang="zh">备件的供应来源</rdfs:comment>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="https://example.org/spare-parts#供应商"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#持有效许可证供应商">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b4">
+    <rdf:first rdf:resource="https://example.org/spare-parts#C类"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#安全级备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="https://example.org/spare-parts#非安全级备件"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#SafetyLevelCode">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasPartNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b3">
+    <rdf:first rdf:resource="https://example.org/spare-parts#供应商"/>
+    <rdf:rest rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasAncestor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="zh">上级（允许跨层）</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#设备"/>
+    <rdfs:range rdf:resource="https://example.org/spare-parts#设备"/>
+    <owl:inverseOf rdf:resource="https://example.org/spare-parts#hasDescendant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b7">
+    <rdf:first rdf:resource="https://example.org/spare-parts#供应商"/>
+    <rdf:rest rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="zh">备件</rdfs:label>
+    <rdfs:comment xml:lang="zh">用于设备维修更换的零部件</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasSafetyClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="https://example.org/spare-parts#SafetyLevelCode"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b9">
+    <rdf:first>非安全级</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasAnnualDemand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">年需求量</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment xml:lang="zh">原示例单位为件/年；正数约束需由项目确认并用数据范围或 SHACL 实现</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasRiskLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b8">
+    <rdf:first>SC3</rdf:first>
+    <rdf:rest rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasAlternateSupplier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="zh">备用供应商</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="https://example.org/spare-parts#hasSupplier"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n31d03975547640bca0a21933cb2561a6b1">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="n31d03975547640bca0a21933cb2561a6b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b12">
+    <rdf:first rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b10"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b4">
+    <rdf:first rdf:resource="https://example.org/spare-parts#C类备件"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#B类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">B类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#进口备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#C类备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b6">
+    <rdf:first>SC1</rdf:first>
+    <rdf:rest rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#isRelatedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b13">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#供应商A">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#供应商"/>
+    <rdfs:label xml:lang="zh">合成供应商 A</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#非安全级备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b2">
+    <rdf:first rdf:resource="https://example.org/spare-parts#A类备件"/>
+    <rdf:rest rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:oneOf rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b3">
+    <rdf:first rdf:resource="https://example.org/spare-parts#B类备件"/>
+    <rdf:rest rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b15">
+    <rdf:first rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdf:rest rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b16"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#A类备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasPartName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">部件名称</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b5">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b6">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/spare-parts#hasLicense"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/spare-parts#有效许可证"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#B类备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#单一供应商备件">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:equivalentClass rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b13"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#设备">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/spare-parts#suppliedBy"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasLicense">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#manages">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b2">
+    <rdf:first rdf:resource="https://example.org/spare-parts#A类"/>
+    <rdf:rest rdf:nodeID="n9363c453d4fe4bb8ad46ae0fcaffd4b1b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#hasStockQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="zh">库存数量</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="n0e1f2a0ecf07436d941465d4843c3189b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#供应商">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#有效许可证">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b11">
+    <rdf:first rdf:resource="https://example.org/spare-parts#供应商"/>
+    <rdf:rest rdf:nodeID="n55ae0c54ae6c4d639815dcd0fe1d30e9b12"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n1abb6b4544214d3cb3e27812f42bf922b1">
+    <rdf:type rdf:resource="https://example.org/spare-parts#备件"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,12 @@
+@prefix ex: <urn:family:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+ex:alice a ex:Person ; ex:name "Alice" ; ex:parent ex:bob .
+ex:bob a ex:Person ; ex:name "Bob" ; ex:parent ex:carol .
+ex:carol a ex:Person ; ex:name "Carol" .
+ex:dataset ot:mode "synthetic" ; dct:source ex:synthetic-source .
+[] a rdf:Statement ; rdf:subject ex:alice ; rdf:predicate ex:parent ; rdf:object ex:bob ;
+  dct:source ex:synthetic-source ; ot:locator "合成关系1：Alice的parent为Bob" .
+[] a rdf:Statement ; rdf:subject ex:bob ; rdf:predicate ex:parent ; rdf:object ex:carol ;
+  dct:source ex:synthetic-source ; ot:locator "合成关系2：Bob的parent为Carol" .

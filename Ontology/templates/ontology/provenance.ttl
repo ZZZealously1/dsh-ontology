@@ -1,0 +1,15 @@
+@prefix ex: <https://example.org/ontology-template/demo#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:source-template a meta:Source ;
+    meta:sourceId "SYNTHETIC-TEMPLATE" ;
+    dct:title "方法库合成标签分类示例"@zh ;
+    meta:locator "README.md：能力问题与规则说明" ;
+    meta:status "template_only" ;
+    meta:authority "synthetic_example" ;
+    meta:effectivePeriod "not_applicable" .
+
+ex:question-tagged a meta:CompetencyQuestion ;
+    dct:description "给定Item的tag为demo时，能否由规则推导其为TaggedItem？"@zh ;
+    meta:rule ex:rule-tagged ; dct:source ex:source-template .

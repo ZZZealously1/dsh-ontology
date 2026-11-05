@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rag-starter#DocumentShape> a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <https://example.org/rag-starter#docId> ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:path <https://example.org/rag-starter#pageCount> ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "公开"^^xsd:string "敏感"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <https://example.org/rag-starter#securityLevel> ] ;
+    sh:targetClass <https://example.org/rag-starter#Document> .
+

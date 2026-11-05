@@ -1,0 +1,8 @@
+@prefix ex: <urn:test:sensor:> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:atBoundary a ex:Device ; ex:hasReading ex:r1 .
+ex:below a ex:Device ; ex:hasReading ex:r2 .
+ex:above a ex:Device ; ex:hasReading ex:r3 .
+ex:r1 a ex:Reading ; ex:value "1.5"^^xsd:decimal .
+ex:r2 a ex:Reading ; ex:value "1.4999999999999999999999999999"^^xsd:decimal .
+ex:r3 a ex:Reading ; ex:value "1.5000000000000000000000000001"^^xsd:decimal .

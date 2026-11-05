@@ -1,0 +1,16 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:synthetic-source a meta:Source ;
+    meta:sourceId "SYNTHETIC-PROJECTION" ;
+    dct:title "多轮 OWL DL 与有限 SWRL 协同合成夹具"@zh ;
+    meta:locator "README.md：能力问题与独立预期" ;
+    meta:status "synthetic_example" ;
+    meta:authority "synthetic_example" ;
+    meta:effectivePeriod "not_applicable" .
+
+ex:question-ready a meta:CompetencyQuestion ;
+    dct:description "由提供服务这一原始关系，能否经过两次 OWL 分类和两条规则得到 ReadyStore？"@zh ;
+    meta:rule ex:rule-route, ex:rule-ready ;
+    dct:source ex:synthetic-source .

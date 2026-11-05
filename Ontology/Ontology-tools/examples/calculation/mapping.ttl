@@ -1,0 +1,13 @@
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:fixture-mapping a meta:Mapping ;
+    meta:sourceObject "本目录直接编写的合成 RDF 夹具" ;
+    meta:targetClass ex:Sample ; meta:joinKey ex:key ;
+    meta:executionStatus "direct_fixture_not_etl" ;
+    meta:fieldMapping [ meta:sourceField "key" ; meta:targetProperty ex:key ;
+        meta:transformNote "合成字符串原样写入" ] ;
+    meta:fieldMapping [ meta:sourceField "amount" ; meta:targetProperty ex:amount ;
+        meta:transformNote "原始合成数值，禁止预填 subtotal 或 result" ] ;
+    dct:source ex:synthetic-source .

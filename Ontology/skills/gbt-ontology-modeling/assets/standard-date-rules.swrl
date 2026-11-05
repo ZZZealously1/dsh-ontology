@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+>
+  <rdf:Description rdf:nodeID="N87072713e76c4036be686e19ca23e897">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/standard-reference#StandardEntity"/>
+    <swrl:argument1 rdf:resource="https://example.org/standard-reference#s"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N13bb5c53f532495db3c03a3b7f2c7dc0">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+    <swrl:arguments rdf:nodeID="N3d8415cbd07a4e1596b4a9733ad756f1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N07e65c3115a34efe9dceece953224b99">
+    <rdf:first rdf:nodeID="N13bb5c53f532495db3c03a3b7f2c7dc0"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#effective">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5fc449d1a06d45caaf42d9a715b7c1b0">
+    <rdf:first rdf:nodeID="N7a9cf3ea4de84a28a092bd8680522359"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb31ae4f2609d491c92c9336e9f199d8a">
+    <rdf:first rdf:nodeID="N87072713e76c4036be686e19ca23e897"/>
+    <rdf:rest rdf:nodeID="Naf1e02c2bd5946fda7a0792689a58e55"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbe95cef0c5e9413f82ebd52447f20b70">
+    <rdf:first rdf:resource="https://example.org/standard-reference#issued"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3d8415cbd07a4e1596b4a9733ad756f1">
+    <rdf:first rdf:resource="https://example.org/standard-reference#effective"/>
+    <rdf:rest rdf:nodeID="Nbe95cef0c5e9413f82ebd52447f20b70"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf0288bdefc64434085ca329022cace41">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/standard-reference#issuedDate"/>
+    <swrl:argument1 rdf:resource="https://example.org/standard-reference#s"/>
+    <swrl:argument2 rdf:resource="https://example.org/standard-reference#issued"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N45f12cead4ef4bdf8e8fb67ecd3f5e93">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="https://example.org/standard-reference#effectiveDate"/>
+    <swrl:argument1 rdf:resource="https://example.org/standard-reference#s"/>
+    <swrl:argument2 rdf:resource="https://example.org/standard-reference#effective"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7a9cf3ea4de84a28a092bd8680522359">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="https://example.org/standard-reference#InvalidDateEntity"/>
+    <swrl:argument1 rdf:resource="https://example.org/standard-reference#s"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#dateValidation">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">dateValidation</rdfs:label>
+    <rdfs:comment xml:lang="zh">合成 ISO 日期字符串顺序例子；真实日期类型/时区比较须核验后端，不自动修正日期。</rdfs:comment>
+    <swrl:body rdf:nodeID="Nb31ae4f2609d491c92c9336e9f199d8a"/>
+    <swrl:head rdf:nodeID="N5fc449d1a06d45caaf42d9a715b7c1b0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5f5f73912512491b86251f3063363367">
+    <rdf:first rdf:nodeID="N45f12cead4ef4bdf8e8fb67ecd3f5e93"/>
+    <rdf:rest rdf:nodeID="N07e65c3115a34efe9dceece953224b99"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference/date-rules">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf1e02c2bd5946fda7a0792689a58e55">
+    <rdf:first rdf:nodeID="Nf0288bdefc64434085ca329022cace41"/>
+    <rdf:rest rdf:nodeID="N5f5f73912512491b86251f3063363367"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#s">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#issued">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+</rdf:RDF>

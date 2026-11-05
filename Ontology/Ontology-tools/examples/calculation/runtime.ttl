@@ -1,0 +1,8 @@
+@prefix ot: <https://w3id.org/ontology-tools#> .
+@prefix ex: <https://example.org/ontology-tools/calculation#> .
+
+ex:runtime a ot:Runtime ;
+    ot:profile "hermit-swrl-calculation-v1" ;
+    ot:validationOrder "pre-post" ;
+    ot:maxIterations 100 ;
+    ot:javaTimeout 60 .

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:meta="https://example.org/ontology-template/meta#">
+  <swrl:Variable rdf:about="https://example.org/ontology-template/demo#x"/>
+  <swrl:Imp rdf:about="https://example.org/ontology-template/demo#rule-tagged">
+    <rdfs:label xml:lang="zh">合成示例标记分类</rdfs:label>
+    <dct:source rdf:resource="https://example.org/ontology-template/demo#source-template"/>
+    <meta:status>draft-template</meta:status>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-template/demo#Item"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-template/demo#x"/>
+      </swrl:ClassAtom>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="https://example.org/ontology-template/demo#tag"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-template/demo#x"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">demo</swrl:argument2>
+      </swrl:DatavaluedPropertyAtom>
+    </swrl:body>
+    <swrl:head rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-template/demo#TaggedItem"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-template/demo#x"/>
+      </swrl:ClassAtom>
+    </swrl:head>
+  </swrl:Imp>
+</rdf:RDF>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/standard-reference#InformationUnit">
+    <owl:hasKey rdf:nodeID="Nfa0d1ec1143747b38cae93de20b65c21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#StandardEntity">
+    <owl:hasKey rdf:nodeID="Nd1f479e19b174fa48ef5bcc5310e5dc0"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf7a2ba5d54374d628d3e38bb4ff74a24">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/standard-reference#hasSubClause"/>
+    <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#Section">
+    <owl:disjointWith rdf:resource="https://example.org/standard-reference#Clause"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#UntitledClause">
+    <rdfs:subClassOf rdf:nodeID="Nf7a2ba5d54374d628d3e38bb4ff74a24"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfa0d1ec1143747b38cae93de20b65c21">
+    <rdf:first rdf:resource="https://example.org/standard-reference#uniqueIdentifier"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1f479e19b174fa48ef5bcc5310e5dc0">
+    <rdf:first rdf:resource="https://example.org/standard-reference#standardNumber"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference/candidate-axioms">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#NormativeElement">
+    <owl:disjointWith rdf:resource="https://example.org/standard-reference#InformativeElement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/standard-reference#issuedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+</rdf:RDF>

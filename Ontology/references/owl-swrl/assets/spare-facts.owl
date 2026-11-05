@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="https://example.org/spare-parts#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/spare-parts#A类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">A类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#备件001">
+    <rdf:type rdf:resource="https://example.org/spare-parts#备件"/>
+    <rdfs:label xml:lang="zh">主泵密封环（合成）</rdfs:label>
+    <hasPartName>主泵密封环</hasPartName>
+    <hasStockQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</hasStockQuantity>
+    <hasSafetyStock rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</hasSafetyStock>
+    <hasAnnualConsumption rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1500000</hasAnnualConsumption>
+    <suppliedBy rdf:resource="https://example.org/spare-parts#供应商A"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#B类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">B类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#C类">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://example.org/spare-parts#ABC分类"/>
+    <rdfs:label xml:lang="zh">C类</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/spare-parts#供应商A">
+    <rdf:type rdf:resource="https://example.org/spare-parts#供应商"/>
+    <rdfs:label xml:lang="zh">合成供应商 A（原示例名称不代表真实关系）</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

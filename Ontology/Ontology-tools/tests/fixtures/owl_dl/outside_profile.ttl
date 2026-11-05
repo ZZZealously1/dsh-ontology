@@ -1,0 +1,8 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:test:owl-dl:outside-profile> a owl:Ontology .
+ex:ancestor a owl:ObjectProperty, owl:TransitiveProperty .
+ex:LimitedAncestor a owl:Class ; owl:equivalentClass [ a owl:Restriction ;
+    owl:onProperty ex:ancestor ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .

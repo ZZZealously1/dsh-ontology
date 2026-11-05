@@ -1,0 +1,12 @@
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.log
+outputs/
+runs/
+coverage/
+.DS_Store
+*.tgz

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dct="http://purl.org/dc/terms/">
+  <swrl:Variable rdf:about="https://example.org/ontology-tools/projection#s"/>
+  <swrl:Variable rdf:about="https://example.org/ontology-tools/projection#r"/>
+  <swrl:Imp rdf:about="https://example.org/ontology-tools/projection#rule-route">
+    <rdfs:label xml:lang="zh">合成配送门店关联既有路线</rdfs:label>
+    <dct:source rdf:resource="https://example.org/ontology-tools/projection#synthetic-source"/>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/projection#DeliveryStore"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-tools/projection#s"/>
+      </swrl:ClassAtom>
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/projection#Route"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-tools/projection#r"/>
+      </swrl:ClassAtom>
+    </swrl:body>
+    <swrl:head rdf:parseType="Collection">
+      <swrl:IndividualPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="https://example.org/ontology-tools/projection#eligibleFor"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-tools/projection#s"/>
+        <swrl:argument2 rdf:resource="https://example.org/ontology-tools/projection#r"/>
+      </swrl:IndividualPropertyAtom>
+    </swrl:head>
+  </swrl:Imp>
+  <swrl:Imp rdf:about="https://example.org/ontology-tools/projection#rule-ready">
+    <rdfs:label xml:lang="zh">合成已关联路线门店完成分类</rdfs:label>
+    <dct:source rdf:resource="https://example.org/ontology-tools/projection#synthetic-source"/>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/projection#RoutedStore"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-tools/projection#s"/>
+      </swrl:ClassAtom>
+    </swrl:body>
+    <swrl:head rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="https://example.org/ontology-tools/projection#ReadyStore"/>
+        <swrl:argument1 rdf:resource="https://example.org/ontology-tools/projection#s"/>
+      </swrl:ClassAtom>
+    </swrl:head>
+  </swrl:Imp>
+</rdf:RDF>

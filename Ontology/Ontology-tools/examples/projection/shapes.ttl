@@ -1,0 +1,12 @@
+@prefix ex: <https://example.org/ontology-tools/projection#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 仅检查合成夹具的身份字段，不规定真实门店的业务阈值或审批条件。
+ex:StoreShape a sh:NodeShape ;
+    sh:targetClass ex:Store ;
+    sh:property [
+        sh:path ex:storeKey ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:minLength 1
+    ] .

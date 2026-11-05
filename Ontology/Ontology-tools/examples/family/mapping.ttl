@@ -1,0 +1,4 @@
+@prefix ex: <urn:family:> .
+@prefix ot: <https://w3id.org/ontology-tools#> .
+ex:parentMapping ot:sourceField "synthetic parent pair" ; ot:targetProperty ex:parent ;
+  ot:status "direct-synthetic-RDF; no external ETL" .

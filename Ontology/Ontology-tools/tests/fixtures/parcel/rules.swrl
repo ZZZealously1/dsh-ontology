@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+         xmlns:dct="http://purl.org/dc/terms/">
+  <swrl:Variable rdf:about="urn:test:parcel:x"/>
+  <swrl:Imp rdf:about="urn:test:parcel:rule-ready">
+    <dct:source rdf:resource="urn:test:synthetic-spec"/>
+    <swrl:body rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="urn:test:parcel:Parcel"/>
+        <swrl:argument1 rdf:resource="urn:test:parcel:x"/>
+      </swrl:ClassAtom>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="urn:test:parcel:tag"/>
+        <swrl:argument1 rdf:resource="urn:test:parcel:x"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ready</swrl:argument2>
+      </swrl:DatavaluedPropertyAtom>
+    </swrl:body>
+    <swrl:head rdf:parseType="Collection">
+      <swrl:ClassAtom>
+        <swrl:classPredicate rdf:resource="urn:test:parcel:ReadyParcel"/>
+        <swrl:argument1 rdf:resource="urn:test:parcel:x"/>
+      </swrl:ClassAtom>
+    </swrl:head>
+  </swrl:Imp>
+</rdf:RDF>

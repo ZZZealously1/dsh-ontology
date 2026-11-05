@@ -1,0 +1,9 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:test:owl-dl:inherited-conflict> a owl:Ontology .
+ex:LivingThing a owl:Class ; owl:disjointWith ex:Device .
+ex:Person a owl:Class ; rdfs:subClassOf ex:LivingThing .
+ex:Device a owl:Class .
+ex:conflicted a owl:NamedIndividual, ex:Person, ex:Device .

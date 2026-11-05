@@ -1,0 +1,26 @@
+@prefix pkg: <https://example.org/ontology-package#> .
+
+<https://example.org/ontology-template/load-plan#plan> pkg:buildInput [ pkg:path "integration/load-plan.ttl" ;
+            pkg:sha256 "d1fc024d8273843899c7a879178a860456834b8c640eea55240e871eead1b90a" ],
+        [ pkg:path "scripts/build_integration.py" ;
+            pkg:sha256 "e726a1396255eebad4c0cf31e143eee3f8d559e90d8e9e1a2b4f7e89785c7d4d" ] ;
+    pkg:builderVersion "template-materializer-1" ;
+    pkg:module <https://example.org/ontology-template/load-plan#facts>,
+        <https://example.org/ontology-template/load-plan#model>,
+        <https://example.org/ontology-template/load-plan#rules> .
+
+<https://example.org/ontology-template/load-plan#facts> pkg:path "data/instances_demo.owl" ;
+    pkg:role pkg:ABox ;
+    pkg:sha256 "e408987471ba83e4ddb0fa7f38bc734b91f24da46aa9600fe89867dbe0e7da89" ;
+    pkg:version "template-1" .
+
+<https://example.org/ontology-template/load-plan#model> pkg:path "subontologies/demo_ontology.owl" ;
+    pkg:role pkg:TBox ;
+    pkg:sha256 "8c0473e457258e2f5a0a8dd2a377d9462d2e62065112a0087faad82b11ed158b" ;
+    pkg:version "template-1" .
+
+<https://example.org/ontology-template/load-plan#rules> pkg:path "rules/demo/demo_rules.swrl" ;
+    pkg:role pkg:Rules ;
+    pkg:sha256 "5f8d39bc6b8ff5e068a3da24e67f13a4868fb374c5eaedab2dd40ce9077b660a" ;
+    pkg:version "template-1" .
+

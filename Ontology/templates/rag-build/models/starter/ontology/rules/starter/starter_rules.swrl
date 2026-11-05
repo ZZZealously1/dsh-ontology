@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="http://www.w3.org/2003/11/swrl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:nodeID="Naaf88edf16aa4a2290e72e6d4074535c">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <ns1:propertyPredicate rdf:resource="https://example.org/rag-starter#securityLevel"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+    <ns1:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">敏感</ns1:argument2>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#R01">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>R01</rdfs:label>
+    <rdfs:comment xml:lang="zh">类别：分类。合成示例：敏感文档标记；不代表真实访问授权。</rdfs:comment>
+    <ns1:body rdf:nodeID="N31ac5e2e651e47598e687e61b964cde8"/>
+    <ns1:head rdf:nodeID="N04971a881c5348eea9ed2e55072b017e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf9d1a4da53c74c5cbcb86ce3b3e482e8">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncc41c03cc9d44dcf9017f793c4e085c1">
+    <rdf:first rdf:resource="https://example.org/rag-starter#varValue"/>
+    <rdf:rest rdf:nodeID="Nf9d1a4da53c74c5cbcb86ce3b3e482e8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na873fc028ef44b109401c8983e9a71d4">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <ns1:classPredicate rdf:resource="https://example.org/rag-starter#Document"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne89c7370cbb24e208de10fb5763aff65">
+    <rdf:first rdf:nodeID="Na873fc028ef44b109401c8983e9a71d4"/>
+    <rdf:rest rdf:nodeID="N18fe753b893340c68eef631fa72a553d"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N599effc2a89541618e96ded77546d3d6">
+    <rdf:first rdf:nodeID="N6520041d4a9242179a6cf431e3120003"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N768f56e773474db38da4f1d7870dacd9">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <ns1:propertyPredicate rdf:resource="https://example.org/rag-starter#pageCount"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+    <ns1:argument2 rdf:resource="https://example.org/rag-starter#varValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9e2594593af54195b3a9f2dfd635550b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <ns1:classPredicate rdf:resource="https://example.org/rag-starter#Document"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6520041d4a9242179a6cf431e3120003">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <ns1:classPredicate rdf:resource="https://example.org/rag-starter#LargeDocument"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N487d85e64fa04a7eb3311ba5d32eecfe">
+    <rdf:first rdf:nodeID="Naaf88edf16aa4a2290e72e6d4074535c"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na85a1351cbfc40b089d21ac26c2482ad">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <ns1:classPredicate rdf:resource="https://example.org/rag-starter#RestrictedDocument"/>
+    <ns1:argument1 rdf:resource="https://example.org/rag-starter#varX"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N18fe753b893340c68eef631fa72a553d">
+    <rdf:first rdf:nodeID="N768f56e773474db38da4f1d7870dacd9"/>
+    <rdf:rest rdf:nodeID="Nfef96556c82640ef96289665f01396fa"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#R02">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>R02</rdfs:label>
+    <rdfs:comment xml:lang="zh">类别：分类。合成示例阈值10，仅用于边界测试，不是业务制度。</rdfs:comment>
+    <ns1:body rdf:nodeID="Ne89c7370cbb24e208de10fb5763aff65"/>
+    <ns1:head rdf:nodeID="N599effc2a89541618e96ded77546d3d6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#varX">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N31ac5e2e651e47598e687e61b964cde8">
+    <rdf:first rdf:nodeID="N9e2594593af54195b3a9f2dfd635550b"/>
+    <rdf:rest rdf:nodeID="N487d85e64fa04a7eb3311ba5d32eecfe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#varValue">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N04971a881c5348eea9ed2e55072b017e">
+    <rdf:first rdf:nodeID="Na85a1351cbfc40b089d21ac26c2482ad"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfef96556c82640ef96289665f01396fa">
+    <rdf:first rdf:nodeID="N55f006df09f84ab6ad310cb89792b747"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N55f006df09f84ab6ad310cb89792b747">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <ns1:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+    <ns1:arguments rdf:nodeID="Ncc41c03cc9d44dcf9017f793c4e085c1"/>
+  </rdf:Description>
+</rdf:RDF>

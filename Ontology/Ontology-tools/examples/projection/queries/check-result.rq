@@ -1,0 +1,8 @@
+PREFIX ex: <https://example.org/ontology-tools/projection#>
+SELECT ?store ?route ?ready
+WHERE {
+  ?store a ex:DeliveryStore ;
+         ex:eligibleFor ?route .
+  OPTIONAL { ?store a ex:ReadyStore . BIND(true AS ?ready) }
+}
+ORDER BY ?store ?route

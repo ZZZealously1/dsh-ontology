@@ -1,0 +1,46 @@
+{
+  "name": "dsh-ontology",
+  "version": "0.1.0",
+  "description": "Native ontology modeling, OWL/SWRL reasoning, validation and reproducible evidence for DeepSeek Harness.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": { ".": "./lib/index.js", "./package.json": "./package.json" },
+  "files": ["lib", "bridge", "skills", "Ontology", "cordis.patch.yml", "docs", "THIRD_PARTY_NOTICES.md", "source-manifest.sha256", "scripts/verify-package.mjs", "scripts/verify-dsh.mjs", "scripts/sync-ontology.py", "scripts/pack.py"],
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "engines": { "node": ">=24" },
+  "license": "UNLICENSED",
+  "repository": { "type": "git", "url": "https://github.com/ZZZealously1/dsh-ontology.git" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:integration": "node scripts/verify-dsh.mjs",
+    "pack:plugin": "python -B scripts/pack.py",
+    "verify:package": "node scripts/verify-package.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-skill": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-subprocess": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-fs": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-working-directory": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-fs-local": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-subprocess-local": "0.2.1-rc.5"
+  },
+  "dependencies": { "@deepseek-ai/schemastery": "~3.18.5" },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-skill": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-subprocess": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-fs": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-working-directory": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-fs-local": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-subprocess-local": "0.2.1-rc.5",
+    "@types/node": "24.10.0",
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

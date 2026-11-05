@@ -1,0 +1,54 @@
+@prefix ns1: <https://w3id.org/ontology-tools#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rag-starter#case-boundary-0> a ns1:Case ;
+    ns1:expectedTriple [ rdf:object <https://example.org/rag-starter#RestrictedDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#boundary-0> ] ;
+    ns1:input "inputs/boundary-0.ttl" ;
+    ns1:notExpectedInferredTriple [ rdf:object <https://example.org/rag-starter#LargeDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#boundary-0> ] ;
+    ns1:validationExpectation "conforms" .
+
+<https://example.org/rag-starter#case-boundary-10> a ns1:Case ;
+    ns1:expectedTriple [ rdf:object <https://example.org/rag-starter#LargeDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#boundary-10> ] ;
+    ns1:input "inputs/boundary-10.ttl" ;
+    ns1:notExpectedInferredTriple [ rdf:object <https://example.org/rag-starter#RestrictedDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#boundary-10> ] ;
+    ns1:validationExpectation "conforms" .
+
+<https://example.org/rag-starter#case-invalid-enum> a ns1:Case ;
+    ns1:input "inputs/invalid-enum.ttl" ;
+    ns1:reasoningMustStop true ;
+    ns1:validationExpectation "invalid" .
+
+<https://example.org/rag-starter#case-invalid-missing> a ns1:Case ;
+    ns1:input "inputs/invalid-missing.ttl" ;
+    ns1:reasoningMustStop true ;
+    ns1:validationExpectation "invalid" .
+
+<https://example.org/rag-starter#case-public-9> a ns1:Case ;
+    ns1:input "inputs/public-9.ttl" ;
+    ns1:notExpectedInferredTriple [ rdf:object <https://example.org/rag-starter#LargeDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#public-9> ],
+        [ rdf:object <https://example.org/rag-starter#RestrictedDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#public-9> ] ;
+    ns1:validationExpectation "conforms" .
+
+<https://example.org/rag-starter#case-sensitive-11> a ns1:Case ;
+    ns1:expectedTriple [ rdf:object <https://example.org/rag-starter#RestrictedDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#sensitive-11> ],
+        [ rdf:object <https://example.org/rag-starter#LargeDocument> ;
+            rdf:predicate rdf:type ;
+            rdf:subject <https://example.org/rag-starter#sensitive-11> ] ;
+    ns1:input "inputs/sensitive-11.ttl" ;
+    ns1:validationExpectation "conforms" .
+

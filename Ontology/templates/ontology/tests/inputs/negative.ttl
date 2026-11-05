@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/ontology-template/demo#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:dataset-other a meta:Dataset ;
+    meta:mode "synthetic" .
+
+ex:item-other a ex:Item ;
+    ex:identifier "OTHER-001"^^xsd:string ;
+    ex:tag "other"^^xsd:string .
+
+[] a owl:Axiom ;
+    dct:source ex:source-template ;
+    owl:annotatedTarget "OTHER-001"^^xsd:string ;
+    owl:annotatedProperty ex:identifier ;
+    owl:annotatedSource ex:item-other ;
+    meta:locator "合成案例 other 的 identifier 字段；无外部来源" .
+
+[] a owl:Axiom ;
+    dct:source ex:source-template ;
+    owl:annotatedTarget "other"^^xsd:string ;
+    owl:annotatedProperty ex:tag ;
+    owl:annotatedSource ex:item-other ;
+    meta:locator "合成案例 other 的 tag 字段；无外部来源" .
+

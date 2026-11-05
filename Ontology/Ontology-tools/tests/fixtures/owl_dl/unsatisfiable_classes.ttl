@@ -1,0 +1,10 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:test:owl-dl:unsatisfiable-classes> a owl:Ontology .
+ex:A a owl:Class ; owl:disjointWith ex:B .
+ex:B a owl:Class .
+ex:Impossible a owl:Class ; rdfs:subClassOf ex:A, ex:B .
+ex:AlsoImpossible a owl:Class ; owl:equivalentClass ex:Impossible .
+ex:Possible a owl:Class ; rdfs:subClassOf ex:A .

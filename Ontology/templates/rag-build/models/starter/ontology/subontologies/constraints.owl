@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:nodeID="N9e21cb01ecc6470c90b87d520dda6cfe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/rag-starter#hasOwner"/>
+    <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nac7d7b02e0484271a61bbb7f8c6d5d60">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="N21bc28fe84844e4fa86d6fb3b7298a2e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#Document">
+    <owl:hasKey rdf:nodeID="Nccd79493d3464aeea6ccd70332daa823"/>
+    <owl:disjointWith rdf:resource="https://example.org/rag-starter#Organization"/>
+    <rdfs:subClassOf rdf:nodeID="N4c9aa7238d904cdabdf50d0309737473"/>
+    <rdfs:subClassOf rdf:nodeID="N9e21cb01ecc6470c90b87d520dda6cfe"/>
+    <rdfs:subClassOf rdf:nodeID="N5cf62104c671439b8cf14918337027d2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cbe873dcffb48eb85e2108224687bb5">
+    <rdf:first rdf:resource="https://example.org/rag-starter#Server"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter/constraints">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="zh">合成示例：完整 OWL 公理</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0ab7d5d2cd5441e1add0364d7ecf0c4c">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">公开</rdf:first>
+    <rdf:rest rdf:nodeID="N53c8515ee46e4e4dbb88f472aec4334a"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5cf62104c671439b8cf14918337027d2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/rag-starter#hasOwner"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/rag-starter#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#hasOwner">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4c9aa7238d904cdabdf50d0309737473">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/rag-starter#securityLevel"/>
+    <owl:allValuesFrom rdf:nodeID="Nabab27048a194c8d82c3578e5f89a958"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nabab27048a194c8d82c3578e5f89a958">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:oneOf rdf:nodeID="N0ab7d5d2cd5441e1add0364d7ecf0c4c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N53c8515ee46e4e4dbb88f472aec4334a">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">敏感</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/rag-starter#hostedOn">
+    <rdfs:domain rdf:nodeID="Nac7d7b02e0484271a61bbb7f8c6d5d60"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N21bc28fe84844e4fa86d6fb3b7298a2e">
+    <rdf:first rdf:resource="https://example.org/rag-starter#Component"/>
+    <rdf:rest rdf:nodeID="N9cbe873dcffb48eb85e2108224687bb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nccd79493d3464aeea6ccd70332daa823">
+    <rdf:first rdf:resource="https://example.org/rag-starter#docId"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+</rdf:RDF>

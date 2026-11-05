@@ -1,0 +1,6 @@
+PREFIX ex: <https://example.org/ontology-tools/calculation#>
+SELECT ?sample ?subtotal ?result
+WHERE {
+    ?sample a ex:Finished ; ex:subtotal ?subtotal ; ex:result ?result .
+}
+ORDER BY ?sample

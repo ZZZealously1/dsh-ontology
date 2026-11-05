@@ -1,0 +1,14 @@
+@prefix ex: <https://example.org/ontology-template/demo#> .
+@prefix meta: <https://example.org/ontology-template/meta#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:input-mapping a meta:Mapping ;
+    meta:sourceObject "合成测试夹具" ;
+    meta:targetClass ex:Item ;
+    meta:joinKey ex:identifier ;
+    meta:executionStatus "direct_fixture_not_etl" ;
+    meta:fieldMapping [ meta:sourceField "identifier" ; meta:targetProperty ex:identifier ;
+                        meta:transformNote "直接给出字符串，不生成真实业务身份" ] ;
+    meta:fieldMapping [ meta:sourceField "tag" ; meta:targetProperty ex:tag ;
+                        meta:transformNote "原样字符串，demo仅用于结构演示" ] ;
+    dct:source ex:source-template .

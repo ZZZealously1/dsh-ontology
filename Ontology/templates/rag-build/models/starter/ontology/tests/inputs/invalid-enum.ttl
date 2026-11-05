@@ -1,0 +1,10 @@
+@prefix ns1: <https://example.org/rag-starter#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:invalid-enum a owl:NamedIndividual,
+        ns1:Document ;
+    ns1:docId "invalid-enum"^^xsd:string ;
+    ns1:pageCount 10 ;
+    ns1:securityLevel "机密"^^xsd:string .
+

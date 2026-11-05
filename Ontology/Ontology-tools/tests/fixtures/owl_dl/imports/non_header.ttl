@@ -1,0 +1,5 @@
+@prefix ex: <urn:test:owl-dl:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+ex:nonHeaderImports a owl:Ontology .
+ex:Thing a owl:Class ; owl:imports <https://example.invalid/owl-dl/branch> .

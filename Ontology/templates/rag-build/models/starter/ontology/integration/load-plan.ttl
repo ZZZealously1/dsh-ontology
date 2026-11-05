@@ -1,0 +1,32 @@
+@prefix ns1: <https://example.org/ontology-package#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Optional formula projects: static ns1:FormulaCatalog at formulas/<domain>.ttl.
+# This starter builder does not implement that role. Extend/verify the actual
+# adapter and graph equivalence before listing such a module. Flat runtime
+# output is formulas.ttl; contract is Ontology-tools/FORMULA.md in this library.
+
+<urn:rag-example:starter:integrated> a ns1:LoadPlan ;
+    ns1:includesABox false ;
+    ns1:integrationMode ns1:Materialized ;
+    ns1:module <urn:rag-example:starter:data/instances_starter.owl>,
+        <urn:rag-example:starter:rules/starter/starter_rules.swrl>,
+        <urn:rag-example:starter:subontologies/constraints.owl>,
+        <urn:rag-example:starter:subontologies/rule_vocabulary.owl> .
+
+<urn:rag-example:starter:data/instances_starter.owl> a ns1:Module ;
+    ns1:path "data/instances_starter.owl" ;
+    ns1:role ns1:ABox .
+
+<urn:rag-example:starter:rules/starter/starter_rules.swrl> a ns1:Module ;
+    ns1:path "rules/starter/starter_rules.swrl" ;
+    ns1:role ns1:Rules .
+
+<urn:rag-example:starter:subontologies/constraints.owl> a ns1:Module ;
+    ns1:path "subontologies/constraints.owl" ;
+    ns1:role ns1:TBox .
+
+<urn:rag-example:starter:subontologies/rule_vocabulary.owl> a ns1:Module ;
+    ns1:path "subontologies/rule_vocabulary.owl" ;
+    ns1:role ns1:TBox .
+

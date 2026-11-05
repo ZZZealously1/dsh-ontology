@@ -1,0 +1,64 @@
+@prefix : <https://example.org/standard-reference#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ClauseShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:in ( "强制" "推荐" "描述" ) ;
+            sh:path :clauseConstraintType ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "要求型" "推荐型" "指示型" "允许型" "陈述型" ) ;
+            sh:path :clauseType ] ;
+    sh:targetClass :ClauseContent .
+
+:InformationUnitShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path :uniqueIdentifier ] ;
+    sh:sparql [ sh:message "候选身份检查：不同节点共享标识，请核对同一实体别名或重复记录。"@zh ;
+            sh:select "SELECT $this WHERE { $this <https://example.org/standard-reference#uniqueIdentifier> ?id . ?other a <https://example.org/standard-reference#InformationUnit> ; <https://example.org/standard-reference#uniqueIdentifier> ?id . FILTER (?other != $this) }" ] ;
+    sh:targetClass :InformationUnit .
+
+:StandardShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path :issuedDate ;
+            sh:pattern "^\\d{4}-\\d{2}-\\d{2}$" ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path :effectiveDate ;
+            sh:pattern "^\\d{4}-\\d{2}-\\d{2}$" ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "强制性" "推荐性" ) ;
+            sh:path :standardConstraintType ],
+        [ sh:lessThanOrEquals :effectiveDate ;
+            sh:path :issuedDate ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path :abolishedDate ;
+            sh:pattern "^\\d{4}-\\d{2}-\\d{2}$" ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "中文版本" "英文版本" ) ;
+            sh:path :languageVersion ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path :standardNumber ],
+        [ sh:maxCount 1 ;
+            sh:path :issuedBy ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "草案" "现行" "废止" "修订中" ) ;
+            sh:path :status ] ;
+    sh:sparql [ sh:message "候选身份检查：不同节点共享标识，请核对同一实体别名或重复记录。"@zh ;
+            sh:select "SELECT $this WHERE { $this <https://example.org/standard-reference#standardNumber> ?id . ?other a <https://example.org/standard-reference#StandardEntity> ; <https://example.org/standard-reference#standardNumber> ?id . FILTER (?other != $this) }" ],
+        [ sh:message "候选规则：废止标准需有废止日期或被另一标准替代；先确认项目适用性。"@zh ;
+            sh:select "SELECT $this WHERE { $this <https://example.org/standard-reference#status> \"废止\" . FILTER NOT EXISTS { $this <https://example.org/standard-reference#abolishedDate> ?date } FILTER NOT EXISTS { ?new <https://example.org/standard-reference#replaces> $this } }" ] ;
+    sh:targetClass :StandardEntity .
+
+:UntitledClauseShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 0 ;
+            sh:path :hasSubClause ] ;
+    sh:targetClass :UntitledClause .
+
