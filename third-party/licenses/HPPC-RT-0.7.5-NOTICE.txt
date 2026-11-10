@@ -1,0 +1,17 @@
+ACKNOWLEDGEMENT
+===============
+HPPC-RT ("Realtime")
+Copyright 2013-2017 Vincent Sonnier
+
+HPPC-RT borrowed code, ideas or both from:
+
+* HPPC, http://labs.carrotsearch.com/hppc.html, by Carrot Search s.c., Boznicza 11/57, 61-751 Poznan, Poland.
+   (Apache license)
+ * Apache Lucene, http://lucene.apache.org/
+   (Apache license)
+ * Fastutil, http://fastutil.di.unimi.it/
+   (Apache license)
+ * Koloboke, https://github.com/OpenHFT/Koloboke
+   (Apache license)
+ * Cliff Moon, https://github.com/moonpolysoft for a Robin Hood hashing pull request ( https://github.com/carrotsearch/hppc/pull/3 ) for HPPC. 
+    (Apache license)

@@ -13,7 +13,14 @@ const outside = await fs.mkdtemp(path.join(base, 'outside-'));
 const context = {cwd:root, signal:new AbortController().signal};
 let calls = 0;
 const fake = async () => { calls++; return {exitCode:0,stdout:'{"status":"passed"}',stderr:''}; };
-const runtime = createOntologyRuntime({workspaceRoots:[root]}, fake);
+// Standalone runtime harness supplies its explicit local filesystem capability.
+// The installed plugin instead supplies createDshProjectWriter(ctx).
+const writer = async (file,content,call) => {
+  call.signal.throwIfAborted();
+  await fs.mkdir(path.dirname(file),{recursive:true});
+  await fs.writeFile(file,content,{encoding:'utf8',flag:'wx',signal:call.signal});
+};
+const runtime = createOntologyRuntime({workspaceRoots:[root]}, fake, writer);
 const bundled = path.join(engineRoot, 'examples', 'tagging');
 
 test('method library supports bounded reads without project configuration', async () => {
@@ -80,7 +87,7 @@ const nativeRunner = spec => new Promise((resolve,reject)=>{
   child.stdout.on('data',data=>stdout+=data); child.stderr.on('data',data=>stderr+=data);
   child.on('error',reject); child.on('close',exitCode=>resolve({exitCode,stdout,stderr}));
 });
-const real=createOntologyRuntime({workspaceRoots:[root],pythonExecutable:python,javaExecutable:java},nativeRunner);
+const real=createOntologyRuntime({workspaceRoots:[root],pythonExecutable:python,javaExecutable:java},nativeRunner,writer);
 test('bridge environment confirms real Python, dependency fingerprints and Java', async()=>{
   const result=await real.environment(context);
   assert.equal(result.status,'ready',JSON.stringify(result));

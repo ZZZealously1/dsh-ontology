@@ -1,0 +1,55 @@
+location	sha256	component	license-summary	records
+automaton-1.11-8.jar	a24475f6ccfe1cc7a4fe9e34e05ce687b0ce0c6e8cb781e0eced3b186482c61e	automaton-1.11-8.jar	BSD-3-Clause	licenses/automaton-1.11-8
+axiom-api-1.2.14.jar	c17b35199ff938240ac18f70e0750888269432375029e15d8e5d49ce294a654d	axiom-api-1.2.14.jar	Apache-2.0	licenses/axiom-api-1.2.14
+axiom-c14n-1.2.14.jar	082da81c99890e2007452c6231483120c6c7d0374fcb4b8bfcc61ba858833a87	axiom-c14n-1.2.14.jar	Apache-2.0	licenses/axiom-c14n-1.2.14
+axiom-dom-1.2.14.jar	7f3aaf83dfbcfbec5d5ad915f77349d884323f6a28134e1a11e28de0d1792bb1	axiom-dom-1.2.14.jar	Apache-2.0	licenses/axiom-dom-1.2.14
+axiom-impl-1.2.14.jar	cfafc9dab48292b86932b29b1e3c08b4dd2fa1f1e2a7bc9cd0f0f88868edf222	axiom-impl-1.2.14.jar	Apache-2.0	licenses/axiom-impl-1.2.14
+caffeine-2.9.3.jar	1e0a7bbef1dd791653143f3f05d0e489934bf5481e58a87c9e619cd46b68729b	caffeine-2.9.3.jar	Apache-2.0	licenses/caffeine-2.9.3
+commons-io-2.15.1.jar	a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154	commons-io-2.15.1.jar	Apache-2.0	licenses/commons-io-2.15.1
+commons-logging-1.1.3.jar	70903f6fc82e9908c8da9f20443f61d90f0870a312642991fe8462a0b9391784	commons-logging-1.1.3.jar	Apache-2.0	licenses/commons-logging-1.1.3
+guava.jar	d664fbfc03d2e5ce9cab2a44fb01f1d0bf9dfebeccc1a473b1f9ea31f79f6f99	guava.jar	Apache-2.0; four JSR-166 files dedicated to public domain	licenses/guava
+hppcrt-0.7.5.jar	f3cfbd511d0bd5a29b72bcca97fcaa81889cf6698f045c5f658744829c8784b9	hppcrt-0.7.5.jar	Apache-2.0	licenses/hppcrt-0.7.5
+jakarta.activation-api.jar	a187a939103aef5849a7af84bd7e27be2d120c410af291437375ffe061f4f09d	jakarta.activation-api.jar	BSD-3-Clause (EDL-style text)	licenses/jakarta.activation-api
+jsr305-3.0.2.jar	766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7	jsr305-3.0.2.jar	Apache-2.0 metadata; javax.annotation.concurrent CC-BY-2.5 headers	licenses/jsr305-3.0.2
+org.apache.servicemix.bundles.javax-inject.jar	69e2e0e824a1b66a4356642eed892dec96c9c1510618a91fb9bcad71d56d07d3	org.apache.servicemix.bundles.javax-inject.jar	Apache-2.0	licenses/org.apache.servicemix.bundles.javax-inject
+org.semanticweb.hermit-1.4.3.456.jar	4a402a3d6f35c57b2dc67228db3db7775bb027b45029bcbaec32e6c907e3a409	org.semanticweb.hermit-1.4.3.456.jar	LGPL-3.0-or-later; bundled rationals declarations preserved (LGPL-2.1/BSD notices)	licenses/org.semanticweb.hermit-1.4.3.456
+org.semanticweb.hermit-1.4.3.456.jar!/automaton-1.11-8.jar	a24475f6ccfe1cc7a4fe9e34e05ce687b0ce0c6e8cb781e0eced3b186482c61e	automaton-1.11-8.jar	BSD-3-Clause	licenses/automaton-1.11-8
+org.semanticweb.hermit-1.4.3.456.jar!/axiom-api-1.2.14.jar	c17b35199ff938240ac18f70e0750888269432375029e15d8e5d49ce294a654d	axiom-api-1.2.14.jar	Apache-2.0	licenses/axiom-api-1.2.14
+org.semanticweb.hermit-1.4.3.456.jar!/axiom-c14n-1.2.14.jar	082da81c99890e2007452c6231483120c6c7d0374fcb4b8bfcc61ba858833a87	axiom-c14n-1.2.14.jar	Apache-2.0	licenses/axiom-c14n-1.2.14
+org.semanticweb.hermit-1.4.3.456.jar!/axiom-dom-1.2.14.jar	7f3aaf83dfbcfbec5d5ad915f77349d884323f6a28134e1a11e28de0d1792bb1	axiom-dom-1.2.14.jar	Apache-2.0	licenses/axiom-dom-1.2.14
+org.semanticweb.hermit-1.4.3.456.jar!/axiom-impl-1.2.14.jar	cfafc9dab48292b86932b29b1e3c08b4dd2fa1f1e2a7bc9cd0f0f88868edf222	axiom-impl-1.2.14.jar	Apache-2.0	licenses/axiom-impl-1.2.14
+org.semanticweb.hermit-1.4.3.456.jar!/commons-logging-1.1.3.jar	70903f6fc82e9908c8da9f20443f61d90f0870a312642991fe8462a0b9391784	commons-logging-1.1.3.jar	Apache-2.0	licenses/commons-logging-1.1.3
+owlapi-osgidistribution.jar	90856a7763f2b875c79acbd71d5884a9caca8eba0c6b6e5dc0091f219bd22d13	owlapi-osgidistribution.jar	Apache-2.0 OR LGPL-3.0; Apache-2.0 selected; OBOFormat BSD-3-Clause	licenses/owlapi-osgidistribution
+owlapi-osgidistribution.jar!/lib/caffeine-2.9.3.jar	1e0a7bbef1dd791653143f3f05d0e489934bf5481e58a87c9e619cd46b68729b	caffeine-2.9.3.jar	Apache-2.0	licenses/caffeine-2.9.3
+owlapi-osgidistribution.jar!/lib/commons-codec-1.16.0.jar	56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d	commons-codec-1.16.0.jar	Apache-2.0	licenses/commons-codec-1.16.0
+owlapi-osgidistribution.jar!/lib/commons-io-2.15.1.jar	a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154	commons-io-2.15.1.jar	Apache-2.0	licenses/commons-io-2.15.1
+owlapi-osgidistribution.jar!/lib/commons-logging-1.3.0.jar	66d3c980470b99b0c511dad3dfc0ae7b265ec1fb144e96bc0253a8a175fd34d9	commons-logging-1.3.0.jar	Apache-2.0	licenses/commons-logging-1.3.0
+owlapi-osgidistribution.jar!/lib/hppcrt-0.7.5.jar	f3cfbd511d0bd5a29b72bcca97fcaa81889cf6698f045c5f658744829c8784b9	hppcrt-0.7.5.jar	Apache-2.0	licenses/hppcrt-0.7.5
+owlapi-osgidistribution.jar!/lib/httpclient-4.5.14.jar	c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6	httpclient-4.5.14.jar	Apache-2.0	licenses/httpclient-4.5.14
+owlapi-osgidistribution.jar!/lib/httpclient-cache-4.5.14.jar	5324d2cbc2d311c9f91b82bcbc746ec2a29f1f5b744395a50ff3afb873db1cee	httpclient-cache-4.5.14.jar	Apache-2.0	licenses/httpclient-cache-4.5.14
+owlapi-osgidistribution.jar!/lib/httpcore-4.4.16.jar	6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f	httpcore-4.4.16.jar	Apache-2.0	licenses/httpcore-4.4.16
+owlapi-osgidistribution.jar!/lib/jackson-annotations-2.16.1.jar	a4730771e6a495dd3793a42cdb8ce6bddb96c77e15f40c98fd8d9a7ae09e7286	jackson-annotations-2.16.1.jar	Apache-2.0	licenses/jackson-annotations-2.16.1
+owlapi-osgidistribution.jar!/lib/jackson-core-2.16.1.jar	f5f8ef90609e64fec82eb908e497dc7d81b2eb983fe509b870292a193cde4dfb	jackson-core-2.16.1.jar	Apache-2.0; bundled FastDoubleParser and third-party notices	licenses/jackson-core-2.16.1
+owlapi-osgidistribution.jar!/lib/jackson-databind-2.16.1.jar	baf8a8ebee8f45ef68cdd5e2dd3923b3e296c0937b96ec0b4806aa3a31bccd1d	jackson-databind-2.16.1.jar	Apache-2.0	licenses/jackson-databind-2.16.1
+owlapi-osgidistribution.jar!/lib/jsonld-java-0.13.6.jar	ac158c23504fa76dc1a5f43436df2cb34b4b435b79b38c9b941d1c75e2efbe90	jsonld-java-0.13.6.jar	Apache-2.0	licenses/jsonld-java-0.13.6
+owlapi-osgidistribution.jar!/lib/jsr305-3.0.2.jar	766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7	jsr305-3.0.2.jar	Apache-2.0 metadata; javax.annotation.concurrent CC-BY-2.5 headers	licenses/jsr305-3.0.2
+owlapi-osgidistribution.jar!/lib/rdf4j-model-3.7.7.jar	f4668fce5f5e4f2e236e557610f43695df210d4333a79b6bee69f6a3c94e063b	rdf4j-model-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-model-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-model-api-3.7.7.jar	c8b713be97b889f4baf2578878c70e23698b19d52b41f6a104b88ee4c24fb63a	rdf4j-model-api-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-model-api-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-model-vocabulary-3.7.7.jar	f7c6423939e4704967e8abe12c31b4d8729ee8e0c9c61e69663f2b8637f40263	rdf4j-model-vocabulary-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-model-vocabulary-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-api-3.7.7.jar	5f747c4c9fbea5632565f72b3dd4278cd48f25fe1c201d42921318e0e3592750	rdf4j-rio-api-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-api-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-binary-3.7.7.jar	1a8d169d51a2e62153871a706084d65ee838c2a42677c3f91242d2a451e2abe5	rdf4j-rio-binary-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-binary-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-datatypes-3.7.7.jar	dac5b3db4f4119494c907894e1a1b2f4cd8c22e305373d1dfe39da0a9219ec63	rdf4j-rio-datatypes-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-datatypes-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-jsonld-3.7.7.jar	ddf7689d2f4b47ca9368d297537c9cce27dda7f8d102445e1d7a8be57ff113be	rdf4j-rio-jsonld-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-jsonld-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-languages-3.7.7.jar	8b95d06ababc8ddb3fbfba0e69d8024f4ad1964fc4805137d05d497d5647528d	rdf4j-rio-languages-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-languages-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-n3-3.7.7.jar	eccc8f093447ac62adc7c105c473b5ef44da1fba694157af8f96d27494ee8a48	rdf4j-rio-n3-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-n3-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-nquads-3.7.7.jar	26cec9ca3a517db0eb4443d1ef9e533d4e5721062e7985464c327bd94f81ba48	rdf4j-rio-nquads-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-nquads-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-ntriples-3.7.7.jar	185316c85d27bcb5866264c4ba2e480fd5a807dfb86c9c56aed10a2d531e72c7	rdf4j-rio-ntriples-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-ntriples-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-rdfjson-3.7.7.jar	15e1dc9021e45ba03d176e7c9f3db91b9a3dc461b18abc61db0f394dc8cbc79b	rdf4j-rio-rdfjson-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-rdfjson-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-rdfxml-3.7.7.jar	096a7db2ab40c88f0092bee14141f04b60f8d47411397d7ac5869dad5e1c0b60	rdf4j-rio-rdfxml-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-rdfxml-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-trig-3.7.7.jar	c7f2f32338a6cc1f9f4f73bd278c7858d38f62587da07bc7aa5f8c86401d2cab	rdf4j-rio-trig-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-trig-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-trix-3.7.7.jar	039bc43b58f2c919ff0f5ed3ad37d1946e9243cac4a5a48ce343d22b3a4b9ed9	rdf4j-rio-trix-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-trix-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-rio-turtle-3.7.7.jar	cfe478b916f16c01ed0556ccd7be1665c7aa23efcb603e5061bb63e6324a49c4	rdf4j-rio-turtle-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-rio-turtle-3.7.7
+owlapi-osgidistribution.jar!/lib/rdf4j-util-3.7.7.jar	27b0e3ff5b77f32c1b2700751d7043131218da6470d24d82fa2e57be7999ff48	rdf4j-util-3.7.7.jar	Eclipse Distribution License 1.0 (BSD-3-Clause-style text)	licenses/rdf4j-util-3.7.7
+owlapi-osgidistribution.jar!/lib/xz-1.9.jar	211b306cfc44f8f96df3a0a3ddaf75ba8c5289eed77d60d72f889bb855f535e5	xz-1.9.jar	Public domain (upstream COPYING)	licenses/xz-1.9
+slf4j-api.jar	d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0	slf4j-api.jar	MIT	licenses/slf4j-api
+xz-1.9.jar	211b306cfc44f8f96df3a0a3ddaf75ba8c5289eed77d60d72f889bb855f535e5	xz-1.9.jar	Public domain (upstream COPYING)	licenses/xz-1.9

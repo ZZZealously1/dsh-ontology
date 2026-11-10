@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: RDF4J: RDF Vocabularies
+Implementation-Version: 3.7.7
+Implementation-Vendor-Id: org.eclipse.rdf4j
+Build-Jdk-Spec: 1.8
+Created-By: Maven Jar Plugin 3.2.0
+Implementation-Build-Date: 2022-04-08T22:39:36Z
+Implementation-Vendor: Eclipse Foundation
+

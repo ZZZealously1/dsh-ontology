@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1699262741852
+Build-Jdk: 1.8.0_201
+Built-By: pc
+Bundle-Description: Json-LD core implementation
+Bundle-License: https://raw.github.com/jsonld-java/jsonld-java/master/
+ LICENCE
+Bundle-ManifestVersion: 2
+Bundle-Name: JSONLD Java :: Core
+Bundle-SymbolicName: com.github.jsonld-java
+Bundle-Version: 0.13.6
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.github.jsonldjava.utils;uses:="com.fasterxml.jacks
+ on.core,com.fasterxml.jackson.databind,org.apache.http.client.cache,o
+ rg.apache.http.impl.client,org.apache.http.impl.client.cache";version
+ ="0.13.6",com.github.jsonldjava.core;uses:="org.apache.http.impl.clie
+ nt";version="0.13.6"
+Import-Package: org.slf4j;version="[1.0.0,2)",com.fasterxml.jackson.co
+ re;version="[2.12,3)",com.fasterxml.jackson.databind;version="[2.12,3
+ )",com.github.jsonldjava.utils,org.apache.commons.io;version="[1.4,2)
+ ",org.apache.commons.io.input;version="[1.4,2)",org.apache.http;versi
+ on="[4.4,5)",org.apache.http.client;version="[4.5,5)",org.apache.http
+ .client.cache;version="[4.5,5)",org.apache.http.client.methods;versio
+ n="[4.5,5)",org.apache.http.client.protocol;version="[4.5,5)",org.apa
+ che.http.client.utils;version="[4.5,5)",org.apache.http.impl.client;v
+ ersion="[4.5,5)",org.apache.http.impl.client.cache;version="[4.5,5)",
+ org.apache.http.message;version="[4.4,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.5.0.201709291849

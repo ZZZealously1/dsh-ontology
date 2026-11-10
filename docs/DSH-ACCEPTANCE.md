@@ -8,29 +8,26 @@
 
 在线验收发现并修复了两个产品问题：旧版宿主缺少工作目录服务时无法激活，以及查询只返回产物路径、模型不能直接核对值。验收夹具本身的路径、TSV 引号解析和 scoped guard 问题也已修正后重跑；旧失败记录保留，没有改写成成功。真实业务资料建模与 OCR 不在此次合成执行验收范围内。
 
-## 配置与版本差异
+## 公开版本 0.2.0：默认沙箱验收
 
-插件 `0.1.1` 保留 rc.5 的有效工作目录服务；在没有该服务的 rc.2 中，使用当前 agent 的绝对 `session.header.cwd`。非 agent 调用才使用可选 `defaultDirectory` 或宿主启动目录，不把一个会话的文件落到另一个会话。
+公开版本保留 `fs-sandbox / sandbox-local / subprocess-local`，不再要求替换默认文件服务。实际 DSH `0.2.0-rc.2` CLI 在独立 profile 内创建真实 agent/session，通过其工具注册表运行 **27/27** 项检查：包含环境、十个技能、项目创建、冻结、有限推理、HermiT 公式推理、黄金案例、查询、replay、三种失败退出状态、路径越界以及同一会话切换为 `read-only` 后拒绝写入。未发出模型请求；模型语义质量仍以此前在线合成验收的实际范围为限。
 
-完整 SDK profile 默认带 `fs-sandbox`。插件目前只有裸本地执行适配，需在独立验收 profile 的覆盖文件中显式配置：
+调用由宿主有效会话策略控制。`workspace-write` 允许的输出还必须位于插件配置的 `workspaceRoots`，后者不能放宽会话权限。`ontology_environment` 报告真实 `sandbox.mode` 和 `sandbox.enforcement`；本次 Windows 官方后端报告 `partial`。这不是完整系统隔离或网络隔离的声明。
+
+Windows 验收先在权限不满足要求的目录失败：DSH 设置 ACL 标签报 `SetNamedSecurityInfoW / Win32 5`。工作目录必须由 DSH 用户拥有，且有 FullControl（含 WRITE_OWNER）；仅 Modify 不足。换用权限符合要求的全新用户目录后，全部流程通过。旧失败日志保留；没有改写为成功，没有自动改 ACL，没有关闭沙箱回退。
+
+`0.2.0` 保留 rc.5 的工作目录服务；rc.2 使用真实会话的绝对 `session.header.cwd`。以下只配置插件，不替换宿主沙箱服务。目录应已存在并满足上述权限条件；会话模式通过 DSH 的正常权限控制设置。
 
 ```yaml
-- id: fs-sandbox
-  disabled: true
-- insert:
-    - id: ontology-acceptance-fs-local
-      name: '@deepseek-ai/dsh-fs-local'
-      config:
-        cwd: 'D:/ontology-acceptance/workspace'
 - id: ontology
   config:
-    pythonExecutable: 'D:/tools/ontology-python/Scripts/python.exe'
+    pythonExecutable: 'C:/tools/ontology-python/Scripts/python.exe'
     javaExecutable: 'C:/Program Files/Java/jdk-25.0.2/bin/java.exe'
-    workspaceRoots: ['D:/ontology-acceptance/workspace']
+    workspaceRoots: ['C:/Users/your-name/ontology-projects']
     timeoutSeconds: 900
 ```
 
-在 rc.2 的配置补丁中，已有条目的 `name` 是匹配断言，不是重命名。不能用 `id: fs-sandbox` 配另一个 `name` 来更换服务；应禁用旧条目并插入新条目。此覆盖改变整个验收 profile 的文件服务，仅用于经部署者明确选择的本地运行环境，不能作为项目 RDF 输入的一部分。
+SDK 服务层回归仍可使用明确选择的裸本地服务，以检查兼容模式；不能据此代替真实沙箱验收。标准 `pnpm pack` 解压后已核验完整源快照和依赖材料。远程 GitHub 安装结果按实际发布验收另记。
 
 ## 应核验的结果
 

@@ -33,7 +33,7 @@ class SnapshotTests(unittest.TestCase):
         return {p: digest for p, (_, digest) in self.sync.inventory(path, **options).items()}
 
     def test_import_preserves_bytes_and_excludes_runtime_history(self):
-        for relative in ("__pycache__/cache.pyc", ".venv/runtime.txt", "outputs/run.txt", "history/old.txt"):
+        for relative in ("__pycache__/cache.pyc", ".venv/runtime.txt", "outputs/run.txt", "history/old.txt", "Ontology-tools/.gitignore"):
             path = self.source / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b"not a distribution input")
@@ -42,6 +42,7 @@ class SnapshotTests(unittest.TestCase):
         self.assertEqual(self.sync.recorded(), self.digests(self.sync.TARGET, source_filter=False))
         self.assertFalse((self.sync.TARGET / "outputs").exists())
         self.assertFalse((self.sync.TARGET / "__pycache__").exists())
+        self.assertFalse((self.sync.TARGET / "Ontology-tools/.gitignore").exists())
 
     def test_existing_copy_is_never_overwritten(self):
         self.sync.import_once(self.source)

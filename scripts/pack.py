@@ -1,7 +1,8 @@
-"""Build an npm-compatible archive without npm's implicit dotfile exclusions.
+"""Build a deterministic npm-compatible archive with native hash verification.
 
 The package.json files list is a literal allowlist (no glob syntax). Native
-Ontology bytes and source-manifest.sha256 are preserved, including .gitignore.
+Ontology bytes and source-manifest.sha256 are preserved. Standard pnpm/npm
+packing is also supported by the public snapshot's explicit VCS exclusion.
 """
 from __future__ import annotations
 

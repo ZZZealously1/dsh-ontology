@@ -5,7 +5,11 @@ import Schema from '@deepseek-ai/schemastery';
 import { defineTool, type ToolRunContext } from '@deepseek-ai/dsh-tools';
 import { BUNDLED_SKILL_RANK, type SkillCandidate } from '@deepseek-ai/dsh-skill';
 import LocalFileSystem from '@deepseek-ai/dsh-fs-local';
+import SandboxedFileSystem from '@deepseek-ai/dsh-fs-sandbox';
 import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local';
+import { SandboxUnavailableError, classifyRunnerFailure, isRunnerSpawnFailure, matchesSignature,
+  type ConfinedArgv, type SandboxExecutionPolicy } from '@deepseek-ai/dsh-sandbox';
+import type {} from '@deepseek-ai/dsh-sandbox-policy';
 import type {} from '@deepseek-ai/dsh-working-directory';
 import { createOntologyRuntime, pluginRoot, methodRoot, type RuntimeConfig, type ProcessRunner, type CallContext } from './runtime.js';
 
@@ -37,16 +41,48 @@ export async function resolveOntologyCallContext(ctx: Context, exec: ToolRunCont
       ? 'The calling agent must have an absolute session working directory; refusing to use the host launch directory'
       : 'The deployment defaultDirectory must be an absolute path');
   }
-  return { cwd, signal: exec.signal };
+  // This is the host's effective per-session policy, never a tool argument.
+  const policyService = ctx.get('sandboxPolicy');
+  const sandboxPolicy = policyService?.resolve({session:exec.agent?.session});
+  if (policyService) validateSandboxPolicy(sandboxPolicy!);
+  return { cwd, signal: exec.signal, ...(sandboxPolicy ? {sandboxPolicy} : {}) };
 }
 
-/** Node-based method/runtime access requires the exact local execution world. */
+function validateSandboxPolicy(policy: SandboxExecutionPolicy): void {
+  if (!policy || typeof policy !== 'object' || !['read-only','workspace-write','danger-full-access'].includes(policy.mode) ||
+      typeof policy.workspaceRoot !== 'string' || !path.isAbsolute(policy.workspaceRoot) || policy.workspaceRoot.includes('\0')) {
+    throw new Error('The host returned an invalid sandbox policy; no unconfined fallback is available');
+  }
+}
+
+/** Trusted bundled reads require a known same-host filesystem execution world. */
 export function assertLocalExecution(ctx: Context): void {
   // Cordis binds method-valued properties, including constructor, on service access.
-  if (!(ctx.fs instanceof LocalFileSystem) || Object.getPrototypeOf(ctx.fs) !== LocalFileSystem.prototype ||
+  const bare = ctx.fs instanceof LocalFileSystem && Object.getPrototypeOf(ctx.fs) === LocalFileSystem.prototype;
+  const sandboxed = ctx.fs instanceof SandboxedFileSystem && Object.getPrototypeOf(ctx.fs) === SandboxedFileSystem.prototype;
+  if ((!bare && !sandboxed) ||
       !(ctx.subprocess instanceof LocalSubprocessRuntime) || Object.getPrototypeOf(ctx.subprocess) !== LocalSubprocessRuntime.prototype) {
-    throw new Error('dsh-ontology requires the bare dsh-fs-local and dsh-subprocess-local providers. Remote or sandbox providers are unsupported; no local fallback is performed.');
+    throw new Error('dsh-ontology requires dsh-fs-local or dsh-fs-sandbox with dsh-subprocess-local. Remote or unknown providers are unsupported; no local fallback is performed.');
   }
+  if (sandboxed && !ctx.get('sandboxPolicy')) throw new Error('dsh-fs-sandbox requires its host sandboxPolicy service; no local fallback is performed');
+}
+
+/** Every project file is an atomic creation through the host filesystem. */
+export function createDshProjectWriter(ctx: Context) {
+  return async (file: string, content: string, context: CallContext): Promise<void> => {
+    assertLocalExecution(ctx);
+    const policyService = ctx.get('sandboxPolicy');
+    const policy = context.sandboxPolicy ?? policyService?.resolve();
+    if (policyService || policy) validateSandboxPolicy(policy!);
+    // Bare fs does not enforce supplied policy; do not use it as a bypass when
+    // a host has mounted sandboxPolicy alongside the bare filesystem.
+    if (policy?.mode === 'read-only') throw new Error('DSH read-only policy denies project writes');
+    const target = await ctx.fs.resolve(file,{cwd:context.cwd,signal:context.signal});
+    if (policy?.mode === 'workspace-write' && !ctx.fs.contains(await ctx.fs.resolve(policy.workspaceRoot,{signal:context.signal}),target)) {
+      throw new Error('Output is outside the calling session sandbox workspace');
+    }
+    await ctx.fs.writeText(target,content,{kind:'createIfAbsent'},context.signal,policy);
+  };
 }
 
 /** Run through the host service, so cancellation terminates its managed process range. */
@@ -60,8 +96,21 @@ export function createDshProcessRunner(ctx: Context): ProcessRunner {
     try {
       const command = await ctx.subprocess.resolveExecutable(spec.command, spec.env, signal);
       signal.throwIfAborted();
+      const policyService = ctx.get('sandboxPolicy');
+      const policy = spec.sandboxPolicy ?? policyService?.resolve();
+      if (policyService || policy) validateSandboxPolicy(policy!);
+      let confined: ConfinedArgv | undefined;
+      let argv = [command,...spec.args];
+      if (policy && policy.mode !== 'danger-full-access') {
+        const sandbox = ctx.get('sandbox');
+        if (!sandbox) throw new SandboxUnavailableError(policy.mode,'The host has no process sandbox provider; unconfined fallback is forbidden');
+        confined = await sandbox.confine(argv,{...policy,mode:policy.mode},signal);
+        if (!confined.argv.length) throw new SandboxUnavailableError(policy.mode,'The sandbox returned an empty command');
+        argv = confined.argv;
+      }
+      signal.throwIfAborted();
       const handle = ctx.subprocess.spawn({
-        argv: [command, ...spec.args], cwd: spec.cwd, env: spec.env, signal, graceMs: 2000,
+        argv, cwd: spec.cwd, env: spec.env, signal, graceMs: 2000,
         stdio: { stdin: 'ignore', stdout: { maxBytes: spec.maxOutputBytes }, stderr: { maxBytes: spec.maxOutputBytes } },
       });
       try {
@@ -72,11 +121,22 @@ export function createDshProcessRunner(ctx: Context): ProcessRunner {
         const stdout = handle.collected.stdout?.readFrom(0);
         const stderr = handle.collected.stderr?.readFrom(0);
         if (stdout?.lossy || stderr?.lossy) throw new Error('Ontology subprocess output exceeded the capture limit; the incomplete response was rejected');
-        return { exitCode: outcome.exitCode, stdout: stdout?.text ?? '', stderr: stderr?.text ?? '' };
+        if (confined && policy && policy.mode !== 'danger-full-access') {
+          const failure = classifyRunnerFailure(outcome.exitCode,stderr?.text ?? '',confined.runnerFailureRules);
+          if (failure) throw new SandboxUnavailableError(policy.mode,failure.detail);
+          if (matchesSignature(outcome.exitCode,stderr?.text ?? '',confined.denialSignatures)) {
+            throw new Error(`DSH sandbox denied a file effect under ${policy.mode}; the operation was not rerun without confinement`);
+          }
+        }
+        return { exitCode: outcome.exitCode, stdout: stdout?.text ?? '', stderr: stderr?.text ?? '',
+          ...(policy ? {sandbox:{mode:policy.mode,...(confined ? {enforcement:confined.enforcement} : {})}} : {}) };
       } catch (error) {
         handle.terminate();
         const gone = await handle.waitForExit(AbortSignal.timeout(10000));
         if (!gone) throw new Error('Ontology process cancellation could not confirm termination of the managed process range', { cause: error });
+        if (confined && policy && policy.mode !== 'danger-full-access' && isRunnerSpawnFailure(error,confined.argv[0],spec.cwd)) {
+          throw new SandboxUnavailableError(policy.mode,String(error));
+        }
         throw error;
       }
     } finally {
@@ -149,7 +209,7 @@ export function apply(ctx: Context, config: Config): void {
   if (config.defaultDirectory !== undefined && (!path.isAbsolute(config.defaultDirectory) || config.defaultDirectory.includes('\0'))) {
     throw new Error('defaultDirectory must be an absolute path');
   }
-  const runtime = createOntologyRuntime(config, createDshProcessRunner(ctx));
+  const runtime = createOntologyRuntime(config, createDshProcessRunner(ctx), createDshProjectWriter(ctx));
   const context = async (exec: ToolRunContext) => {
     assertLocalExecution(ctx);
     return resolveOntologyCallContext(ctx, exec, config.defaultDirectory);

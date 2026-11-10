@@ -84,5 +84,5 @@ test('cancellation before dispatch does not start a process', async t => {
 test('local execution guard rejects an alternative provider instead of falling back', async t => {
   class AlternativeSubprocess extends LocalSubprocessRuntime {}
   const ctx = await host(t, AlternativeSubprocess);
-  assert.throws(() => assertLocalExecution(ctx), /Remote or sandbox providers are unsupported/);
+  assert.throws(() => assertLocalExecution(ctx), /Remote or unknown providers are unsupported/);
 });

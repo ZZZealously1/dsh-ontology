@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.9
+Created-By: 15.0.2+7 (Oracle Corporation)
+Implementation-Title: XZ data compression
+Implementation-Version: 1.9
+Implementation-URL: https://tukaani.org/xz/java.html
+Sealed: true
+Multi-Release: true
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.tukaani.xz
+Bundle-Version: 1.9
+Export-Package: org.tukaani.xz
+Bundle-Name: XZ data compression
+Bundle-DocURL: https://tukaani.org/xz/java.html
+

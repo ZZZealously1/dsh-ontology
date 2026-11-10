@@ -1,0 +1,577 @@
+Original headers from org.semanticweb.hermit-1.4.3.456-sources.jar. Formatting and notices below are preserved; paths identify their applicability.
+
+Files: org/semanticweb/HermiT/Configuration.java, org/semanticweb/HermiT/Prefixes.java, org/semanticweb/HermiT/blocking/AnywhereBlocking.java, org/semanticweb/HermiT/blocking/BlockingStrategy.java, org/semanticweb/HermiT/blocking/PairWiseDirectBlockingChecker.java, org/semanticweb/HermiT/blocking/SetFactory.java, org/semanticweb/HermiT/blocking/SingleDirectBlockingChecker.java, org/semanticweb/HermiT/blocking/ValidatedPairwiseDirectBlockingChecker.java, org/semanticweb/HermiT/cli/CommandLine.java, org/semanticweb/HermiT/datatypes/DatatypeHandler.java, org/semanticweb/HermiT/datatypes/DatatypeRegistry.java, org/semanticweb/HermiT/datatypes/anyuri/AnyURIDatatypeHandler.java, org/semanticweb/HermiT/datatypes/binarydata/BinaryDataDatatypeHandler.java, org/semanticweb/HermiT/datatypes/bool/BooleanDatatypeHandler.java, org/semanticweb/HermiT/datatypes/datetime/DateTimeDatatypeHandler.java, org/semanticweb/HermiT/datatypes/doublenum/DoubleDatatypeHandler.java, org/semanticweb/HermiT/datatypes/floatnum/FloatDatatypeHandler.java, org/semanticweb/HermiT/datatypes/owlreal/OWLRealDatatypeHandler.java, org/semanticweb/HermiT/datatypes/rdfplainliteral/RDFPlainLiteralDatatypeHandler.java, org/semanticweb/HermiT/datatypes/xmlliteral/XMLLiteralDatatypeHandler.java, org/semanticweb/HermiT/debugger/Debugger.java, org/semanticweb/HermiT/debugger/DerivationHistory.java, org/semanticweb/HermiT/debugger/DerivationViewer.java, org/semanticweb/HermiT/debugger/Printing.java, org/semanticweb/HermiT/existentials/AbstractExpansionStrategy.java, org/semanticweb/HermiT/existentials/ExistentialExpansionStrategy.java, org/semanticweb/HermiT/graph/Graph.java, org/semanticweb/HermiT/hierarchy/HierarchyDumperFSS.java, org/semanticweb/HermiT/hierarchy/HierarchyNode.java, org/semanticweb/HermiT/hierarchy/HierarchyPrinterFSS.java, org/semanticweb/HermiT/model/AtomicDataRange.java, org/semanticweb/HermiT/model/AtomicRole.java, org/semanticweb/HermiT/model/Constant.java, org/semanticweb/HermiT/model/DLClause.java, org/semanticweb/HermiT/model/DLOntology.java, org/semanticweb/HermiT/model/DescriptionGraph.java, org/semanticweb/HermiT/model/Individual.java, org/semanticweb/HermiT/model/InternalDatatype.java, org/semanticweb/HermiT/model/InverseRole.java, org/semanticweb/HermiT/model/Role.java, org/semanticweb/HermiT/monitor/CountingMonitor.java, org/semanticweb/HermiT/monitor/TableauMonitor.java, org/semanticweb/HermiT/monitor/TableauMonitorAdapter.java, org/semanticweb/HermiT/monitor/TableauMonitorFork.java, org/semanticweb/HermiT/monitor/TableauMonitorForwarder.java, org/semanticweb/HermiT/monitor/Timer.java, org/semanticweb/HermiT/structural/BuiltInPropertyManager.java, org/semanticweb/HermiT/structural/OWLAxioms.java, org/semanticweb/HermiT/structural/OWLAxiomsExpressivity.java, org/semanticweb/HermiT/tableau/ClashManager.java, org/semanticweb/HermiT/tableau/DLClauseEvaluator.java, org/semanticweb/HermiT/tableau/DatatypeManager.java, org/semanticweb/HermiT/tableau/DescriptionGraphManager.java, org/semanticweb/HermiT/tableau/DisjunctionBranchingPoint.java, org/semanticweb/HermiT/tableau/ExistentialExpansionManager.java, org/semanticweb/HermiT/tableau/ExtensionManager.java, org/semanticweb/HermiT/tableau/ExtensionTable.java, org/semanticweb/HermiT/tableau/ExtensionTableWithFullIndex.java, org/semanticweb/HermiT/tableau/ExtensionTableWithTupleIndexes.java, org/semanticweb/HermiT/tableau/GroundDisjunction.java, org/semanticweb/HermiT/tableau/GroundDisjunctionHeader.java, org/semanticweb/HermiT/tableau/HyperresolutionManager.java, org/semanticweb/HermiT/tableau/MergingManager.java, org/semanticweb/HermiT/tableau/Node.java, org/semanticweb/HermiT/tableau/NominalIntroductionManager.java, org/semanticweb/HermiT/tableau/Tableau.java, org/semanticweb/HermiT/tableau/TupleIndex.java, org/semanticweb/HermiT/tableau/TupleTable.java, org/semanticweb/HermiT/tableau/TupleTableFullIndex.java
+/* Copyright 2008, 2009, 2010 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/EntailmentChecker.java, org/semanticweb/HermiT/tableau/InterruptFlag.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+Files: org/semanticweb/HermiT/Reasoner.java, org/semanticweb/HermiT/blocking/AnywhereValidatedBlocking.java, org/semanticweb/HermiT/hierarchy/AtomicConceptElement.java, org/semanticweb/HermiT/hierarchy/InstanceManager.java, org/semanticweb/HermiT/hierarchy/QuasiOrderClassification.java, org/semanticweb/HermiT/hierarchy/QuasiOrderClassificationForRoles.java, org/semanticweb/HermiT/hierarchy/RoleElementManager.java, org/semanticweb/HermiT/model/Atom.java, org/semanticweb/HermiT/structural/OWLClausification.java, org/semanticweb/HermiT/structural/OWLNormalization.java, org/semanticweb/HermiT/structural/ObjectPropertyInclusionManager.java, org/semanticweb/HermiT/structural/ReducedABoxOnlyClausification.java
+/* Copyright 2008, 2009, 2010 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+Files: org/semanticweb/HermiT/blocking/AncestorBlocking.java, org/semanticweb/HermiT/blocking/BlockingValidator.java, org/semanticweb/HermiT/datatypes/rdfplainliteral/RDFPlainLiteralPatternValueSpaceSubset.java
+/* Copyright 2008, 2009, 2010 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/blocking/BlockingSignature.java, org/semanticweb/HermiT/blocking/BlockingSignatureCache.java, org/semanticweb/HermiT/blocking/DirectBlockingChecker.java, org/semanticweb/HermiT/blocking/ValidatedSingleDirectBlockingChecker.java, org/semanticweb/HermiT/datatypes/MalformedLiteralException.java, org/semanticweb/HermiT/datatypes/UnsupportedDatatypeException.java, org/semanticweb/HermiT/datatypes/UnsupportedFacetException.java, org/semanticweb/HermiT/datatypes/ValueSpaceSubset.java, org/semanticweb/HermiT/datatypes/anyuri/AnyURIValueSpaceSubset.java, org/semanticweb/HermiT/datatypes/binarydata/BinaryData.java, org/semanticweb/HermiT/datatypes/binarydata/BinaryDataLengthInterval.java, org/semanticweb/HermiT/datatypes/binarydata/BinaryDataType.java, org/semanticweb/HermiT/datatypes/binarydata/BinaryDataValueSpaceSubset.java, org/semanticweb/HermiT/datatypes/datetime/BoundType.java, org/semanticweb/HermiT/datatypes/datetime/DateTime.java, org/semanticweb/HermiT/datatypes/datetime/DateTimeInterval.java, org/semanticweb/HermiT/datatypes/datetime/DateTimeValueSpaceSubset.java, org/semanticweb/HermiT/datatypes/datetime/IntervalType.java, org/semanticweb/HermiT/datatypes/doublenum/DoubleInterval.java, org/semanticweb/HermiT/datatypes/doublenum/EmptyDoubleSubset.java, org/semanticweb/HermiT/datatypes/doublenum/EntireDoubleSubset.java, org/semanticweb/HermiT/datatypes/doublenum/NoNaNDoubleSubset.java, org/semanticweb/HermiT/datatypes/floatnum/EmptyFloatSubset.java, org/semanticweb/HermiT/datatypes/floatnum/EntireFloatSubset.java, org/semanticweb/HermiT/datatypes/floatnum/FloatInterval.java, org/semanticweb/HermiT/datatypes/floatnum/NoNaNFloatSubset.java, org/semanticweb/HermiT/datatypes/owlreal/BigRational.java, org/semanticweb/HermiT/datatypes/owlreal/BoundType.java, org/semanticweb/HermiT/datatypes/owlreal/MinusInfinity.java, org/semanticweb/HermiT/datatypes/owlreal/NumberInterval.java, org/semanticweb/HermiT/datatypes/owlreal/NumberRange.java, org/semanticweb/HermiT/datatypes/owlreal/Numbers.java, org/semanticweb/HermiT/datatypes/owlreal/OWLRealValueSpaceSubset.java, org/semanticweb/HermiT/datatypes/owlreal/PlusInfinity.java, org/semanticweb/HermiT/datatypes/rdfplainliteral/RDFPlainLiteralDataValue.java, org/semanticweb/HermiT/datatypes/rdfplainliteral/RDFPlainLiteralLengthInterval.java, org/semanticweb/HermiT/datatypes/rdfplainliteral/RDFPlainLiteralLengthValueSpaceSubset.java, org/semanticweb/HermiT/debugger/ConsoleTextArea.java, org/semanticweb/HermiT/existentials/CreationOrderStrategy.java, org/semanticweb/HermiT/existentials/IndividualReuseStrategy.java, org/semanticweb/HermiT/model/AnnotatedEquality.java, org/semanticweb/HermiT/model/AtLeast.java, org/semanticweb/HermiT/model/AtLeastConcept.java, org/semanticweb/HermiT/model/AtLeastDataRange.java, org/semanticweb/HermiT/model/AtomicConcept.java, org/semanticweb/HermiT/model/AtomicNegationConcept.java, org/semanticweb/HermiT/model/AtomicNegationDataRange.java, org/semanticweb/HermiT/model/Concept.java, org/semanticweb/HermiT/model/DLPredicate.java, org/semanticweb/HermiT/model/Equality.java, org/semanticweb/HermiT/model/ExistentialConcept.java, org/semanticweb/HermiT/model/ExistsDescriptionGraph.java, org/semanticweb/HermiT/model/Inequality.java, org/semanticweb/HermiT/model/InterningManager.java, org/semanticweb/HermiT/model/LiteralConcept.java, org/semanticweb/HermiT/model/LiteralDataRange.java, org/semanticweb/HermiT/model/NegatedAtomicRole.java, org/semanticweb/HermiT/model/NodeIDLessEqualThan.java, org/semanticweb/HermiT/model/NodeIDsAscendingOrEqual.java, org/semanticweb/HermiT/model/Term.java, org/semanticweb/HermiT/model/Variable.java, org/semanticweb/HermiT/monitor/TimerWithPause.java, org/semanticweb/HermiT/tableau/BranchingPoint.java, org/semanticweb/HermiT/tableau/DependencySet.java, org/semanticweb/HermiT/tableau/DependencySetFactory.java, org/semanticweb/HermiT/tableau/NodeType.java, org/semanticweb/HermiT/tableau/PermanentDependencySet.java, org/semanticweb/HermiT/tableau/UnionDependencySet.java
+/* Copyright 2008, 2009, 2010 by the Oxford University Computing Laboratory
+   
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/datatypes/binarydata/Base64.java, org/semanticweb/HermiT/debugger/commands/ActiveNodesCommand.java, org/semanticweb/HermiT/debugger/commands/AgainCommand.java, org/semanticweb/HermiT/debugger/commands/BreakpointTimeCommand.java, org/semanticweb/HermiT/debugger/commands/ClearCommand.java, org/semanticweb/HermiT/debugger/commands/ContinueCommand.java, org/semanticweb/HermiT/debugger/commands/DebuggerCommand.java, org/semanticweb/HermiT/debugger/commands/ExitCommand.java, org/semanticweb/HermiT/debugger/commands/ForeverCommand.java, org/semanticweb/HermiT/debugger/commands/HelpCommand.java, org/semanticweb/HermiT/debugger/commands/HistoryCommand.java, org/semanticweb/HermiT/debugger/commands/IsAncestorOfCommand.java, org/semanticweb/HermiT/debugger/commands/ModelStatsCommand.java, org/semanticweb/HermiT/debugger/commands/OriginStatsCommand.java, org/semanticweb/HermiT/debugger/commands/ReuseNodeForCommand.java, org/semanticweb/HermiT/debugger/commands/ShowExistsCommand.java, org/semanticweb/HermiT/debugger/commands/ShowNodeCommand.java, org/semanticweb/HermiT/debugger/commands/SingleStepCommand.java, org/semanticweb/HermiT/debugger/commands/UnprocessedDisjunctionsCommand.java, org/semanticweb/HermiT/structural/ExpressionManager.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+   
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/debugger/commands/AbstractCommand.java, org/semanticweb/HermiT/debugger/commands/DerivationTreeCommand.java, org/semanticweb/HermiT/debugger/commands/NodesForCommand.java, org/semanticweb/HermiT/debugger/commands/QueryCommand.java, org/semanticweb/HermiT/debugger/commands/ShowDLClausesCommand.java, org/semanticweb/HermiT/debugger/commands/ShowDescriptionGraphCommand.java, org/semanticweb/HermiT/debugger/commands/ShowModelCommand.java, org/semanticweb/HermiT/debugger/commands/ShowSubtreeCommand.java, org/semanticweb/HermiT/debugger/commands/WaitForCommand.java, org/semanticweb/HermiT/hierarchy/DeterministicClassification.java, org/semanticweb/HermiT/hierarchy/Hierarchy.java, org/semanticweb/HermiT/hierarchy/HierarchySearch.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/debugger/commands/SubtreeViewer.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+/* Copyright 2008, 2009, 2010 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/model/ConstantEnumeration.java, org/semanticweb/HermiT/model/DatatypeRestriction.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: org/semanticweb/HermiT/model/DataRange.java
+/* Copyright 2009 by the Oxford University Computing Laboratory
+   
+   This file is part of HermiT.
+
+   HermiT is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   HermiT is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   You should have received a copy of the GNU Lesser General Public License
+   along with HermiT.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+Files: rationals/Acceptor.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 18 mars 2005
+ *
+ */
+
+Files: rationals/DefaultSynchronization.java, rationals/Synchronization.java, rationals/transformations/StatesCouple.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 1 avr. 2005
+ *
+ */
+
+Files: rationals/Rational.java
+/*
+ * ______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ * 
+ * (1) Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ * 
+ * (2) Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ * 
+ * (3) The name of the author may not be used to endorse or promote products
+ * derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ * EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ * Created on 18 mars 2005
+ * 
+ */
+
+Files: rationals/StateMachine.java, rationals/transformations/Complement.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 5 avr. 2005
+ *
+ */
+
+Files: rationals/algebra/Matrix.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 30 avr. 2005
+ *
+ */
+
+Files: rationals/algebra/SemiRing.java, rationals/expr/BinaryExpr.java, rationals/expr/Letter.java, rationals/expr/Plus.java, rationals/expr/Product.java, rationals/expr/RationalExpr.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 10 mai 2005
+ *
+ */
+
+Files: rationals/properties/BinaryTest.java
+/*______________________________________________________________________________
+*
+* Copyright 2004 Arnaud Bailly - NORSYS/LIFL
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions
+* are met:
+*
+* (1) Redistributions of source code must retain the above copyright
+*     notice, this list of conditions and the following disclaimer.
+*
+* (2) Redistributions in binary form must reproduce the above copyright
+*     notice, this list of conditions and the following disclaimer in
+*     the documentation and/or other materials provided with the
+*     distribution.
+*
+* (3) The name of the author may not be used to endorse or promote
+*     products derived from this software without specific prior
+*     written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+* ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+* INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+* SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+* OF THE POSSIBILITY OF SUCH DAMAGE.
+*______________________________________________________________________________
+*
+* Created on Sep 21, 2004
+* 
+*/
+
+Files: rationals/properties/Bisimulation.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 20 fevr. 2005
+ *
+ */
+
+Files: rationals/properties/Relation.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 20 f�vr. 2005
+ *
+ */
+
+Files: rationals/transformations/HashValue.java
+/*______________________________________________________________________________
+ * 
+ * Copyright 2005 Arnaud Bailly - NORSYS/LIFL
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ * (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ * (3) The name of the author may not be used to endorse or promote
+ *     products derived from this software without specific prior
+ *     written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Created on 25 mars 2005
+ *
+ */
+

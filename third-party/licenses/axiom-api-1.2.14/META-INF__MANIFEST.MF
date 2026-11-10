@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.axiom.om.impl,org.apache.axiom.om.dom,org.a
+ pache.axiom.om.impl.serialize,org.apache.axiom.attachments.impl,org.a
+ pache.axiom.util.stax,org.apache.axiom.util.namespace,org.apache.axio
+ m.locator,org.apache.axiom.util.blob,org.apache.axiom.mime.impl.axiom
+ ,org.apache.axiom.attachments,org.apache.axiom.om.impl.jaxp,org.apach
+ e.axiom.attachments.lifecycle.impl,org.apache.axiom.ext.stax.datahand
+ ler,org.apache.axiom.om,org.apache.axiom.util.sax,org.apache.axiom.ut
+ il.stax.xop,org.apache.axiom.om.ds.custombuilder,org.apache.axiom.soa
+ p,org.apache.axiom.om.ds,org.apache.axiom.attachments.utils,org.apach
+ e.axiom.om.impl.exception,org.apache.axiom.soap.impl.builder,org.apac
+ he.axiom.mime,org.apache.axiom.util.stax.debug,org.apache.axiom.util.
+ activation,org.apache.axiom.om.xpath,org.apache.axiom.ext.io,org.apac
+ he.axiom.om.impl.builder,org.apache.axiom.ext.activation,org.apache.a
+ xiom.om.util,org.apache.axiom.util.base64,org.apache.axiom.om.impl.ut
+ il,org.apache.axiom.util.stax.dialect,org.apache.axiom.util.stax.wrap
+ per,org.apache.axiom.util,org.apache.axiom.attachments.lifecycle,org.
+ apache.axiom.ext.stax,org.apache.axiom.locator.loader,org.apache.axio
+ m.om.impl.traverse
+Implementation-Title: Axiom API
+Built-By: veithen
+Tool: Bnd-0.0.238
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache.ws.commons.axiom
+Specification-Title: Axiom API
+Bundle-Activator: org.apache.axiom.locator.Activator
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.apache.ws.commons.axiom.axiom-api
+Implementation-Version: 1.2.14
+Specification-Vendor: The Apache Software Foundation
+Bundle-Name: Axiom API
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.2.14
+Build-Jdk: 1.6.0_37
+Bnd-LastModified: 1354473336861
+Bundle-ManifestVersion: 2
+Bundle-Description: The Axiom API
+Include-Resource: META-INF/DEPENDENCIES=target/maven-shared-archive-re
+ sources/META-INF/DEPENDENCIES,META-INF/LICENSE=target/maven-shared-ar
+ chive-resources/META-INF/LICENSE,META-INF/NOTICE=target/maven-shared-
+ archive-resources/META-INF/NOTICE
+Bundle-DocURL: http://www.apache.org/
+Import-Package: javax.activation,javax.mail,javax.mail.internet,javax.
+ mail.util,javax.xml.namespace,javax.xml.parsers,javax.xml.stream,java
+ x.xml.stream.util,javax.xml.transform,javax.xml.transform.sax,org.apa
+ che.commons.logging,org.apache.james.mime4j,org.apache.james.mime4j.s
+ tream,org.codehaus.stax2,org.jaxen;resolution:=optional,org.jaxen.sax
+ path;resolution:=optional,org.jaxen.util;resolution:=optional,org.osg
+ i.framework,org.osgi.util.tracker,org.w3c.dom,org.xml.sax,org.xml.sax
+ .ext,org.xml.sax.helpers
+Specification-Version: 1.2.14
+

@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Private-Package: org.apache.axiom.om.impl.dom,org.apache.axiom.om.impl
+ .dom.factory,org.apache.axiom.om.impl.dom.jaxp,org.apache.axiom.om.im
+ pl.dom.msg,org.apache.axiom.soap.impl.dom,org.apache.axiom.soap.impl.
+ dom.factory,org.apache.axiom.soap.impl.dom.soap11,org.apache.axiom.so
+ ap.impl.dom.soap12
+Implementation-Title: Axiom DOM
+Implementation-Version: 1.2.14
+Built-By: veithen
+Specification-Vendor: The Apache Software Foundation
+Tool: Bnd-0.0.238
+Bundle-Name: Axiom DOM
+Created-By: Apache Maven Bundle Plugin
+Implementation-Vendor: The Apache Software Foundation
+Bundle-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache.ws.commons.axiom
+Build-Jdk: 1.6.0_37
+Bundle-Version: 1.2.14
+Bnd-LastModified: 1354473647152
+Specification-Title: Axiom DOM
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: The Axiom DOM implementation.
+Specification-Version: 1.2.14
+Import-Package: javax.activation,javax.xml.namespace,javax.xml.parsers
+ ,javax.xml.stream,javax.xml.transform.sax,javax.xml.validation,org.ap
+ ache.axiom.attachments.utils,org.apache.axiom.ext.stax.datahandler,or
+ g.apache.axiom.locator.loader,org.apache.axiom.om,org.apache.axiom.om
+ .dom,org.apache.axiom.om.impl,org.apache.axiom.om.impl.builder,org.ap
+ ache.axiom.om.impl.jaxp,org.apache.axiom.om.impl.serialize,org.apache
+ .axiom.om.impl.traverse,org.apache.axiom.om.impl.util,org.apache.axio
+ m.om.util,org.apache.axiom.soap,org.apache.axiom.soap.impl.builder,or
+ g.apache.axiom.util,org.apache.axiom.util.base64,org.apache.axiom.uti
+ l.stax,org.apache.commons.logging,org.w3c.dom,org.xml.sax,javax.xml.s
+ tream.util,javax.xml.transform,javax.xml.transform.dom,org.apache.axi
+ om.ext.stax,org.apache.axiom.om.impl.exception,org.apache.axiom.util.
+ namespace,org.apache.axiom.util.stax.wrapper,org.apache.axiom.util.st
+ ax.xop
+Bundle-SymbolicName: org.apache.ws.commons.axiom.axiom-dom
+Bundle-DocURL: http://www.apache.org/
+

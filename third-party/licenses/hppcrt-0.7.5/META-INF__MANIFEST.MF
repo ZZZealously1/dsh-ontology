@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Bundle-Description: High Performance Primitive Collections Realtime (f
+ ork of HPPC from Carrotsearch)  Fundamental data structures (maps, se
+ ts, lists, queues, heaps, sorts) generated for  combinations of objec
+ t and primitive types to conserve JVM memory and speed  up execution.
+  The Realtime fork intends to extend the existing collections, by twe
+ aking to remove any dynamic allocations at runtime,  and to obtain lo
+ w variance execution times whatever the input nature.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: com.github.vsonnier.hppcrt
+Built-By: Vincent
+Bnd-LastModified: 1499793456068
+Bundle-ManifestVersion: 2
+Import-Package: com.carrotsearch.hppcrt,com.carrotsearch.hppcrt.cursor
+ s,com.carrotsearch.hppcrt.hash,com.carrotsearch.hppcrt.predicates,com
+ .carrotsearch.hppcrt.procedures,com.carrotsearch.hppcrt.sorting,com.c
+ arrotsearch.hppcrt.strategies
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-3.3.0.201609221906
+Export-Package: com.carrotsearch.hppcrt;uses:="com.carrotsearch.hppcrt
+ .cursors,com.carrotsearch.hppcrt.predicates,com.carrotsearch.hppcrt.p
+ rocedures";version="0.7.5",com.carrotsearch.hppcrt.cursors;version="0
+ .7.5",com.carrotsearch.hppcrt.hash;version="0.7.5",com.carrotsearch.h
+ ppcrt.heaps;uses:="com.carrotsearch.hppcrt,com.carrotsearch.hppcrt.cu
+ rsors,com.carrotsearch.hppcrt.predicates,com.carrotsearch.hppcrt.proc
+ edures,com.carrotsearch.hppcrt.strategies";version="0.7.5",com.carrot
+ search.hppcrt.lists;uses:="com.carrotsearch.hppcrt,com.carrotsearch.h
+ ppcrt.cursors,com.carrotsearch.hppcrt.predicates,com.carrotsearch.hpp
+ crt.procedures,com.carrotsearch.hppcrt.strategies";version="0.7.5",co
+ m.carrotsearch.hppcrt.maps;uses:="com.carrotsearch.hppcrt,com.carrots
+ earch.hppcrt.cursors,com.carrotsearch.hppcrt.predicates,com.carrotsea
+ rch.hppcrt.procedures";version="0.7.5",com.carrotsearch.hppcrt.predic
+ ates;version="0.7.5",com.carrotsearch.hppcrt.procedures;version="0.7.
+ 5",com.carrotsearch.hppcrt.sets;uses:="com.carrotsearch.hppcrt,com.ca
+ rrotsearch.hppcrt.cursors,com.carrotsearch.hppcrt.predicates,com.carr
+ otsearch.hppcrt.procedures";version="0.7.5",com.carrotsearch.hppcrt.s
+ orting;uses:="com.carrotsearch.hppcrt,com.carrotsearch.hppcrt.strateg
+ ies";version="0.7.5",com.carrotsearch.hppcrt.strategies;version="0.7.
+ 5"
+Bundle-Name: HPPC-RT Collections
+Bundle-Version: 0.7.5
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_131-1-ojdkbuild
+

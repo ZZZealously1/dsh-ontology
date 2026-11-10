@@ -1,6 +1,7 @@
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import type { SandboxExecutionPolicy, SandboxEnforcement } from '@deepseek-ai/dsh-sandbox';
 
 // The built entry lives in lib/, as does this module's URL after bundling.
 export const pluginRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -15,10 +16,13 @@ export interface RuntimeConfig {
 export interface ProcessSpec {
   command: string; args: string[]; cwd: string; env?: Record<string, string>;
   signal: AbortSignal; timeoutMs: number; maxOutputBytes: number;
+  sandboxPolicy?: SandboxExecutionPolicy;
 }
-export interface ProcessResult { exitCode: number | null; stdout: string; stderr: string }
+export interface ProcessResult { exitCode: number | null; stdout: string; stderr: string;
+  sandbox?: { mode: SandboxExecutionPolicy['mode']; enforcement?: SandboxEnforcement } }
 export type ProcessRunner = (spec: ProcessSpec) => Promise<ProcessResult>;
-export interface CallContext { cwd: string; signal: AbortSignal }
+export interface CallContext { cwd: string; signal: AbortSignal; sandboxPolicy?: SandboxExecutionPolicy }
+export type ProjectWriter = (file: string, content: string, context: CallContext) => Promise<void>;
 export interface RunRequest {
   operation: string; package?: string; facts?: string[]; ontology?: string[];
   importsMap?: string; candidates?: string; graph?: string; query?: string;
@@ -53,7 +57,7 @@ function text(value: unknown, label: string): string {
 }
 function checkSignal(signal: AbortSignal) { signal.throwIfAborted(); }
 
-export function createOntologyRuntime(config: RuntimeConfig, processRunner: ProcessRunner) {
+export function createOntologyRuntime(config: RuntimeConfig, processRunner: ProcessRunner, projectWriter?: ProjectWriter) {
   const python = text(config.pythonExecutable ?? 'python', 'pythonExecutable');
   const java = text(config.javaExecutable ?? 'java', 'javaExecutable');
   const timeoutSeconds = config.timeoutSeconds ?? 900;
@@ -80,6 +84,10 @@ export function createOntologyRuntime(config: RuntimeConfig, processRunner: Proc
     const candidate = await canonical(path.resolve(context.cwd, text(value, 'output path')));
     if (!(await roots()).some(root => within(root, candidate))) throw new Error('Output is outside the configured workspace roots');
     if (within(await installedPromise, candidate)) throw new Error('Writing into the plugin installation is forbidden');
+    if (context.sandboxPolicy?.mode === 'read-only') throw new Error('DSH read-only policy denies project writes; choose a writable session explicitly');
+    if (context.sandboxPolicy?.mode === 'workspace-write' && !within(await canonical(context.sandboxPolicy.workspaceRoot), candidate)) {
+      throw new Error('Output is outside the calling session sandbox workspace');
+    }
     return candidate;
   }
   async function invoke(action: string, args: string[], context: CallContext): Promise<any> {
@@ -87,6 +95,7 @@ export function createOntologyRuntime(config: RuntimeConfig, processRunner: Proc
     const result = await processRunner({command: python,
       args: ['-I', '-B', '-X', 'utf8', path.join(pluginRoot, 'bridge', 'ontology_bridge.py'), action, java, ...args],
       cwd: engineRoot, signal: context.signal, timeoutMs: timeoutSeconds * 1000,
+      sandboxPolicy: context.sandboxPolicy,
       maxOutputBytes: 1024 * 1024, env: {PYTHONDONTWRITEBYTECODE: '1', PYTHONIOENCODING: 'utf-8',
         PYTHONPATH:'', PYTHONHOME:'', JAVA_TOOL_OPTIONS:'', JDK_JAVA_OPTIONS:'', _JAVA_OPTIONS:''}});
     checkSignal(context.signal);
@@ -95,6 +104,8 @@ export function createOntologyRuntime(config: RuntimeConfig, processRunner: Proc
     catch { throw new Error(`Ontology bridge did not return a valid response (exit ${result.exitCode}): ${result.stderr.slice(-4000)}`); }
     if (!value || typeof value !== 'object' || typeof value.status !== 'string') throw new Error('Ontology bridge returned an invalid response shape');
     if (result.exitCode !== 0 && value.exitCode !== result.exitCode) throw new Error(`Ontology bridge failed (exit ${result.exitCode}): ${result.stderr.slice(-4000)}`);
+    if (result.sandbox && typeof value.summary === 'string') value.summary += `\nDSH file sandbox: ${result.sandbox.mode}; enforcement: ${result.sandbox.enforcement ?? 'unconfined by explicit policy'}.`;
+    if (result.sandbox && action === 'doctor') value.sandbox = result.sandbox;
     return value;
   }
   return {
@@ -173,8 +184,23 @@ export function createOntologyRuntime(config: RuntimeConfig, processRunner: Proc
       catch (error: any) { if (error.code !== 'ENOENT') throw error; }
       checkSignal(context.signal);
       const source = path.join(engineRoot, 'examples', request.example);
-      await fs.cp(source, target, {recursive:true, force:false, errorOnExist:true,
-        filter: file => path.basename(file) !== 'manifest.sha256'});
+      if (!projectWriter) throw new Error('Project creation requires the host filesystem writer; no raw filesystem fallback is available');
+      // Bundled starters are UTF-8 text. Mutations always cross the host fs seam,
+      // which checks each target immediately before atomic create-if-absent.
+      const copy = async (directory: string, relative = '') => {
+        for (const item of (await fs.readdir(directory, {withFileTypes:true})).sort((a,b) => a.name.localeCompare(b.name))) {
+          checkSignal(context.signal);
+          if (item.name === 'manifest.sha256') continue;
+          if (item.isSymbolicLink()) throw new Error('Linked starter resources are unsupported');
+          const from = path.join(directory,item.name), name = path.join(relative,item.name);
+          if (item.isDirectory()) await copy(from,name);
+          else if (item.isFile()) {
+            if (!['.md','.txt','.ttl','.owl','.swrl','.rq'].includes(path.extname(item.name))) throw new Error('Starter resource must be a supported text file');
+            await projectWriter(path.join(target,name), await fs.readFile(from,'utf8'), context);
+          } else throw new Error('Nonregular starter resource is unsupported');
+        }
+      };
+      await copy(source);
       checkSignal(context.signal);
       return {status:'draft', outputPath:target, example:request.example,
         summary:'Editable synthetic example copied without its frozen manifest. Replace sample semantics using project sources, validate and freeze a new version.'};

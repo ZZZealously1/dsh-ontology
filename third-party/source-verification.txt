@@ -1,0 +1,5 @@
+HermiT 1.4.3.456
+Official Maven binary equals bundled binary by SHA-256.
+All 255 Java source files in the official Maven source JAR match the full upstream commit dd2a021a01d4f847c3f8c283bdabb23e74070882 after CRLF/LF normalization.
+The full tree pom.xml exactly equals the official Maven POM.
+This verifies source provenance and contents; it does not claim a bit-identical rebuild.

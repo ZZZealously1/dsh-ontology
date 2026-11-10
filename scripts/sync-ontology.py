@@ -23,6 +23,9 @@ EXCLUDED_DIRECTORIES = {
     "archive", "archives", "history", "历史资料", "归档",
 }
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
+# npm always omits .gitignore. It is VCS metadata, not a runtime input.
+# Only filter it at the upstream boundary; unexpected installed files still fail.
+SOURCE_ONLY_FILES = {"Ontology-tools/.gitignore"}
 REQUIRED = {
     "AGENTS.md", "README.md", "CONTRACT.md", "common_rules.md",
     "skills/ontology-builder/SKILL.md", "Ontology-tools/requirements.lock.txt",
@@ -58,6 +61,8 @@ def inventory(root: Path, *, source_filter: bool = True) -> dict[str, tuple[Path
             if path.is_symlink() or not path.is_file():
                 raise ValueError(f"Nonregular source file: {path}")
             relative = path.relative_to(root).as_posix()
+            if source_filter and relative in SOURCE_ONLY_FILES:
+                continue
             if "\n" in relative or "\r" in relative:
                 raise ValueError("Line breaks are not supported in manifest paths")
             result[relative] = (path, sha256(path))

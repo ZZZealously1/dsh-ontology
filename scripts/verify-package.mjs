@@ -9,7 +9,8 @@ const root=path.resolve(process.argv[2] || path.join(path.dirname(fileURLToPath(
 const manifest=JSON.parse(await fs.readFile(path.join(root,'package.json'),'utf8'));
 assert.equal(manifest.name,'dsh-ontology');
 assert.equal(manifest.dsh?.bundle?.patch,'./cordis.patch.yml','DSH rc.5 requires an object with dsh.bundle.patch');
-for(const item of ['lib/index.js','bridge/ontology_bridge.py','skills/ontology/SKILL.md','cordis.patch.yml','README.md','docs/PORTABILITY.md','THIRD_PARTY_NOTICES.md']) {
+assert.equal(manifest.license,'MIT');
+for(const item of ['lib/index.js','bridge/ontology_bridge.py','skills/ontology/SKILL.md','cordis.patch.yml','README.md','LICENSE','docs/PORTABILITY.md','THIRD_PARTY_NOTICES.md']) {
   assert((await fs.stat(path.join(root,item))).isFile(),`Missing package resource: ${item}`);
 }
 const entries=new Map();
@@ -37,4 +38,28 @@ await walk(path.join(root,'Ontology'));
 assert.equal(files,entries.size,'Source file set differs'); assert.equal(jars,17);assert.equal(wheels,8);
 const skills=(await fs.readdir(path.join(root,'Ontology','skills'),{withFileTypes:true})).filter(v=>v.isDirectory());
 assert.equal(skills.length,9);
-console.log(`Package verified: ${files} native files, ${bytes} bytes, ${skills.length+1} skills, ${jars} JARs, ${wheels} wheels.`);
+// Corresponding source and notices must travel with every distributed binary.
+const thirdParty=path.join(root,'third-party');
+const supplemental=new Map();
+for(const row of (await fs.readFile(path.join(thirdParty,'manifest.sha256'),'utf8')).trim().split(/\r?\n/)) {
+  const match=/^([a-f0-9]{64})  (.+)$/.exec(row); assert(match,'Invalid third-party manifest');
+  const [,digest,file]=match;
+  assert(!file.includes('..')&&!file.includes('\\')&&!file.includes(':')&&!path.isAbsolute(file),'Unsafe third-party path');
+  assert(!supplemental.has(file),'Duplicate third-party record'); supplemental.set(file,digest);
+}
+let supplementalCount=0;
+async function verifySupplemental(directory,relative='') {
+  for(const item of await fs.readdir(directory,{withFileTypes:true})) {
+    assert(!item.isSymbolicLink(),'Supplemental source/notice links are unsupported');
+    const name=relative ? `${relative}/${item.name}` : item.name;
+    if(item.isDirectory()) await verifySupplemental(path.join(directory,item.name),name);
+    else if(name!=='manifest.sha256') {
+      assert.equal(createHash('sha256').update(await fs.readFile(path.join(directory,item.name))).digest('hex'),supplemental.get(name),`Supplemental material differs: ${name}`);
+      supplementalCount++;
+    }
+  }
+}
+await verifySupplemental(thirdParty);
+assert.equal(supplementalCount,supplemental.size,'Missing source/notice material');
+assert(supplemental.has('sources/org.semanticweb.hermit-1.4.3.456-sources.jar'),'Missing corresponding library source');
+console.log(`Package verified: ${files} native files, ${bytes} bytes, ${skills.length+1} skills, ${jars} JARs, ${wheels} wheels, ${supplementalCount} supplemental source/notice files.`);

@@ -1,0 +1,21 @@
+file	sha256	origin
+licenses/Apache-2.0.txt	cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30	../Ontology/Ontology-tools/vendor/owl-dl/licenses/Apache-2.0.txt
+licenses/BSD-3-Clause-template.txt	5a93d5831e1297ab10fe643e1a631e83be392896da14ee2951285a79012df69d	https://raw.githubusercontent.com/spdx/license-list-data/main/text/BSD-3-Clause.txt
+licenses/GPL-3.0.txt	8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903	https://raw.githubusercontent.com/owlcs/hermit-reasoner/version4/gpl.txt
+licenses/GUAVA-18.0-COPYING.txt	cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30	https://raw.githubusercontent.com/google/guava/v18.0/COPYING
+licenses/HPPC-RT-0.7.5-LICENSE.txt	4a37f3feda14920c8478913bdb1ead7fc1f18f967f2f1f121ec3e5ee5e530ce9	https://raw.githubusercontent.com/vsonnier/hppcrt/0.7.5-RT/LICENSE-2.0.txt
+licenses/HPPC-RT-0.7.5-NOTICE.txt	567addd7e217dca6ec214cda2d33d85740d76397081ebc7bacb27332b60d65c0	https://raw.githubusercontent.com/vsonnier/hppcrt/0.7.5-RT/NOTICE.txt
+licenses/LGPL-2.1.txt	20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95	https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt
+licenses/LGPL-3.0.txt	9ccf26cfe845e0eb8bb58053e47366e7ab6b697ae010f7650978d4b71b7d1fc1	https://raw.githubusercontent.com/owlcs/hermit-reasoner/master/lgpl-3.0.txt
+licenses/RDF4J-3.7.7-LICENSE.txt	ddbc15d6df4f36620507eebb4575f91888d234490f89eca8757e89abacfd3319	https://raw.githubusercontent.com/eclipse-rdf4j/rdf4j/3.7.7/LICENSE
+licenses/SLF4J-1.7.36-LICENSE.txt	6fbe2eaf44b193b8a40eed9208f52848572224ad8d7672dd09418aa174847e73	https://raw.githubusercontent.com/qos-ch/slf4j/v_1.7.36/LICENSE.txt
+licenses/XZ-1.9-COPYING.txt	dcd8ae80967c399986c4b1d0c060373bcba9456e337fc258bfcef4c273693b0d	https://raw.githubusercontent.com/tukaani-project/xz-java/v1.9/COPYING
+licenses/automaton-1.11-8-SOURCE-NOTICES.txt	7da2537d85632c140ab8cf01aabcd42c033ae46a7ea83ae24dc166f63e041938	extracted headers: https://repo.maven.apache.org/maven2/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8-sources.jar
+licenses/guava-18.0-SOURCE-NOTICES.txt	62803e27fd62479a0eae596823364415ef0299be466a47cdf8a7c8a4cac6a035	extracted headers: https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0-sources.jar
+licenses/hppcrt-0.7.5-SOURCE-NOTICES.txt	a7de26bda6d2872e6336e56bc4eeda337911340b46b3d36df5abfda99308be67	extracted headers: https://repo.maven.apache.org/maven2/com/github/vsonnier/hppcrt/0.7.5/hppcrt-0.7.5-sources.jar
+licenses/jsr305-3.0.2-SOURCE-NOTICES.txt	926583c940600fbe2428fbadc6075182304310efd33435200e2ff6c058b59e51	extracted headers: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+licenses/org.semanticweb.hermit-1.4.3.456-SOURCE-NOTICES.txt	8737c005e95b11e045f750387484c70ae04d512c37e35a5245f8129fb754df77	extracted headers: https://repo.maven.apache.org/maven2/net/sourceforge/owlapi/org.semanticweb.hermit/1.4.3.456/org.semanticweb.hermit-1.4.3.456-sources.jar
+sources/hermit-1.4.3.456-dd2a021a01d4f847c3f8c283bdabb23e74070882.zip	2711146d13b696ff912ee68e6110869b3c0aa16d7566a3a43193b2eff4a1f94b	https://codeload.github.com/owlcs/hermit-reasoner/zip/dd2a021a01d4f847c3f8c283bdabb23e74070882
+sources/org.semanticweb.hermit-1.4.3.456-sources.jar	a9dd3d221cd236cf53dd1c148ca68cd4af303a65a0ad2fa66c527dce53337cff	https://repo.maven.apache.org/maven2/net/sourceforge/owlapi/org.semanticweb.hermit/1.4.3.456/org.semanticweb.hermit-1.4.3.456-sources.jar
+sources/org.semanticweb.hermit-1.4.3.456.pom	c9a134fb2a0209fa660331064aae937b7b8d8fac6c045175e3f809669c3a0c52	https://repo.maven.apache.org/maven2/net/sourceforge/owlapi/org.semanticweb.hermit/1.4.3.456/org.semanticweb.hermit-1.4.3.456.pom
+sources/owlapi-oboformat-4.5.29-sources.jar	baa9f98ef45e099515a0c911f711af1b63f7e427d8889fcff6886fd8e0cc5beb	https://repo.maven.apache.org/maven2/net/sourceforge/owlapi/owlapi-oboformat/4.5.29/owlapi-oboformat-4.5.29-sources.jar

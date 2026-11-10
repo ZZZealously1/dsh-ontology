@@ -1,6 +1,8 @@
 # Native engine/source fingerprints must survive every Git checkout byte-for-byte.
 * text=auto eol=lf
 Ontology/** -text
+third-party/** -text
 source-manifest.sha256 -text
 *.jar binary
 *.whl binary
+*.zip binary
