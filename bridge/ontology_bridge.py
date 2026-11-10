@@ -108,6 +108,17 @@ def run(arguments, java):
     if output and output.is_dir():
         artifacts = sorted(p.name for p in output.iterdir() if p.is_file())
         report['artifacts'] = artifacts
+        if arguments[0] == 'query' and exit_code == 0:
+            result_file = output / 'query-result.tsv'
+            if result_file.is_file():
+                # Agents need the actual query values, not only the artifact path.
+                # Keep the canonical TSV unchanged and bound the tool preview.
+                with result_file.open(encoding='utf-8', newline='') as stream:
+                    preview = stream.read(12001)
+                truncated = len(preview) > 12000
+                report['summary'] += '\n\nquery-result.tsv (TSV preview):\n' + preview[:12000]
+                if truncated:
+                    report['summary'] += '\n[Preview truncated; read the saved TSV for complete results.]'
         if (output / 'execution.ttl').is_file():
             graph = parse_rdf(output / 'execution.ttl')
             node = URIRef('urn:ontology-tools:run')

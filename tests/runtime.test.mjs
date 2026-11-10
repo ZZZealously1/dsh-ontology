@@ -93,6 +93,8 @@ test('native inference, query and replay preserve their artifacts and success', 
   const queryFile=path.join(root,'query.rq'); await fs.writeFile(queryFile,'SELECT ?s WHERE { ?s a <https://example.org/ontology-template/demo#TaggedItem> }');
   const query=await real.run({operation:'query',graph:path.join(result.outputPath,'closure.ttl'),query:queryFile,output:'query'},context);
   assert.equal(query.exitCode,0,query.summary);
+  assert.match(query.summary,/query-result.tsv/);
+  assert.match(query.summary,/item-demo/,'The agent must receive the actual inferred query row');
   const replay=await real.run({operation:'replay',run:result.outputPath,output:'replay'},context);
   assert.equal(replay.exitCode,0,replay.summary);
 });

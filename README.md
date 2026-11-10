@@ -2,7 +2,7 @@
 
 将独立的 `Ontology` 方法库接入 DeepSeek Harness：智能体按来源建模，通过本地 Python／HermiT 执行校验与推理，再读取可重放的证据。方法和内核完整随包提供，不依赖原始工作区路径。
 
-当前插件版本 `0.1.0`，内核版本 `0.4.0`，适配 DSH `0.2.1-rc.5`。首版面向 **Windows x64、本地文件系统及本地子进程**；远程或沙箱 provider 会明确拒绝加载。详细运行边界见 [PORTABILITY](docs/PORTABILITY.md)。
+当前插件版本 `0.1.1`，内核版本 `0.4.0`，适配 DSH `0.2.0-rc.2` 和 `0.2.1-rc.5`。面向 **Windows x64、本地文件系统及本地子进程**；远程或沙箱 provider 会明确拒绝加载。详细运行边界见 [PORTABILITY](docs/PORTABILITY.md)，真实宿主验收方法见 [DSH 验收](docs/DSH-ACCEPTANCE.md)。
 
 ## 包含什么
 
@@ -31,8 +31,8 @@ pnpm build
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --no-index --find-links .\Ontology\Ontology-tools\vendor\python-wheels -r .\Ontology\Ontology-tools\requirements.lock.txt
 pnpm verify:package
-python -B scripts/pack.py --output ..\dsh-ontology-0.1.0.tgz
-dsh plugin --profile web add ..\dsh-ontology-0.1.0.tgz
+python -B scripts/pack.py --output ..\dsh-ontology-0.1.1.tgz
+dsh plugin --profile web add ..\dsh-ontology-0.1.1.tgz
 ```
 
 `dsh plugin --profile <名称> <pnpm参数>` 是 DSH 的插件安装入口，见[官方 CLI 说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/README.md)。包内 `dsh.bundle.patch` 指向 [cordis.patch.yml](cordis.patch.yml)。此仓库为私有仓库，需要 GitHub 读取权限；没有发布到公共 npm。使用仓库的保真打包脚本，避免普通 `pnpm pack` 省略原库 `.gitignore` 后造成快照缺项；产物仍是标准 npm tarball。
@@ -46,7 +46,9 @@ dsh plugin --profile web add ..\dsh-ontology-0.1.0.tgz
 | `workspaceRoots` | 允许项目输入、输出所在的现存绝对目录数组，例如 `['D:/ontology-projects']` |
 | `timeoutSeconds` | 单次工具执行预算，默认 900 秒 |
 
-默认空 `workspaceRoots` 允许读取方法和检查环境，项目操作会提示配置缺项。宿主必须挂载 `tools / skills / fs / subprocess / workingDirectory` 服务，并使用 `dsh-fs-local` 与 `dsh-subprocess-local`。修改配置后重启对应 profile，先调用 `ontology_environment` 确认 `ready`。
+默认空 `workspaceRoots` 允许读取方法和检查环境，项目操作会提示配置缺项。宿主必须挂载 `tools / skills / fs / subprocess` 服务，并使用 `dsh-fs-local` 与 `dsh-subprocess-local`。rc.5 的 `workingDirectory` 存在时优先使用；rc.2 使用调用者会话中已验证的绝对 `cwd`，缺失时拒绝执行。修改配置后重启对应 profile，先调用 `ontology_environment` 确认 `ready`。
+
+DSH 默认 profile 可能使用 `dsh-fs-sandbox`；此时安装成功不代表插件能够激活。请先用独立验收 profile 和 [本地运行覆盖配置](docs/DSH-ACCEPTANCE.md) 验证，不直接修改正在使用的业务 profile。严格的本地 provider 检查继续保留。
 
 使用 DSH 自己初始化的 profile；不要在 profile 内额外安装这些同名 DSH peer 包，也不要自行开启 `autoInstallPeers`。DSH 的标准解析器会从宿主提供它们；重复安装 SDK 副本可能使严格的本地 provider 身份检查拒绝加载，应修正依赖树而不是关闭检查。
 
@@ -87,6 +89,8 @@ output: demo/runs/inspect-001
 
 读取 `status`、`exitCode`、`semanticState` 和证据文件：`0` 是命令通过；`1` 可表示已完成的语义不符合或案例/重放不通过；`2` 是技术或输入错误；`3` 是 SHACL 不符合。`replay` 通过只表示原结果被复现，原结果仍可能是不一致。查看 `report.ttl`、`shacl-report.ttl` 或 `replay-report.ttl`，不能只凭“工具执行成功”判断业务验收。
 
+`query` 成功时，工具 `summary` 会附带真实 `query-result.tsv` 的前 12,000 个字符，模型可直接读取结果值。截断时会明确标记，完整结果始终保存在原 TSV 文件中。
+
 项目文件放 `ontology/`，运行证据放其外部的新目录。插件拒绝覆盖已存在输出、写入安装目录、普通路径越界、包内链接及元数据指定额外可执行程序。运行和取消通过 DSH 子进程服务管理；这些是受信本地环境中的防护，并非操作系统沙箱。默认单次 Java 调用仍为 60 秒，轮数等预算沿用项目配置；预算不是业务阈值。
 
 ## 开发与验证
@@ -109,6 +113,6 @@ python -B scripts/sync-ontology.py
 ## 范围限制
 
 - 保留的是当前已实现的方法和确定性执行能力。没有宣称完整 OWL DL＋SWRL 联合语义，也没有增加任意 Python 业务函数生成、自动方法自进化或外部系统操作。
-- PDF、Word、表格和扫描件的读取依赖 DSH 宿主可用的解析器、OCR 与模型。尚未用用户实际 DSH 配置完成“资料上传→建模→业务调优”的在线模型端到端验收；SDK 服务集成通过不等同于不同模型的建模质量完全一致。
+- PDF、Word、表格和扫描件的读取依赖 DSH 宿主可用的解析器、OCR 与模型。宿主和合成示例验收不能替代“真实资料上传→建模→业务调优”的业务验收，也不代表不同模型的建模质量完全一致。
 - Python 离线包中有 Windows x64 专用 wheel。其他平台、沙箱或远程执行域需要另行适配和验收，不能直接宣称支持。
 - 升级代码、Python、Java 或依赖后，旧 replay 可能被指纹检查拒绝；不绕过检查冒称同环境复现。依赖授权见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)，当前不授予公开再分发许可。

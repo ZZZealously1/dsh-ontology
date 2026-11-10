@@ -7,17 +7,38 @@ import { BUNDLED_SKILL_RANK, type SkillCandidate } from '@deepseek-ai/dsh-skill'
 import LocalFileSystem from '@deepseek-ai/dsh-fs-local';
 import LocalSubprocessRuntime from '@deepseek-ai/dsh-subprocess-local';
 import type {} from '@deepseek-ai/dsh-working-directory';
-import { createOntologyRuntime, pluginRoot, methodRoot, type RuntimeConfig, type ProcessRunner } from './runtime.js';
+import { createOntologyRuntime, pluginRoot, methodRoot, type RuntimeConfig, type ProcessRunner, type CallContext } from './runtime.js';
 
 export const name = 'dsh-ontology';
-export const inject = ['tools', 'skills', 'fs', 'subprocess', 'workingDirectory'];
-export interface Config extends RuntimeConfig {}
+export const inject = ['tools', 'skills', 'fs', 'subprocess'];
+export interface Config extends RuntimeConfig { defaultDirectory?: string }
 export const Config: Schema<Config> = Schema.object({
   pythonExecutable: Schema.string().default('python').description('Trusted local Python executable containing Ontology dependencies.'),
   javaExecutable: Schema.string().default('java').description('Trusted local Java executable for HermiT.'),
   workspaceRoots: Schema.array(Schema.string()).default([]).description('Absolute existing directories authorized by the deployment owner for project input and output. Empty disables project operations.'),
   timeoutSeconds: Schema.number().min(1).max(86400).default(900).description('Execution budget in seconds; not a business threshold.'),
+  defaultDirectory: Schema.string().description('Optional absolute default for non-agent calls. Agent calls always use their own session working directory.'),
 });
+
+/** rc.5 owns effective cwd in a service; rc.2 records it on the Session header. */
+export async function resolveOntologyCallContext(ctx: Context, exec: ToolRunContext, defaultDirectory?: string): Promise<CallContext> {
+  exec.signal.throwIfAborted();
+  // get() is Cordis's documented optional-service lookup; the inject map itself
+  // has no optional dependency syntax. Never fabricate a missing host service.
+  const workingDirectory = ctx.get('workingDirectory');
+  const cwd = exec.agent
+    ? workingDirectory
+      ? await workingDirectory.ensure(exec.agent, exec.signal)
+      : exec.agent.session.header.cwd
+    : defaultDirectory ?? workingDirectory?.defaultDirectory ?? process.cwd();
+  exec.signal.throwIfAborted();
+  if (typeof cwd !== 'string' || !cwd.trim() || !path.isAbsolute(cwd) || cwd.includes('\0')) {
+    throw new Error(exec.agent
+      ? 'The calling agent must have an absolute session working directory; refusing to use the host launch directory'
+      : 'The deployment defaultDirectory must be an absolute path');
+  }
+  return { cwd, signal: exec.signal };
+}
 
 /** Node-based method/runtime access requires the exact local execution world. */
 export function assertLocalExecution(ctx: Context): void {
@@ -125,12 +146,13 @@ const runOutput = {
 
 export function apply(ctx: Context, config: Config): void {
   assertLocalExecution(ctx);
+  if (config.defaultDirectory !== undefined && (!path.isAbsolute(config.defaultDirectory) || config.defaultDirectory.includes('\0'))) {
+    throw new Error('defaultDirectory must be an absolute path');
+  }
   const runtime = createOntologyRuntime(config, createDshProcessRunner(ctx));
   const context = async (exec: ToolRunContext) => {
     assertLocalExecution(ctx);
-    exec.signal.throwIfAborted();
-    return { cwd: exec.agent ? await ctx.workingDirectory.ensure(exec.agent, exec.signal) : ctx.workingDirectory.defaultDirectory,
-      signal: exec.signal };
+    return resolveOntologyCallContext(ctx, exec, config.defaultDirectory);
   };
   registerSkills(ctx);
   ctx.tools.register(defineTool({
